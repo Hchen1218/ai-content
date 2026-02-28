@@ -1,0 +1,64 @@
+{
+  "url": "https://www.xiaohongshu.com/explore/69897029000000000a02b452?xsec_token=ABYlRzAcqtzJFDuHu9KkIw1wcdqZzsE4ZAL3AEkNkjB3E=&xsec_source=pc_user",
+  "platform": "xiaohongshu",
+  "started_at": "2026-02-28T01:57:14.296995+00:00",
+  "save_artifacts": "always",
+  "non_interactive": true,
+  "output_dir": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-69897029",
+  "steps": [
+    {
+      "step": "fetch_content",
+      "exit_code": 0,
+      "stdout_tail": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-69897029/fetch_result.json\n",
+      "stderr_tail": "",
+      "cmd": [
+        "/Users/cecilialiu/Documents/Codex/ai-content/.venv312/bin/python",
+        "/Users/cecilialiu/.codex/skills/viral-content-breakdown/scripts/fetch_content.py",
+        "--url",
+        "https://www.xiaohongshu.com/explore/69897029000000000a02b452?xsec_token=ABYlRzAcqtzJFDuHu9KkIw1wcdqZzsE4ZAL3AEkNkjB3E=&xsec_source=pc_user",
+        "--output-dir",
+        "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-69897029",
+        "--session-file",
+        "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-69897029/session/session.json",
+        "--quality",
+        "high",
+        "--result-file",
+        "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-69897029/fetch_result.json"
+      ]
+    },
+    {
+      "step": "extract_signals",
+      "exit_code": 0,
+      "stdout_tail": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-69897029/signals.json\n",
+      "stderr_tail": "",
+      "cmd": [
+        "/Users/cecilialiu/Documents/Codex/ai-content/.venv312/bin/python",
+        "/Users/cecilialiu/.codex/skills/viral-content-breakdown/scripts/extract_signals.py",
+        "--fetch-result",
+        "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-69897029/fetch_result.json",
+        "--output-dir",
+        "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-69897029",
+        "--result-file",
+        "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-69897029/signals.json"
+      ]
+    },
+    {
+      "step": "analyze_content",
+      "exit_code": 0,
+      "stdout_tail": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-69897029/report.json\n",
+      "stderr_tail": "",
+      "cmd": [
+        "/Users/cecilialiu/Documents/Codex/ai-content/.venv312/bin/python",
+        "/Users/cecilialiu/.codex/skills/viral-content-breakdown/scripts/analyze_content.py",
+        "--signals",
+        "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-69897029/signals.json",
+        "--output",
+        "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-69897029/report.json",
+        "--model",
+        "gpt-4.1-mini"
+      ]
+    }
+  ],
+  "finished_at": "2026-02-28T01:57:17.387870+00:00",
+  "ok": true
+}

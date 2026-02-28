@@ -1,0 +1,62 @@
+{
+  "ok": false,
+  "error": {
+    "code": "DOWNLOAD_FAILED",
+    "reason": "无权限读取浏览器 Cookies",
+    "next_action": "改用 Chrome 登录态或提供 --cookies 文件，避免 Safari Cookies 权限限制",
+    "timestamp": "2026-02-27T05:43:24.587169+00:00",
+    "url": "https://www.douyin.com/video/7604733195078510257",
+    "platform": "douyin",
+    "attempts": [
+      {
+        "adapter": "yt-dlp",
+        "command": "/Users/cecilialiu/Documents/Codex/ai-content/.venv312/bin/yt-dlp --no-progress --no-warnings --write-info-json --write-thumbnail --write-subs --write-auto-subs --sub-langs 'zh.*,en.*' -o '/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/dy-7604733195078510257-safari/download/%(id)s/%(title).120B.%(ext)s' --cookies-from-browser safari https://www.douyin.com/video/7604733195078510257",
+        "result": {
+          "argv": [
+            "/Users/cecilialiu/Documents/Codex/ai-content/.venv312/bin/yt-dlp",
+            "--no-progress",
+            "--no-warnings",
+            "--write-info-json",
+            "--write-thumbnail",
+            "--write-subs",
+            "--write-auto-subs",
+            "--sub-langs",
+            "zh.*,en.*",
+            "-o",
+            "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/dy-7604733195078510257-safari/download/%(id)s/%(title).120B.%(ext)s",
+            "--cookies-from-browser",
+            "safari",
+            "https://www.douyin.com/video/7604733195078510257"
+          ],
+          "exit_code": 1,
+          "stdout_tail": "[Douyin] Extracting URL: https://www.douyin.com/video/7604733195078510257\n[Douyin] 7604733195078510257: Downloading web detail JSON\n",
+          "stderr_tail": "ERROR: [Errno 1] Operation not permitted: '/Users/cecilialiu/Library/Containers/com.apple.Safari/Data/Library/Cookies/Cookies.binarycookies'\n"
+        },
+        "new_files": [],
+        "retry_without_cookies": {
+          "command": "/Users/cecilialiu/Documents/Codex/ai-content/.venv312/bin/yt-dlp --no-progress --no-warnings --write-info-json --write-thumbnail --write-subs --write-auto-subs --sub-langs 'zh.*,en.*' -o '/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/dy-7604733195078510257-safari/download/%(id)s/%(title).120B.%(ext)s' https://www.douyin.com/video/7604733195078510257",
+          "result": {
+            "argv": [
+              "/Users/cecilialiu/Documents/Codex/ai-content/.venv312/bin/yt-dlp",
+              "--no-progress",
+              "--no-warnings",
+              "--write-info-json",
+              "--write-thumbnail",
+              "--write-subs",
+              "--write-auto-subs",
+              "--sub-langs",
+              "zh.*,en.*",
+              "-o",
+              "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/dy-7604733195078510257-safari/download/%(id)s/%(title).120B.%(ext)s",
+              "https://www.douyin.com/video/7604733195078510257"
+            ],
+            "exit_code": 1,
+            "stdout_tail": "[Douyin] Extracting URL: https://www.douyin.com/video/7604733195078510257\n[Douyin] 7604733195078510257: Downloading web detail JSON\n",
+            "stderr_tail": "ERROR: [Douyin] 7604733195078510257: Fresh cookies (not necessarily logged in) are needed\n"
+          }
+        }
+      }
+    ],
+    "download_dir": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/dy-7604733195078510257-safari/download"
+  }
+}

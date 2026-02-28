@@ -1,0 +1,60 @@
+{
+  "ok": true,
+  "meta": {
+    "url": "https://www.xiaohongshu.com/explore/69897029000000000a02b452?xsec_token=ABYlRzAcqtzJFDuHu9KkIw1wcdqZzsE4ZAL3AEkNkjB3E=&xsec_source=pc_user",
+    "platform": "xiaohongshu",
+    "content_type": "video",
+    "fetched_at": "2026-02-28T01:57:17.303261+00:00",
+    "quality": "high"
+  },
+  "asset_index": {
+    "video": [
+      "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-69897029/download/69897029000000000a02b452/一个有手就行的AI编程教程分享.mp4"
+    ],
+    "images": [
+      "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-69897029/download/69897029000000000a02b452/一个有手就行的AI编程教程分享.jpg"
+    ],
+    "audio": [],
+    "transcript": [],
+    "cover_text": []
+  },
+  "artifacts": {
+    "output_dir": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-69897029",
+    "download_dir": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-69897029/download",
+    "all_files": [
+      "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-69897029/download/69897029000000000a02b452/一个有手就行的AI编程教程分享.info.json",
+      "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-69897029/download/69897029000000000a02b452/一个有手就行的AI编程教程分享.jpg",
+      "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-69897029/download/69897029000000000a02b452/一个有手就行的AI编程教程分享.mp4"
+    ]
+  },
+  "adapter_attempts": [
+    {
+      "adapter": "yt-dlp",
+      "command": "/Users/cecilialiu/Documents/Codex/ai-content/.venv312/bin/yt-dlp --no-progress --no-warnings --write-info-json --write-thumbnail --write-subs --write-auto-subs --sub-langs 'zh.*,en.*' -o '/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-69897029/download/%(id)s/%(title).120B.%(ext)s' 'https://www.xiaohongshu.com/explore/69897029000000000a02b452?xsec_token=ABYlRzAcqtzJFDuHu9KkIw1wcdqZzsE4ZAL3AEkNkjB3E=&xsec_source=pc_user'",
+      "result": {
+        "argv": [
+          "/Users/cecilialiu/Documents/Codex/ai-content/.venv312/bin/yt-dlp",
+          "--no-progress",
+          "--no-warnings",
+          "--write-info-json",
+          "--write-thumbnail",
+          "--write-subs",
+          "--write-auto-subs",
+          "--sub-langs",
+          "zh.*,en.*",
+          "-o",
+          "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-69897029/download/%(id)s/%(title).120B.%(ext)s",
+          "https://www.xiaohongshu.com/explore/69897029000000000a02b452?xsec_token=ABYlRzAcqtzJFDuHu9KkIw1wcdqZzsE4ZAL3AEkNkjB3E=&xsec_source=pc_user"
+        ],
+        "exit_code": 0,
+        "stdout_tail": "[XiaoHongShu] Extracting URL: https://www.xiaohongshu.com/explore/69897029000000000a02b452?xsec_token=ABYlRzAcqtzJFDuHu9KkIw1wc...&xsec_source=pc_user\n[XiaoHongShu] 69897029000000000a02b452: Downloading webpage\n[info] 69897029000000000a02b452: Downloading 1 format(s): 1\n[info] There are no subtitles for the requested languages\n[info] Downloading video thumbnail 1 ...\n[info] Writing video thumbnail 1 to: /Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-69897029/download/69897029000000000a02b452/一个有手就行的AI编程教程分享.jpg\n[info] Writing video metadata as JSON to: /Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-69897029/download/69897029000000000a02b452/一个有手就行的AI编程教程分享.info.json\n[download] Destination: /Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-69897029/download/69897029000000000a02b452/一个有手就行的AI编程教程分享.mp4\n[download] Download completed\n",
+        "stderr_tail": ""
+      },
+      "new_files": [
+        "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-69897029/download/69897029000000000a02b452/一个有手就行的AI编程教程分享.info.json",
+        "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-69897029/download/69897029000000000a02b452/一个有手就行的AI编程教程分享.jpg",
+        "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-69897029/download/69897029000000000a02b452/一个有手就行的AI编程教程分享.mp4"
+      ]
+    }
+  ]
+}

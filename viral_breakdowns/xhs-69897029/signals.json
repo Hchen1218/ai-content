@@ -1,0 +1,2134 @@
+{
+  "ok": true,
+  "meta": {
+    "url": "https://www.xiaohongshu.com/explore/69897029000000000a02b452?xsec_token=ABYlRzAcqtzJFDuHu9KkIw1wcdqZzsE4ZAL3AEkNkjB3E=&xsec_source=pc_user",
+    "platform": "xiaohongshu",
+    "content_type": "video",
+    "fetched_at": "2026-02-28T01:57:17.303261+00:00",
+    "quality": "high",
+    "signals_extracted_at": "2026-02-28T02:00:09.850194+00:00"
+  },
+  "asset_index": {
+    "video": [
+      "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-69897029/download/69897029000000000a02b452/一个有手就行的AI编程教程分享.mp4"
+    ],
+    "images": [
+      "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-69897029/download/69897029000000000a02b452/一个有手就行的AI编程教程分享.jpg"
+    ],
+    "audio": [
+      "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-69897029/audio.wav"
+    ],
+    "transcript": [],
+    "cover_text": [
+      "关于我"
+    ]
+  },
+  "post_content": {
+    "title": "一个有手就行的AI编程教程分享",
+    "body": "#vibecoding大赏[话题]# #网站制作[话题]# #ai学习[话题]# #vibecoding[话题]# #小红书科技AMA[话题]# #产品经理[话题]# #运营[话题]# #设计师[话题]# #互联网[话题]# #个人开发者[话题]# @科技薯 @薯队长",
+    "tags": [
+      "vibecoding大赏",
+      "网站制作",
+      "ai学习",
+      "vibecoding",
+      "小红书科技AMA",
+      "产品经理",
+      "运营",
+      "设计师",
+      "互联网",
+      "个人开发者"
+    ]
+  },
+  "signals": {
+    "ocr_hits": [
+      {
+        "source": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-69897029/frames/frame_av_001.jpg",
+        "locator": "frame:1",
+        "text": "关于我\n文章\n视频\n产品\n我是\n西门美月匈XD\nA Product Manager,\n练习时长\n两年半\nBillbli Creator|Dig\n搭建出属于自己的个人网站\nAPASSIONATEFOOOOOL!\nMore about me",
+        "confidence": 0.92
+      },
+      {
+        "source": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-69897029/frames/frame_av_002.jpg",
+        "locator": "frame:2",
+        "text": "U\n页\n关于孩\n文\n严品\n日\nWelcometo\nIDCARD\n?\n西门的世界！\nANASTOS\n西门\n我出生于2000年5月，在浙江的一个小村镇长大。\n家庭环境比较自由，家人都不会对我的选择做过多干涉。\n这导致我在肆意生长的过程中，携有了很多复杂的成分。\n电气工程及其自动化\nAnyway，欢迎来到西门的世界！\n无一例外都能做到\n软产品理\n我是一只高精力死宅\n对出去游山玩水无感，但精力异常\n现实中轻微社恐，但在网络上结交了一群素未谋面的电子好发！\nXM-20000508-0V0\n目前在一家995的tob软件公司做产品经理\n同时也是一名B站小up主\n还佛系经营了一家女生情趣用品小店（尽管我观念还是比较传统，咳咳）",
+        "confidence": 0.86
+      },
+      {
+        "source": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-69897029/frames/frame_av_003.jpg",
+        "locator": "frame:3",
+        "text": "有手就行\nAI编程教程\n教程分享",
+        "confidence": 0.99
+      },
+      {
+        "source": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-69897029/frames/frame_av_004.jpg",
+        "locator": "frame:4",
+        "text": "不，你必须行",
+        "confidence": 1.0
+      },
+      {
+        "source": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-69897029/frames/frame_av_005.jpg",
+        "locator": "frame:5",
+        "text": "一步步认真操作下来",
+        "confidence": 1.0
+      },
+      {
+        "source": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-69897029/frames/frame_av_006.jpg",
+        "locator": "frame:6",
+        "text": "在一切开始之前",
+        "confidence": 1.0
+      },
+      {
+        "source": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-69897029/frames/frame_av_007.jpg",
+        "locator": "frame:7",
+        "text": "一个AI编程软件",
+        "confidence": 0.96
+      },
+      {
+        "source": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-69897029/frames/frame_av_008.jpg",
+        "locator": "frame:8",
+        "text": "这个软件演示",
+        "confidence": 1.0
+      },
+      {
+        "source": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-69897029/download/69897029000000000a02b452/一个有手就行的AI编程教程分享.jpg",
+        "locator": "image:0",
+        "text": "有手就行\nAI编程教程分享\n我是西门\n名产品经理\n886\nWork kift' be)\nVimsgenuy",
+        "confidence": 0.84
+      }
+    ],
+    "transcript_chunks": [
+      {
+        "start": 0.0,
+        "end": 3.2,
+        "text": "只要会和A聊天你就能和我一样搭建出属于自己的个人网站",
+        "source": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-69897029/audio.wav",
+        "line": 1
+      },
+      {
+        "start": 3.2,
+        "end": 6.4,
+        "text": "不论你是文科生理科生体育生艺术生无一例外都能做到",
+        "source": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-69897029/audio.wav",
+        "line": 2
+      },
+      {
+        "start": 6.4,
+        "end": 9.6,
+        "text": "所以这是一个有手作型的AI编程教程分享",
+        "source": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-69897029/audio.wav",
+        "line": 3
+      },
+      {
+        "start": 9.6,
+        "end": 10.9,
+        "text": "如果你没有手那你就用脚",
+        "source": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-69897029/audio.wav",
+        "line": 4
+      },
+      {
+        "start": 10.9,
+        "end": 11.8,
+        "text": "如果你说你不行",
+        "source": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-69897029/audio.wav",
+        "line": 5
+      },
+      {
+        "start": 11.8,
+        "end": 13.1,
+        "text": "不 你必须行",
+        "source": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-69897029/audio.wav",
+        "line": 6
+      },
+      {
+        "start": 13.1,
+        "end": 16.4,
+        "text": "你按照我的教程一步步认真操作下来还不能搭建网站的话",
+        "source": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-69897029/audio.wav",
+        "line": 7
+      },
+      {
+        "start": 16.4,
+        "end": 17.5,
+        "text": "我就滚去驱使",
+        "source": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-69897029/audio.wav",
+        "line": 8
+      },
+      {
+        "start": 17.5,
+        "end": 19.5,
+        "text": "在一切开始之前我们需要学会魔法上网",
+        "source": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-69897029/audio.wav",
+        "line": 9
+      },
+      {
+        "start": 19.5,
+        "end": 21.5,
+        "text": "然后我们需要准备一个AI编程软件",
+        "source": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-69897029/audio.wav",
+        "line": 10
+      },
+      {
+        "start": 21.5,
+        "end": 24.3,
+        "text": "在这个视频里我将用字节的去这个软件也是",
+        "source": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-69897029/audio.wav",
+        "line": 11
+      },
+      {
+        "start": 24.3,
+        "end": 26.6,
+        "text": "很多人说做个人网站最重要的是审美",
+        "source": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-69897029/audio.wav",
+        "line": 12
+      },
+      {
+        "start": 26.6,
+        "end": 28.2,
+        "text": "但主包其实也没有什么审美",
+        "source": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-69897029/audio.wav",
+        "line": 13
+      },
+      {
+        "start": 28.2,
+        "end": 29.2,
+        "text": "但就没有任何关系",
+        "source": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-69897029/audio.wav",
+        "line": 14
+      },
+      {
+        "start": 29.2,
+        "end": 30.6,
+        "text": "又我们可以借鉴别人的网站",
+        "source": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-69897029/audio.wav",
+        "line": 15
+      },
+      {
+        "start": 30.6,
+        "end": 31.7,
+        "text": "这里我推荐两个网站",
+        "source": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-69897029/audio.wav",
+        "line": 16
+      },
+      {
+        "start": 31.7,
+        "end": 33.9,
+        "text": "第一个是v0.app的模板网站",
+        "source": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-69897029/audio.wav",
+        "line": 17
+      },
+      {
+        "start": 33.9,
+        "end": 35.6,
+        "text": "主包的模板就是在这里选出来的",
+        "source": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-69897029/audio.wav",
+        "line": 18
+      },
+      {
+        "start": 35.6,
+        "end": 38.0,
+        "text": "第二个网站是figma的community的网站",
+        "source": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-69897029/audio.wav",
+        "line": 19
+      },
+      {
+        "start": 38.0,
+        "end": 40.1,
+        "text": "然后我们可以选择这个personal web site",
+        "source": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-69897029/audio.wav",
+        "line": 20
+      },
+      {
+        "start": 40.1,
+        "end": 42.2,
+        "text": "就是个人网站看一下别人是怎么设计的",
+        "source": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-69897029/audio.wav",
+        "line": 21
+      },
+      {
+        "start": 42.2,
+        "end": 44.7,
+        "text": "如果你有喜欢的你就直接截图截下来",
+        "source": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-69897029/audio.wav",
+        "line": 22
+      },
+      {
+        "start": 44.7,
+        "end": 46.5,
+        "text": "接下来我用这个模板的按理告诉大家",
+        "source": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-69897029/audio.wav",
+        "line": 23
+      },
+      {
+        "start": 46.5,
+        "end": 48.4,
+        "text": "怎么用AI去实现自己的个人网站",
+        "source": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-69897029/audio.wav",
+        "line": 24
+      },
+      {
+        "start": 48.4,
+        "end": 54.89,
+        "text": "首先我们可以把想要的效果网站通过截图给它截起下来",
+        "source": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-69897029/audio.wav",
+        "line": 25
+      },
+      {
+        "start": 54.89,
+        "end": 56.79,
+        "text": "进入谷歌AI修流的这个网站",
+        "source": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-69897029/audio.wav",
+        "line": 26
+      },
+      {
+        "start": 56.79,
+        "end": 58.99,
+        "text": "我一般是会用这个网站的build模式",
+        "source": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-69897029/audio.wav",
+        "line": 27
+      },
+      {
+        "start": 58.99,
+        "end": 60.69,
+        "text": "先把整体网站的框架打好",
+        "source": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-69897029/audio.wav",
+        "line": 28
+      },
+      {
+        "start": 60.69,
+        "end": 62.99,
+        "text": "只需要上传我们刚才的几张网站的截图",
+        "source": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-69897029/audio.wav",
+        "line": 29
+      },
+      {
+        "start": 62.99,
+        "end": 64.99,
+        "text": "然后告诉他我要做一个个人网站",
+        "source": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-69897029/audio.wav",
+        "line": 30
+      },
+      {
+        "start": 64.99,
+        "end": 66.99,
+        "text": "这个网站要包含首页关于我",
+        "source": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-69897029/audio.wav",
+        "line": 31
+      },
+      {
+        "start": 66.99,
+        "end": 68.69,
+        "text": "我的文章我的作品这四个tab",
+        "source": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-69897029/audio.wav",
+        "line": 32
+      },
+      {
+        "start": 68.69,
+        "end": 70.89,
+        "text": "请你按照我给的图片的视觉效果",
+        "source": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-69897029/audio.wav",
+        "line": 33
+      },
+      {
+        "start": 70.89,
+        "end": 71.89,
+        "text": "去实现这个网站",
+        "source": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-69897029/audio.wav",
+        "line": 34
+      },
+      {
+        "start": 71.89,
+        "end": 73.09,
+        "text": "要求风格保持一致",
+        "source": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-69897029/audio.wav",
+        "line": 35
+      },
+      {
+        "start": 73.09,
+        "end": 74.59,
+        "text": "其余的可以自行发挥",
+        "source": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-69897029/audio.wav",
+        "line": 36
+      },
+      {
+        "start": 74.59,
+        "end": 76.09,
+        "text": "然后点击调子",
+        "source": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-69897029/audio.wav",
+        "line": 37
+      },
+      {
+        "start": 76.09,
+        "end": 77.59,
+        "text": "这个时候他就会自动的帮我们",
+        "source": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-69897029/audio.wav",
+        "line": 38
+      },
+      {
+        "start": 77.59,
+        "end": 79.39,
+        "text": "去写代码实际这个网站了",
+        "source": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-69897029/audio.wav",
+        "line": 39
+      },
+      {
+        "start": 79.39,
+        "end": 83.45,
+        "text": "我们要做的唯一一件事就是等待",
+        "source": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-69897029/audio.wav",
+        "line": 40
+      },
+      {
+        "start": 83.45,
+        "end": 85.15,
+        "text": "OK他现在生成了我们想要的效果",
+        "source": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-69897029/audio.wav",
+        "line": 41
+      },
+      {
+        "start": 85.15,
+        "end": 86.35,
+        "text": "虽然是一个男人的头像",
+        "source": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-69897029/audio.wav",
+        "line": 42
+      },
+      {
+        "start": 86.35,
+        "end": 87.95,
+        "text": "我们现在这个屏幕太窄了",
+        "source": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-69897029/audio.wav",
+        "line": 43
+      },
+      {
+        "start": 88.05,
+        "end": 89.35,
+        "text": "所以他是看不到实际的效果",
+        "source": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-69897029/audio.wav",
+        "line": 44
+      },
+      {
+        "start": 89.35,
+        "end": 91.15,
+        "text": "我们可以点击这个fullscreen",
+        "source": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-69897029/audio.wav",
+        "line": 45
+      },
+      {
+        "start": 91.15,
+        "end": 93.47,
+        "text": "这样就能看到完整的页面了",
+        "source": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-69897029/audio.wav",
+        "line": 46
+      },
+      {
+        "start": 93.47,
+        "end": 94.27,
+        "text": "其实他生成的效果",
+        "source": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-69897029/audio.wav",
+        "line": 47
+      },
+      {
+        "start": 94.27,
+        "end": 95.27,
+        "text": "还是比较符合我预期的",
+        "source": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-69897029/audio.wav",
+        "line": 48
+      },
+      {
+        "start": 95.27,
+        "end": 96.27,
+        "text": "点击第二个tab看看",
+        "source": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-69897029/audio.wav",
+        "line": 49
+      },
+      {
+        "start": 96.27,
+        "end": 97.6,
+        "text": "不错不错",
+        "source": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-69897029/audio.wav",
+        "line": 50
+      },
+      {
+        "start": 97.6,
+        "end": 98.2,
+        "text": "效果非常好",
+        "source": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-69897029/audio.wav",
+        "line": 51
+      },
+      {
+        "start": 98.2,
+        "end": 99.7,
+        "text": "其实里面的内容需要我自己额外的",
+        "source": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-69897029/audio.wav",
+        "line": 52
+      },
+      {
+        "start": 99.7,
+        "end": 100.8,
+        "text": "再去调整一下",
+        "source": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-69897029/audio.wav",
+        "line": 53
+      },
+      {
+        "start": 100.8,
+        "end": 101.7,
+        "text": "那不符合预期的",
+        "source": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-69897029/audio.wav",
+        "line": 54
+      },
+      {
+        "start": 101.7,
+        "end": 102.4,
+        "text": "我们怎么调整呢",
+        "source": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-69897029/audio.wav",
+        "line": 55
+      },
+      {
+        "start": 102.4,
+        "end": 104.59,
+        "text": "看到对话框里的这个按钮了没",
+        "source": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-69897029/audio.wav",
+        "line": 56
+      },
+      {
+        "start": 104.59,
+        "end": 105.69,
+        "text": "我们可以点击一下",
+        "source": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-69897029/audio.wav",
+        "line": 57
+      },
+      {
+        "start": 105.69,
+        "end": 107.09,
+        "text": "然后就可以在这个画布上面",
+        "source": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-69897029/audio.wav",
+        "line": 58
+      },
+      {
+        "start": 107.09,
+        "end": 110.1,
+        "text": "进行编辑和绘画",
+        "source": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-69897029/audio.wav",
+        "line": 59
+      },
+      {
+        "start": 110.1,
+        "end": 112.3,
+        "text": "我现在想要把这个帮块的元素去掉",
+        "source": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-69897029/audio.wav",
+        "line": 60
+      },
+      {
+        "start": 112.3,
+        "end": 113.1,
+        "text": "因为我觉得他没有用",
+        "source": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-69897029/audio.wav",
+        "line": 61
+      },
+      {
+        "start": 113.1,
+        "end": 114.6,
+        "text": "所以我就把这个换起来告诉他",
+        "source": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-69897029/audio.wav",
+        "line": 62
+      },
+      {
+        "start": 114.6,
+        "end": 118.71,
+        "text": "帮我把这个元素去掉",
+        "source": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-69897029/audio.wav",
+        "line": 63
+      },
+      {
+        "start": 118.71,
+        "end": 119.71,
+        "text": "接下来点一下",
+        "source": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-69897029/audio.wav",
+        "line": 64
+      },
+      {
+        "start": 119.71,
+        "end": 122.01,
+        "text": "把我的修改添加到这个对话里面",
+        "source": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-69897029/audio.wav",
+        "line": 65
+      },
+      {
+        "start": 122.01,
+        "end": 123.94,
+        "text": "点击发送",
+        "source": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-69897029/audio.wav",
+        "line": 66
+      },
+      {
+        "start": 123.94,
+        "end": 124.84,
+        "text": "诶 我们发现",
+        "source": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-69897029/audio.wav",
+        "line": 67
+      },
+      {
+        "start": 124.84,
+        "end": 126.34,
+        "text": "这并不是我想改的效果",
+        "source": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-69897029/audio.wav",
+        "line": 68
+      },
+      {
+        "start": 126.34,
+        "end": 127.04,
+        "text": "他改错了",
+        "source": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-69897029/audio.wav",
+        "line": 69
+      },
+      {
+        "start": 127.04,
+        "end": 128.84,
+        "text": "所以我就可以点这个restore回去",
+        "source": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-69897029/audio.wav",
+        "line": 70
+      },
+      {
+        "start": 128.84,
+        "end": 131.43,
+        "text": "我要回到之前的那个版本",
+        "source": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-69897029/audio.wav",
+        "line": 71
+      },
+      {
+        "start": 131.43,
+        "end": 133.13,
+        "text": "看来在这里面调整小细节还是太难了",
+        "source": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-69897029/audio.wav",
+        "line": 72
+      },
+      {
+        "start": 133.13,
+        "end": 134.73,
+        "text": "总之你要在生成的网页上面",
+        "source": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-69897029/audio.wav",
+        "line": 73
+      },
+      {
+        "start": 134.73,
+        "end": 135.83,
+        "text": "做整体框架上面的",
+        "source": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-69897029/audio.wav",
+        "line": 74
+      },
+      {
+        "start": 135.83,
+        "end": 136.53,
+        "text": "比较简单的改动",
+        "source": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-69897029/audio.wav",
+        "line": 75
+      },
+      {
+        "start": 136.53,
+        "end": 137.83,
+        "text": "你就可以使用这里的",
+        "source": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-69897029/audio.wav",
+        "line": 76
+      },
+      {
+        "start": 137.83,
+        "end": 138.83,
+        "text": "你就改方式",
+        "source": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-69897029/audio.wav",
+        "line": 77
+      },
+      {
+        "start": 138.83,
+        "end": 140.03,
+        "text": "但是我的经验一般是",
+        "source": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-69897029/audio.wav",
+        "line": 78
+      },
+      {
+        "start": 140.03,
+        "end": 141.53,
+        "text": "会把这整个网页给他下载下来",
+        "source": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-69897029/audio.wav",
+        "line": 79
+      },
+      {
+        "start": 141.53,
+        "end": 143.43,
+        "text": "然后在其他的AI编辑器里面",
+        "source": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-69897029/audio.wav",
+        "line": 80
+      },
+      {
+        "start": 143.43,
+        "end": 144.83,
+        "text": "去调整里面的细节内容",
+        "source": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-69897029/audio.wav",
+        "line": 81
+      },
+      {
+        "start": 144.83,
+        "end": 145.73,
+        "text": "下载下来后是一个",
+        "source": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-69897029/audio.wav",
+        "line": 82
+      },
+      {
+        "start": 145.73,
+        "end": 146.73,
+        "text": "glp的压缩文件",
+        "source": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-69897029/audio.wav",
+        "line": 83
+      },
+      {
+        "start": 146.73,
+        "end": 147.73,
+        "text": "我们给它解压一下",
+        "source": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-69897029/audio.wav",
+        "line": 84
+      },
+      {
+        "start": 147.73,
+        "end": 149.53,
+        "text": "接下来就是我们AI编辑的主力",
+        "source": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-69897029/audio.wav",
+        "line": 85
+      },
+      {
+        "start": 149.53,
+        "end": 150.13,
+        "text": "登场了",
+        "source": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-69897029/audio.wav",
+        "line": 86
+      },
+      {
+        "start": 150.13,
+        "end": 151.33,
+        "text": "就是字节的",
+        "source": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-69897029/audio.wav",
+        "line": 87
+      },
+      {
+        "start": 151.33,
+        "end": 152.13,
+        "text": "气",
+        "source": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-69897029/audio.wav",
+        "line": 88
+      },
+      {
+        "start": 152.13,
+        "end": 154.13,
+        "text": "它是一款AI编辑工具软件",
+        "source": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-69897029/audio.wav",
+        "line": 89
+      },
+      {
+        "start": 154.13,
+        "end": 155.53,
+        "text": "我在这买了一个会员",
+        "source": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-69897029/audio.wav",
+        "line": 90
+      },
+      {
+        "start": 155.53,
+        "end": 157.13,
+        "text": "这个会员在第一个月是",
+        "source": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-69897029/audio.wav",
+        "line": 91
+      },
+      {
+        "start": 157.13,
+        "end": 158.73,
+        "text": "三刀也就是21块人民币左右",
+        "source": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-69897029/audio.wav",
+        "line": 92
+      },
+      {
+        "start": 158.73,
+        "end": 159.73,
+        "text": "还是挺便宜的",
+        "source": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-69897029/audio.wav",
+        "line": 93
+      },
+      {
+        "start": 159.73,
+        "end": 160.93,
+        "text": "为什么要买会员呢",
+        "source": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-69897029/audio.wav",
+        "line": 94
+      },
+      {
+        "start": 160.93,
+        "end": 162.83,
+        "text": "是因为会员可以直接使用",
+        "source": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-69897029/audio.wav",
+        "line": 95
+      },
+      {
+        "start": 162.83,
+        "end": 164.33,
+        "text": "GemmaNet 3 Pro的这个模型",
+        "source": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-69897029/audio.wav",
+        "line": 96
+      },
+      {
+        "start": 164.33,
+        "end": 165.83,
+        "text": "这个模型的视觉效果",
+        "source": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-69897029/audio.wav",
+        "line": 97
+      },
+      {
+        "start": 165.83,
+        "end": 167.13,
+        "text": "审美都是非常好的",
+        "source": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-69897029/audio.wav",
+        "line": 98
+      },
+      {
+        "start": 167.13,
+        "end": 169.83,
+        "text": "是比较适合于我们做个人网站的",
+        "source": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-69897029/audio.wav",
+        "line": 99
+      },
+      {
+        "start": 169.83,
+        "end": 172.23,
+        "text": "我们打开刚才我们下载好的文件",
+        "source": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-69897029/audio.wav",
+        "line": 100
+      },
+      {
+        "start": 172.23,
+        "end": 173.33,
+        "text": "可以看到这个项目里面",
+        "source": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-69897029/audio.wav",
+        "line": 101
+      },
+      {
+        "start": 173.33,
+        "end": 174.53,
+        "text": "是有很多代码文件的",
+        "source": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-69897029/audio.wav",
+        "line": 102
+      },
+      {
+        "start": 174.53,
+        "end": 175.73,
+        "text": "但是我们不懂代码",
+        "source": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-69897029/audio.wav",
+        "line": 103
+      },
+      {
+        "start": 175.73,
+        "end": 177.03,
+        "text": "也没有关系",
+        "source": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-69897029/audio.wav",
+        "line": 104
+      },
+      {
+        "start": 177.03,
+        "end": 178.13,
+        "text": "我们只需要点击",
+        "source": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-69897029/audio.wav",
+        "line": 105
+      },
+      {
+        "start": 178.13,
+        "end": 179.23,
+        "text": "这个SoloView的模式",
+        "source": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-69897029/audio.wav",
+        "line": 106
+      },
+      {
+        "start": 179.23,
+        "end": 180.13,
+        "text": "然后跟它说",
+        "source": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-69897029/audio.wav",
+        "line": 107
+      },
+      {
+        "start": 180.13,
+        "end": 181.33,
+        "text": "帮我启动这个项目",
+        "source": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-69897029/audio.wav",
+        "line": 108
+      },
+      {
+        "start": 181.33,
+        "end": 182.53,
+        "text": "并且打开网页",
+        "source": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-69897029/audio.wav",
+        "line": 109
+      },
+      {
+        "start": 182.53,
+        "end": 184.33,
+        "text": "然后我们就可以在右边的这个框里面",
+        "source": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-69897029/audio.wav",
+        "line": 110
+      },
+      {
+        "start": 184.33,
+        "end": 186.13,
+        "text": "预览我们的网站了",
+        "source": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-69897029/audio.wav",
+        "line": 111
+      },
+      {
+        "start": 186.13,
+        "end": 188.03,
+        "text": "当然这个网站现在不是全屏的",
+        "source": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-69897029/audio.wav",
+        "line": 112
+      },
+      {
+        "start": 188.03,
+        "end": 189.33,
+        "text": "我们也可以把它的",
+        "source": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-69897029/audio.wav",
+        "line": 113
+      },
+      {
+        "start": 189.33,
+        "end": 190.33,
+        "text": "连接复制一下",
+        "source": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-69897029/audio.wav",
+        "line": 114
+      },
+      {
+        "start": 190.33,
+        "end": 192.03,
+        "text": "然后在我们的浏览器打开",
+        "source": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-69897029/audio.wav",
+        "line": 115
+      },
+      {
+        "start": 192.03,
+        "end": 193.63,
+        "text": "这个就是我们当前的网站",
+        "source": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-69897029/audio.wav",
+        "line": 116
+      },
+      {
+        "start": 193.63,
+        "end": 195.23,
+        "text": "当我们想要调整细节的时候",
+        "source": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-69897029/audio.wav",
+        "line": 117
+      },
+      {
+        "start": 195.23,
+        "end": 196.33,
+        "text": "这里面是可以",
+        "source": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-69897029/audio.wav",
+        "line": 118
+      },
+      {
+        "start": 196.33,
+        "end": 198.73,
+        "text": "非常精细化地选择到每一个元素的",
+        "source": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-69897029/audio.wav",
+        "line": 119
+      },
+      {
+        "start": 198.73,
+        "end": 199.73,
+        "text": "比如说",
+        "source": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-69897029/audio.wav",
+        "line": 120
+      },
+      {
+        "start": 199.73,
+        "end": 200.93,
+        "text": "我觉得这个按钮",
+        "source": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-69897029/audio.wav",
+        "line": 121
+      },
+      {
+        "start": 200.93,
+        "end": 201.53,
+        "text": "太丑了",
+        "source": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-69897029/audio.wav",
+        "line": 122
+      },
+      {
+        "start": 201.53,
+        "end": 202.13,
+        "text": "我不想要",
+        "source": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-69897029/audio.wav",
+        "line": 123
+      },
+      {
+        "start": 202.13,
+        "end": 203.43,
+        "text": "于是我点击一下它",
+        "source": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-69897029/audio.wav",
+        "line": 124
+      },
+      {
+        "start": 203.43,
+        "end": 205.33,
+        "text": "然后把它添加到对话",
+        "source": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-69897029/audio.wav",
+        "line": 125
+      },
+      {
+        "start": 205.33,
+        "end": 206.53,
+        "text": "跟它说",
+        "source": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-69897029/audio.wav",
+        "line": 126
+      },
+      {
+        "start": 206.53,
+        "end": 208.53,
+        "text": "请把这个元素帮我去掉",
+        "source": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-69897029/audio.wav",
+        "line": 127
+      },
+      {
+        "start": 208.53,
+        "end": 209.43,
+        "text": "在它完成任务之后",
+        "source": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-69897029/audio.wav",
+        "line": 128
+      },
+      {
+        "start": 209.43,
+        "end": 210.93,
+        "text": "我们打开这个",
+        "source": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-69897029/audio.wav",
+        "line": 129
+      },
+      {
+        "start": 210.93,
+        "end": 211.63,
+        "text": "内机的浏览器",
+        "source": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-69897029/audio.wav",
+        "line": 130
+      },
+      {
+        "start": 211.63,
+        "end": 212.33,
+        "text": "我们就会发现",
+        "source": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-69897029/audio.wav",
+        "line": 131
+      },
+      {
+        "start": 212.33,
+        "end": 213.43,
+        "text": "它已经把这个对应的元素",
+        "source": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-69897029/audio.wav",
+        "line": 132
+      },
+      {
+        "start": 213.43,
+        "end": 214.03,
+        "text": "给我们去掉了",
+        "source": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-69897029/audio.wav",
+        "line": 133
+      },
+      {
+        "start": 214.03,
+        "end": 214.73,
+        "text": "但是我们发现",
+        "source": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-69897029/audio.wav",
+        "line": 134
+      },
+      {
+        "start": 214.73,
+        "end": 217.13,
+        "text": "中间的导航蓝它太靠左了",
+        "source": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-69897029/audio.wav",
+        "line": 135
+      },
+      {
+        "start": 217.13,
+        "end": 218.53,
+        "text": "所以我们又想让它追踪",
+        "source": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-69897029/audio.wav",
+        "line": 136
+      },
+      {
+        "start": 218.53,
+        "end": 220.83,
+        "text": "这个时候我们再去选择一次文件",
+        "source": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-69897029/audio.wav",
+        "line": 137
+      },
+      {
+        "start": 220.83,
+        "end": 222.63,
+        "text": "就把这四个都框起来",
+        "source": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-69897029/audio.wav",
+        "line": 138
+      },
+      {
+        "start": 222.63,
+        "end": 224.42,
+        "text": "提一个对话",
+        "source": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-69897029/audio.wav",
+        "line": 139
+      },
+      {
+        "start": 224.42,
+        "end": 226.22,
+        "text": "把这些跳转的按钮",
+        "source": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-69897029/audio.wav",
+        "line": 140
+      },
+      {
+        "start": 226.22,
+        "end": 228.93,
+        "text": "集中显示在导航蓝上",
+        "source": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-69897029/audio.wav",
+        "line": 141
+      },
+      {
+        "start": 228.93,
+        "end": 230.33,
+        "text": "当然我们也可以框选一下",
+        "source": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-69897029/audio.wav",
+        "line": 142
+      },
+      {
+        "start": 230.33,
+        "end": 232.53,
+        "text": "这个导航蓝的元素",
+        "source": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-69897029/audio.wav",
+        "line": 143
+      },
+      {
+        "start": 232.53,
+        "end": 233.93,
+        "text": "然后添加到对话",
+        "source": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-69897029/audio.wav",
+        "line": 144
+      },
+      {
+        "start": 233.93,
+        "end": 235.13,
+        "text": "这样会更精确一点",
+        "source": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-69897029/audio.wav",
+        "line": 145
+      },
+      {
+        "start": 235.13,
+        "end": 236.53,
+        "text": "我们看最终效果",
+        "source": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-69897029/audio.wav",
+        "line": 146
+      },
+      {
+        "start": 236.53,
+        "end": 237.33,
+        "text": "它很聪明",
+        "source": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-69897029/audio.wav",
+        "line": 147
+      },
+      {
+        "start": 237.33,
+        "end": 238.93,
+        "text": "最终实现的效果还是很好的",
+        "source": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-69897029/audio.wav",
+        "line": 148
+      },
+      {
+        "start": 238.93,
+        "end": 239.73,
+        "text": "因为我这个是",
+        "source": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-69897029/audio.wav",
+        "line": 149
+      },
+      {
+        "start": 239.73,
+        "end": 240.63,
+        "text": "周文的个人网站",
+        "source": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-69897029/audio.wav",
+        "line": 150
+      },
+      {
+        "start": 240.63,
+        "end": 242.33,
+        "text": "所以我不希望展示成英文",
+        "source": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-69897029/audio.wav",
+        "line": 151
+      },
+      {
+        "start": 242.33,
+        "end": 244.53,
+        "text": "所以我就选中这个文案",
+        "source": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-69897029/audio.wav",
+        "line": 152
+      },
+      {
+        "start": 244.53,
+        "end": 245.93,
+        "text": "帮我把文案调整成",
+        "source": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-69897029/audio.wav",
+        "line": 153
+      },
+      {
+        "start": 245.93,
+        "end": 248.13,
+        "text": "我是西门一名产品经理",
+        "source": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-69897029/audio.wav",
+        "line": 154
+      },
+      {
+        "start": 248.13,
+        "end": 249.63,
+        "text": "但是我觉得它改的太丑了",
+        "source": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-69897029/audio.wav",
+        "line": 155
+      },
+      {
+        "start": 249.63,
+        "end": 251.63,
+        "text": "所以我还是回退一下",
+        "source": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-69897029/audio.wav",
+        "line": 156
+      },
+      {
+        "start": 251.63,
+        "end": 253.23,
+        "text": "回退到这次对话",
+        "source": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-69897029/audio.wav",
+        "line": 157
+      },
+      {
+        "start": 253.23,
+        "end": 255.18,
+        "text": "重新发起之前",
+        "source": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-69897029/audio.wav",
+        "line": 158
+      },
+      {
+        "start": 255.18,
+        "end": 256.08,
+        "text": "告诉他",
+        "source": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-69897029/audio.wav",
+        "line": 159
+      },
+      {
+        "start": 256.08,
+        "end": 258.98,
+        "text": "西门这两个字是粉色的底",
+        "source": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-69897029/audio.wav",
+        "line": 160
+      },
+      {
+        "start": 258.98,
+        "end": 261.08,
+        "text": "产品经理这四个字是",
+        "source": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-69897029/audio.wav",
+        "line": 161
+      },
+      {
+        "start": 261.08,
+        "end": 262.08,
+        "text": "蓝色的底",
+        "source": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-69897029/audio.wav",
+        "line": 162
+      },
+      {
+        "start": 262.08,
+        "end": 262.98,
+        "text": "你看这样就达到",
+        "source": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-69897029/audio.wav",
+        "line": 163
+      },
+      {
+        "start": 262.98,
+        "end": 264.78,
+        "text": "我们想要的效果了",
+        "source": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-69897029/audio.wav",
+        "line": 164
+      },
+      {
+        "start": 264.88,
+        "end": 266.28,
+        "text": "这个导航蓝我也给他改成了中文",
+        "source": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-69897029/audio.wav",
+        "line": 165
+      },
+      {
+        "start": 266.28,
+        "end": 267.48,
+        "text": "然后我们就要去换一下",
+        "source": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-69897029/audio.wav",
+        "line": 166
+      },
+      {
+        "start": 267.48,
+        "end": 268.18,
+        "text": "自己的相像图",
+        "source": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-69897029/audio.wav",
+        "line": 167
+      },
+      {
+        "start": 268.18,
+        "end": 269.48,
+        "text": "这个相像图可以是",
+        "source": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-69897029/audio.wav",
+        "line": 168
+      },
+      {
+        "start": 269.48,
+        "end": 270.58,
+        "text": "个人的真实照片",
+        "source": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-69897029/audio.wav",
+        "line": 169
+      },
+      {
+        "start": 270.58,
+        "end": 273.67,
+        "text": "也可以是让AI生成的一个动漫效象",
+        "source": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-69897029/audio.wav",
+        "line": 170
+      },
+      {
+        "start": 273.67,
+        "end": 274.47,
+        "text": "我来演示一下",
+        "source": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-69897029/audio.wav",
+        "line": 171
+      },
+      {
+        "start": 274.47,
+        "end": 276.07,
+        "text": "怎么样去生成一个动漫效象",
+        "source": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-69897029/audio.wav",
+        "line": 172
+      },
+      {
+        "start": 276.07,
+        "end": 277.67,
+        "text": "我们可以先把现在的这个",
+        "source": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-69897029/audio.wav",
+        "line": 173
+      },
+      {
+        "start": 277.67,
+        "end": 278.67,
+        "text": "网页截图",
+        "source": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-69897029/audio.wav",
+        "line": 174
+      },
+      {
+        "start": 278.67,
+        "end": 280.47,
+        "text": "然后打开一个可以AI对话",
+        "source": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-69897029/audio.wav",
+        "line": 175
+      },
+      {
+        "start": 280.47,
+        "end": 282.27,
+        "text": "并且生图的软件",
+        "source": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-69897029/audio.wav",
+        "line": 176
+      },
+      {
+        "start": 282.27,
+        "end": 284.27,
+        "text": "在国内我们也许可以使用豆包",
+        "source": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-69897029/audio.wav",
+        "line": 177
+      },
+      {
+        "start": 284.27,
+        "end": 285.57,
+        "text": "但我是有专门的会员",
+        "source": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-69897029/audio.wav",
+        "line": 178
+      },
+      {
+        "start": 285.57,
+        "end": 287.37,
+        "text": "所以我可以直接问Germany",
+        "source": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-69897029/audio.wav",
+        "line": 179
+      },
+      {
+        "start": 287.37,
+        "end": 289.37,
+        "text": "因为他们的生图效果会比较好",
+        "source": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-69897029/audio.wav",
+        "line": 180
+      },
+      {
+        "start": 289.37,
+        "end": 290.67,
+        "text": "先选择这个制作图片",
+        "source": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-69897029/audio.wav",
+        "line": 181
+      },
+      {
+        "start": 290.67,
+        "end": 291.67,
+        "text": "然后上传",
+        "source": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-69897029/audio.wav",
+        "line": 182
+      },
+      {
+        "start": 291.67,
+        "end": 293.57,
+        "text": "我们刚才这个网站的截图",
+        "source": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-69897029/audio.wav",
+        "line": 183
+      },
+      {
+        "start": 293.57,
+        "end": 295.47,
+        "text": "再上传一个自己的相像图",
+        "source": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-69897029/audio.wav",
+        "line": 184
+      },
+      {
+        "start": 295.47,
+        "end": 297.17,
+        "text": "哈哈这感觉好搞笑",
+        "source": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-69897029/audio.wav",
+        "line": 185
+      },
+      {
+        "start": 297.97,
+        "end": 298.97,
+        "text": "可以我喜欢",
+        "source": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-69897029/audio.wav",
+        "line": 186
+      },
+      {
+        "start": 299.86,
+        "end": 301.06,
+        "text": "于是我下载下来",
+        "source": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-69897029/audio.wav",
+        "line": 187
+      },
+      {
+        "start": 301.06,
+        "end": 302.56,
+        "text": "安慰到我们刚才的这个差",
+        "source": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-69897029/audio.wav",
+        "line": 188
+      },
+      {
+        "start": 302.56,
+        "end": 303.46,
+        "text": "选择元素",
+        "source": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-69897029/audio.wav",
+        "line": 189
+      },
+      {
+        "start": 303.46,
+        "end": 304.76,
+        "text": "就是这张图片的元素",
+        "source": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-69897029/audio.wav",
+        "line": 190
+      },
+      {
+        "start": 304.76,
+        "end": 306.26,
+        "text": "因为我们要把图片换成",
+        "source": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-69897029/audio.wav",
+        "line": 191
+      },
+      {
+        "start": 306.26,
+        "end": 307.76,
+        "text": "自己的图片添加到对话",
+        "source": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-69897029/audio.wav",
+        "line": 192
+      },
+      {
+        "start": 308.65,
+        "end": 312.75,
+        "text": "请帮我把这张图片换成",
+        "source": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-69897029/audio.wav",
+        "line": 193
+      },
+      {
+        "start": 312.75,
+        "end": 314.85,
+        "text": "我自己的个人的相像",
+        "source": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-69897029/audio.wav",
+        "line": 194
+      },
+      {
+        "start": 314.85,
+        "end": 315.85,
+        "text": "要把我们自己的个人的",
+        "source": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-69897029/audio.wav",
+        "line": 195
+      },
+      {
+        "start": 315.85,
+        "end": 317.45,
+        "text": "相像给他放进去",
+        "source": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-69897029/audio.wav",
+        "line": 196
+      },
+      {
+        "start": 317.45,
+        "end": 318.95,
+        "text": "让我们来看看他回复了是吗",
+        "source": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-69897029/audio.wav",
+        "line": 197
+      },
+      {
+        "start": 318.95,
+        "end": 320.55,
+        "text": "请执行一下步骤完成替换",
+        "source": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-69897029/audio.wav",
+        "line": 198
+      },
+      {
+        "start": 320.55,
+        "end": 322.15,
+        "text": "好需要把我的这个照片",
+        "source": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-69897029/audio.wav",
+        "line": 199
+      },
+      {
+        "start": 322.15,
+        "end": 323.55,
+        "text": "放到POW了捆件家中",
+        "source": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-69897029/audio.wav",
+        "line": 200
+      },
+      {
+        "start": 323.55,
+        "end": 325.75,
+        "text": "然后把这个照片命名为",
+        "source": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-69897029/audio.wav",
+        "line": 201
+      },
+      {
+        "start": 325.75,
+        "end": 327.25,
+        "text": "阿巴达了.png",
+        "source": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-69897029/audio.wav",
+        "line": 202
+      },
+      {
+        "start": 327.85,
+        "end": 328.75,
+        "text": "那我们来试试",
+        "source": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-69897029/audio.wav",
+        "line": 203
+      },
+      {
+        "start": 328.75,
+        "end": 330.25,
+        "text": "需要把照片放到这个public",
+        "source": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-69897029/audio.wav",
+        "line": 204
+      },
+      {
+        "start": 330.25,
+        "end": 331.35,
+        "text": "文件家里",
+        "source": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-69897029/audio.wav",
+        "line": 205
+      },
+      {
+        "start": 331.35,
+        "end": 332.65,
+        "text": "然后改一下名字",
+        "source": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-69897029/audio.wav",
+        "line": 206
+      },
+      {
+        "start": 332.65,
+        "end": 334.65,
+        "text": "这个时候我们再刷新一下这个网站",
+        "source": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-69897029/audio.wav",
+        "line": 207
+      },
+      {
+        "start": 335.25,
+        "end": 336.65,
+        "text": "就变成了我自己的图片了",
+        "source": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-69897029/audio.wav",
+        "line": 208
+      },
+      {
+        "start": 336.65,
+        "end": 338.05,
+        "text": "看一下全品的效果",
+        "source": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-69897029/audio.wav",
+        "line": 209
+      },
+      {
+        "start": 338.05,
+        "end": 339.25,
+        "text": "我觉得这个比",
+        "source": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-69897029/audio.wav",
+        "line": 210
+      },
+      {
+        "start": 339.25,
+        "end": 340.65,
+        "text": "我之前的这个相像图",
+        "source": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-69897029/audio.wav",
+        "line": 211
+      },
+      {
+        "start": 340.65,
+        "end": 341.75,
+        "text": "会更好看一点",
+        "source": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-69897029/audio.wav",
+        "line": 212
+      },
+      {
+        "start": 341.75,
+        "end": 342.75,
+        "text": "接下来我可以教大家",
+        "source": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-69897029/audio.wav",
+        "line": 213
+      },
+      {
+        "start": 342.75,
+        "end": 344.35,
+        "text": "把这个动效究竟怎么做",
+        "source": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-69897029/audio.wav",
+        "line": 214
+      },
+      {
+        "start": 344.35,
+        "end": 345.65,
+        "text": "我们可以选择一个元素",
+        "source": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-69897029/audio.wav",
+        "line": 215
+      },
+      {
+        "start": 346.25,
+        "end": 347.55,
+        "text": "把它添加到对话",
+        "source": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-69897029/audio.wav",
+        "line": 216
+      },
+      {
+        "start": 347.55,
+        "end": 348.65,
+        "text": "然后我跟他说",
+        "source": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-69897029/audio.wav",
+        "line": 217
+      },
+      {
+        "start": 348.65,
+        "end": 350.85,
+        "text": "帮我实现一下适合于这个元素动效",
+        "source": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-69897029/audio.wav",
+        "line": 218
+      },
+      {
+        "start": 350.85,
+        "end": 352.35,
+        "text": "选择上去之后动一下",
+        "source": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-69897029/audio.wav",
+        "line": 219
+      },
+      {
+        "start": 352.35,
+        "end": 353.45,
+        "text": "哎不错",
+        "source": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-69897029/audio.wav",
+        "line": 220
+      },
+      {
+        "start": 353.45,
+        "end": 355.15,
+        "text": "我觉得这个动效好像比我之前的",
+        "source": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-69897029/audio.wav",
+        "line": 221
+      },
+      {
+        "start": 355.15,
+        "end": 355.95,
+        "text": "更不错一点",
+        "source": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-69897029/audio.wav",
+        "line": 222
+      },
+      {
+        "start": 355.95,
+        "end": 357.45,
+        "text": "同样的这个新门和产品经理",
+        "source": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-69897029/audio.wav",
+        "line": 223
+      },
+      {
+        "start": 357.45,
+        "end": 359.45,
+        "text": "也可以去呃实现一下动效",
+        "source": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-69897029/audio.wav",
+        "line": 224
+      },
+      {
+        "start": 359.45,
+        "end": 360.55,
+        "text": "这个我就不掩饰了",
+        "source": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-69897029/audio.wav",
+        "line": 225
+      },
+      {
+        "start": 360.55,
+        "end": 362.65,
+        "text": "接下来展示一下我的一个网友",
+        "source": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-69897029/audio.wav",
+        "line": 226
+      },
+      {
+        "start": 362.65,
+        "end": 364.85,
+        "text": "他by coding出来的个人主页",
+        "source": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-69897029/audio.wav",
+        "line": 227
+      },
+      {
+        "start": 364.85,
+        "end": 365.95,
+        "text": "还是挺好看的",
+        "source": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-69897029/audio.wav",
+        "line": 228
+      },
+      {
+        "start": 367.1,
+        "end": 367.6,
+        "text": "非常可爱",
+        "source": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-69897029/audio.wav",
+        "line": 229
+      },
+      {
+        "start": 367.6,
+        "end": 368.6,
+        "text": "然后有点塞布朋克",
+        "source": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-69897029/audio.wav",
+        "line": 230
+      },
+      {
+        "start": 368.6,
+        "end": 371.4,
+        "text": "而且他这边能够和他进行对话",
+        "source": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-69897029/audio.wav",
+        "line": 231
+      },
+      {
+        "start": 374.97,
+        "end": 376.57,
+        "text": "应该是介入了什么ipi",
+        "source": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-69897029/audio.wav",
+        "line": 232
+      },
+      {
+        "start": 376.77,
+        "end": 381.03,
+        "text": "后关于我的这一页呢",
+        "source": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-69897029/audio.wav",
+        "line": 233
+      },
+      {
+        "start": 381.03,
+        "end": 382.03,
+        "text": "他就是说明了一些",
+        "source": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-69897029/audio.wav",
+        "line": 234
+      },
+      {
+        "start": 382.03,
+        "end": 384.03,
+        "text": "自己学习和实习相关的经历",
+        "source": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-69897029/audio.wav",
+        "line": 235
+      },
+      {
+        "start": 384.66,
+        "end": 386.56,
+        "text": "他是优秀的神经科学专业的",
+        "source": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-69897029/audio.wav",
+        "line": 236
+      },
+      {
+        "start": 386.56,
+        "end": 387.96,
+        "text": "然后之前在",
+        "source": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-69897029/audio.wav",
+        "line": 237
+      },
+      {
+        "start": 388.26,
+        "end": 390.36,
+        "text": "一些比赛当中拿过一些成绩",
+        "source": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-69897029/audio.wav",
+        "line": 238
+      },
+      {
+        "start": 390.36,
+        "end": 391.46,
+        "text": "然后在美调的小美",
+        "source": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-69897029/audio.wav",
+        "line": 239
+      },
+      {
+        "start": 391.46,
+        "end": 392.76,
+        "text": "做过ipi产品的实习相",
+        "source": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-69897029/audio.wav",
+        "line": 240
+      },
+      {
+        "start": 392.86,
+        "end": 394.56,
+        "text": "在这个26年的6月",
+        "source": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-69897029/audio.wav",
+        "line": 241
+      },
+      {
+        "start": 394.76,
+        "end": 395.56,
+        "text": "本科毕业了",
+        "source": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-69897029/audio.wav",
+        "line": 242
+      },
+      {
+        "start": 395.66,
+        "end": 396.86,
+        "text": "然后他的项目经历",
+        "source": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-69897029/audio.wav",
+        "line": 243
+      },
+      {
+        "start": 397.58,
+        "end": 398.18,
+        "text": "文章",
+        "source": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-69897029/audio.wav",
+        "line": 244
+      },
+      {
+        "start": 398.38,
+        "end": 400.28,
+        "text": "这些内容都是非常丰富的",
+        "source": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-69897029/audio.wav",
+        "line": 245
+      },
+      {
+        "start": 400.98,
+        "end": 402.58,
+        "text": "所以大家也可以按照自己的",
+        "source": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-69897029/audio.wav",
+        "line": 246
+      },
+      {
+        "start": 402.58,
+        "end": 403.28,
+        "text": "个人需求",
+        "source": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-69897029/audio.wav",
+        "line": 247
+      },
+      {
+        "start": 403.28,
+        "end": 404.98,
+        "text": "取身手属于自己的个人网站",
+        "source": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-69897029/audio.wav",
+        "line": 248
+      },
+      {
+        "start": 405.18,
+        "end": 406.98,
+        "text": "这就是你展示自己的一个地方",
+        "source": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-69897029/audio.wav",
+        "line": 249
+      },
+      {
+        "start": 406.98,
+        "end": 408.18,
+        "text": "即使没有我们想象的那么难",
+        "source": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-69897029/audio.wav",
+        "line": 250
+      },
+      {
+        "start": 408.18,
+        "end": 410.08,
+        "text": "那么接下来就是让你和ipi不断对话",
+        "source": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-69897029/audio.wav",
+        "line": 251
+      },
+      {
+        "start": 410.08,
+        "end": 411.58,
+        "text": "让他按照你的要求去做改动",
+        "source": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-69897029/audio.wav",
+        "line": 252
+      },
+      {
+        "start": 411.58,
+        "end": 413.88,
+        "text": "最终你就能实现和我的网站类似的效果了",
+        "source": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-69897029/audio.wav",
+        "line": 253
+      },
+      {
+        "start": 413.88,
+        "end": 414.58,
+        "text": "那现在的网站",
+        "source": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-69897029/audio.wav",
+        "line": 254
+      },
+      {
+        "start": 414.58,
+        "end": 415.98,
+        "text": "只能在我们自己的电脑上看",
+        "source": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-69897029/audio.wav",
+        "line": 255
+      },
+      {
+        "start": 415.98,
+        "end": 417.48,
+        "text": "如果我们想把他放到网络上",
+        "source": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-69897029/audio.wav",
+        "line": 256
+      },
+      {
+        "start": 417.48,
+        "end": 418.78,
+        "text": "让其他人也能看见",
+        "source": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-69897029/audio.wav",
+        "line": 257
+      },
+      {
+        "start": 418.78,
+        "end": 419.58,
+        "text": "需要怎么做呢",
+        "source": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-69897029/audio.wav",
+        "line": 258
+      },
+      {
+        "start": 419.58,
+        "end": 421.68,
+        "text": "我会在下一期教大家网站的部署和预名",
+        "source": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-69897029/audio.wav",
+        "line": 259
+      },
+      {
+        "start": 421.68,
+        "end": 423.68,
+        "text": "下一期的视频会比这一期简单100倍",
+        "source": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-69897029/audio.wav",
+        "line": 260
+      },
+      {
+        "start": null,
+        "end": null,
+        "text": "一个有手就行的AI编程教程分享",
+        "source": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-69897029/download/69897029000000000a02b452/一个有手就行的AI编程教程分享.info.json",
+        "line": 1
+      },
+      {
+        "start": null,
+        "end": null,
+        "text": "#vibecoding大赏[话题]# #网站制作[话题]# #ai学习[话题]# #vibecoding[话题]# #小红书科技AMA[话题]# #产品经理[话题]# #运营[话题]# #设计师[话题]# #互联网[话题]# #个人开发者[话题]# @科技薯 @薯队长",
+        "source": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-69897029/download/69897029000000000a02b452/一个有手就行的AI编程教程分享.info.json",
+        "line": 2
+      },
+      {
+        "start": null,
+        "end": null,
+        "text": "标签: vibecoding大赏 网站制作 ai学习 vibecoding 小红书科技AMA 产品经理 运营 设计师 互联网 个人开发者",
+        "source": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-69897029/download/69897029000000000a02b452/一个有手就行的AI编程教程分享.info.json",
+        "line": 3
+      }
+    ],
+    "evidence_pool": [
+      {
+        "type": "frame_ocr",
+        "source": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-69897029/frames/frame_av_001.jpg",
+        "locator": "frame:1",
+        "snippet": "关于我\n文章\n视频\n产品\n我是\n西门美月匈XD\nA Product Manager,\n练习时长\n两年半\nBillbli Creator|Dig\n搭建出属于自己的个人网站\nAPASSIONATEFOOOOOL!\nMore about me",
+        "confidence": 0.92
+      },
+      {
+        "type": "frame_ocr",
+        "source": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-69897029/frames/frame_av_002.jpg",
+        "locator": "frame:2",
+        "snippet": "U\n页\n关于孩\n文\n严品\n日\nWelcometo\nIDCARD\n?\n西门的世界！\nANASTOS\n西门\n我出生于2000年5月，在浙江的一个小村镇长大。\n家庭环境比较自由，家人都不会对我的选择做过多干涉。\n这导致我在肆意生长的过程中，携有了",
+        "confidence": 0.86
+      },
+      {
+        "type": "frame_ocr",
+        "source": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-69897029/frames/frame_av_003.jpg",
+        "locator": "frame:3",
+        "snippet": "有手就行\nAI编程教程\n教程分享",
+        "confidence": 0.99
+      },
+      {
+        "type": "frame_ocr",
+        "source": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-69897029/frames/frame_av_004.jpg",
+        "locator": "frame:4",
+        "snippet": "不，你必须行",
+        "confidence": 1.0
+      },
+      {
+        "type": "frame_ocr",
+        "source": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-69897029/frames/frame_av_005.jpg",
+        "locator": "frame:5",
+        "snippet": "一步步认真操作下来",
+        "confidence": 1.0
+      },
+      {
+        "type": "frame_ocr",
+        "source": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-69897029/frames/frame_av_006.jpg",
+        "locator": "frame:6",
+        "snippet": "在一切开始之前",
+        "confidence": 1.0
+      },
+      {
+        "type": "frame_ocr",
+        "source": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-69897029/frames/frame_av_007.jpg",
+        "locator": "frame:7",
+        "snippet": "一个AI编程软件",
+        "confidence": 0.96
+      },
+      {
+        "type": "frame_ocr",
+        "source": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-69897029/frames/frame_av_008.jpg",
+        "locator": "frame:8",
+        "snippet": "这个软件演示",
+        "confidence": 1.0
+      },
+      {
+        "type": "cover_ocr",
+        "source": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-69897029/download/69897029000000000a02b452/一个有手就行的AI编程教程分享.jpg",
+        "locator": "image:0",
+        "snippet": "有手就行\nAI编程教程分享\n我是西门\n名产品经理\n886\nWork kift' be)\nVimsgenuy",
+        "confidence": 0.84
+      },
+      {
+        "type": "timestamp",
+        "source": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-69897029/audio.wav",
+        "locator": "0.0s-3.2s",
+        "snippet": "只要会和A聊天你就能和我一样搭建出属于自己的个人网站",
+        "confidence": 0.7
+      },
+      {
+        "type": "timestamp",
+        "source": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-69897029/audio.wav",
+        "locator": "3.2s-6.4s",
+        "snippet": "不论你是文科生理科生体育生艺术生无一例外都能做到",
+        "confidence": 0.7
+      },
+      {
+        "type": "timestamp",
+        "source": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-69897029/audio.wav",
+        "locator": "6.4s-9.6s",
+        "snippet": "所以这是一个有手作型的AI编程教程分享",
+        "confidence": 0.7
+      },
+      {
+        "type": "timestamp",
+        "source": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-69897029/audio.wav",
+        "locator": "9.6s-10.9s",
+        "snippet": "如果你没有手那你就用脚",
+        "confidence": 0.7
+      },
+      {
+        "type": "timestamp",
+        "source": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-69897029/audio.wav",
+        "locator": "10.9s-11.8s",
+        "snippet": "如果你说你不行",
+        "confidence": 0.7
+      },
+      {
+        "type": "timestamp",
+        "source": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-69897029/audio.wav",
+        "locator": "11.8s-13.1s",
+        "snippet": "不 你必须行",
+        "confidence": 0.7
+      },
+      {
+        "type": "timestamp",
+        "source": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-69897029/audio.wav",
+        "locator": "13.1s-16.4s",
+        "snippet": "你按照我的教程一步步认真操作下来还不能搭建网站的话",
+        "confidence": 0.7
+      },
+      {
+        "type": "timestamp",
+        "source": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-69897029/audio.wav",
+        "locator": "16.4s-17.5s",
+        "snippet": "我就滚去驱使",
+        "confidence": 0.7
+      },
+      {
+        "type": "timestamp",
+        "source": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-69897029/audio.wav",
+        "locator": "17.5s-19.5s",
+        "snippet": "在一切开始之前我们需要学会魔法上网",
+        "confidence": 0.7
+      },
+      {
+        "type": "timestamp",
+        "source": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-69897029/audio.wav",
+        "locator": "19.5s-21.5s",
+        "snippet": "然后我们需要准备一个AI编程软件",
+        "confidence": 0.7
+      },
+      {
+        "type": "cover_ocr",
+        "source": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-69897029/download/69897029000000000a02b452/一个有手就行的AI编程教程分享.info.json",
+        "locator": "field:title",
+        "snippet": "一个有手就行的AI编程教程分享",
+        "confidence": 0.62
+      },
+      {
+        "type": "transcript_span",
+        "source": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-69897029/download/69897029000000000a02b452/一个有手就行的AI编程教程分享.info.json",
+        "locator": "field:description",
+        "snippet": "#vibecoding大赏[话题]# #网站制作[话题]# #ai学习[话题]# #vibecoding[话题]# #小红书科技AMA[话题]# #产品经理[话题]# #运营[话题]# #设计师[话题]# #互联网[话题]# #个人开发者[",
+        "confidence": 0.55
+      },
+      {
+        "type": "visual_pattern",
+        "source": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-69897029/download/69897029000000000a02b452/一个有手就行的AI编程教程分享.info.json",
+        "locator": "field:tags",
+        "snippet": "vibecoding大赏 网站制作 ai学习 vibecoding 小红书科技AMA 产品经理 运营 设计师 互联网 个人开发者",
+        "confidence": 0.5
+      }
+    ],
+    "hook_candidates": [
+      "只要会和A聊天你就能和我一样搭建出属于自己的个人网站",
+      "不论你是文科生理科生体育生艺术生无一例外都能做到",
+      "所以这是一个有手作型的AI编程教程分享",
+      "如果你没有手那你就用脚",
+      "如果你说你不行"
+    ]
+  },
+  "logs": [
+    {
+      "step": "ffmpeg",
+      "warning": "ffmpeg 未安装，切换到 av 抽帧"
+    },
+    {
+      "step": "av_frames",
+      "saved": 9,
+      "interval": 90
+    },
+    {
+      "ffmpeg": {
+        "step": "audio",
+        "warning": "ffmpeg 未安装，切换到 av 抽音频"
+      },
+      "av": {
+        "step": "av_audio",
+        "written": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-69897029/audio.wav",
+        "samples": 6778375
+      }
+    },
+    "未设置 OPENAI_API_KEY，跳过 OpenAI ASR",
+    "Local Whisper ASR 完成，模型=small，语言=zh"
+  ],
+  "limitations": [
+    "OCR 与 ASR 质量依赖素材清晰度。",
+    "如无网络，Local Whisper 首次模型下载可能失败。"
+  ]
+}
