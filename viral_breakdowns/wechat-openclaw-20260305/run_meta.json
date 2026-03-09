@@ -1,0 +1,75 @@
+{
+  "url": "https://mp.weixin.qq.com/s?__biz=MzIyMzA5NjEyMA==&mid=2647680353&idx=1&sn=0ae2340edd5fa0c6076d9bd31c9e14e7&chksm=f18695c2fa7b64c5e1115f9505b95575c20450bef220695ab5a7b89749fb0c159006b65105f5&scene=0&xtrack=1&subscene=90#rd",
+  "platform": "wechat_mp",
+  "started_at": "2026-03-05T07:31:08.788366+00:00",
+  "save_artifacts": "always",
+  "non_interactive": true,
+  "output_dir": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/wechat-openclaw-20260305",
+  "steps": [
+    {
+      "step": "fetch_content",
+      "exit_code": 0,
+      "stdout_tail": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/wechat-openclaw-20260305/fetch_result.json\n",
+      "stderr_tail": "",
+      "cmd": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "/Users/cecilialiu/.codex/skills/viral-content-breakdown/scripts/fetch_content.py",
+        "--url",
+        "https://mp.weixin.qq.com/s?__biz=MzIyMzA5NjEyMA==&mid=2647680353&idx=1&sn=0ae2340edd5fa0c6076d9bd31c9e14e7&chksm=f18695c2fa7b64c5e1115f9505b95575c20450bef220695ab5a7b89749fb0c159006b65105f5&scene=0&xtrack=1&subscene=90#rd",
+        "--output-dir",
+        "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/wechat-openclaw-20260305",
+        "--session-file",
+        "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/wechat-openclaw-20260305/session/session.json",
+        "--quality",
+        "high",
+        "--result-file",
+        "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/wechat-openclaw-20260305/fetch_result.json"
+      ]
+    },
+    {
+      "step": "extract_signals",
+      "exit_code": 0,
+      "stdout_tail": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/wechat-openclaw-20260305/signals.json\n",
+      "stderr_tail": "",
+      "cmd": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "/Users/cecilialiu/.codex/skills/viral-content-breakdown/scripts/extract_signals.py",
+        "--fetch-result",
+        "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/wechat-openclaw-20260305/fetch_result.json",
+        "--output-dir",
+        "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/wechat-openclaw-20260305",
+        "--result-file",
+        "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/wechat-openclaw-20260305/signals.json"
+      ]
+    },
+    {
+      "step": "analyze_content",
+      "exit_code": 0,
+      "stdout_tail": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/wechat-openclaw-20260305/report.json\n",
+      "stderr_tail": "",
+      "cmd": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "/Users/cecilialiu/.codex/skills/viral-content-breakdown/scripts/analyze_content.py",
+        "--signals",
+        "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/wechat-openclaw-20260305/signals.json",
+        "--output",
+        "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/wechat-openclaw-20260305/report.json",
+        "--markdown-output",
+        "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/wechat-openclaw-20260305/report.md",
+        "--model",
+        "gpt-4.1-mini"
+      ]
+    }
+  ],
+  "pruned_media": {
+    "deleted_count": 0,
+    "failed_count": 0,
+    "log_file": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/wechat-openclaw-20260305/deleted_media_files.txt"
+  },
+  "finished_at": "2026-03-05T07:31:16.999256+00:00",
+  "ok": true,
+  "named_outputs": {
+    "json": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/20260305-我花499找人上门安装OpenClaw-看到了AI时代最魔幻的一幕.json",
+    "markdown": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/20260305-我花499找人上门安装OpenClaw-看到了AI时代最魔幻的一幕.md"
+  }
+}
