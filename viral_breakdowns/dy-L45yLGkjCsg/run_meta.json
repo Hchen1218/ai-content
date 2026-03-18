@@ -1,0 +1,55 @@
+{
+  "url": "https://v.douyin.com/L45yLGkjCsg/",
+  "platform": "douyin",
+  "started_at": "2026-03-18T01:14:31.127287+00:00",
+  "save_artifacts": "always",
+  "non_interactive": true,
+  "output_dir": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/dy-L45yLGkjCsg",
+  "steps": [
+    {
+      "step": "session_bootstrap",
+      "exit_code": 0,
+      "stdout_tail": "[session] 打开浏览器进行扫码登录: https://www.douyin.com/\n[session] 浏览器启动失败，继续执行：Unable to find application named 'Safari'\n[session] 会话配置已保存: /Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/dy-L45yLGkjCsg/session/session.json\n",
+      "stderr_tail": "",
+      "cmd": [
+        "/Users/cecilialiu/Documents/Codex/ai-content/.venv312/bin/python",
+        "/Users/cecilialiu/.codex/skills/viral-content-breakdown/scripts/session_bootstrap.py",
+        "--url",
+        "https://v.douyin.com/L45yLGkjCsg/",
+        "--platform",
+        "douyin",
+        "--browser",
+        "safari",
+        "--session-mode",
+        "qr-login",
+        "--session-file",
+        "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/dy-L45yLGkjCsg/session/session.json",
+        "--non-interactive"
+      ]
+    },
+    {
+      "step": "fetch_content",
+      "exit_code": 1,
+      "stdout_tail": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/dy-L45yLGkjCsg/fetch_result.json\n",
+      "stderr_tail": "",
+      "cmd": [
+        "/Users/cecilialiu/Documents/Codex/ai-content/.venv312/bin/python",
+        "/Users/cecilialiu/.codex/skills/viral-content-breakdown/scripts/fetch_content.py",
+        "--url",
+        "https://v.douyin.com/L45yLGkjCsg/",
+        "--output-dir",
+        "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/dy-L45yLGkjCsg",
+        "--session-file",
+        "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/dy-L45yLGkjCsg/session/session.json",
+        "--quality",
+        "high",
+        "--result-file",
+        "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/dy-L45yLGkjCsg/fetch_result.json"
+      ]
+    }
+  ],
+  "ok": false,
+  "finished_at": "2026-03-18T01:14:33.536366+00:00",
+  "error_file": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/dy-L45yLGkjCsg/error.json",
+  "error": "步骤失败: fetch_content\n/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/dy-L45yLGkjCsg/fetch_result.json"
+}
