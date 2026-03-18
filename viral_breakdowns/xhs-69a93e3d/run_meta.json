@@ -1,0 +1,34 @@
+{
+  "url": "https://www.xiaohongshu.com/explore/69a93e3d000000000e00d9c8?xsec_token=ABl30WGbeISPgwUsr8vc6cnt9Qz4ZtO9VWggcWeyxyjp8=&xsec_source=pc_user",
+  "platform": "xiaohongshu",
+  "started_at": "2026-03-17T06:21:58.712082+00:00",
+  "save_artifacts": "always",
+  "non_interactive": true,
+  "output_dir": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-69a93e3d",
+  "steps": [
+    {
+      "step": "fetch_content",
+      "exit_code": 1,
+      "stdout_tail": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-69a93e3d/fetch_result.json\n",
+      "stderr_tail": "",
+      "cmd": [
+        "/Users/cecilialiu/Documents/Codex/ai-content/.venv312/bin/python",
+        "/Users/cecilialiu/.codex/skills/viral-content-breakdown/scripts/fetch_content.py",
+        "--url",
+        "https://www.xiaohongshu.com/explore/69a93e3d000000000e00d9c8?xsec_token=ABl30WGbeISPgwUsr8vc6cnt9Qz4ZtO9VWggcWeyxyjp8=&xsec_source=pc_user",
+        "--output-dir",
+        "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-69a93e3d",
+        "--session-file",
+        "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-69a93e3d/session/session.json",
+        "--quality",
+        "high",
+        "--result-file",
+        "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-69a93e3d/fetch_result.json"
+      ]
+    }
+  ],
+  "ok": false,
+  "finished_at": "2026-03-17T06:22:01.889358+00:00",
+  "error_file": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-69a93e3d/error.json",
+  "error": "步骤失败: fetch_content\n/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-69a93e3d/fetch_result.json"
+}
