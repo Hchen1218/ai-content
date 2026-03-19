@@ -1,0 +1,126 @@
+{
+  "ok": true,
+  "meta": {
+    "url": "https://www.xiaohongshu.com/explore/6985e8d5000000001a023702?xsec_token=ABxBT5oHWymjWyKS0zZMft8Fuu1QmNXxiP2RNeYe7yN1Y=&xsec_source=pc_user",
+    "normalized_url": "https://www.xiaohongshu.com/explore/6985e8d5000000001a023702?xsec_token=ABxBT5oHWymjWyKS0zZMft8Fuu1QmNXxiP2RNeYe7yN1Y=&xsec_source=pc_user",
+    "platform": "xiaohongshu",
+    "content_type": "video",
+    "fetched_at": "2026-03-18T09:47:54.198879+00:00",
+    "published_at": "",
+    "quality": "high",
+    "url_normalized_note": ""
+  },
+  "asset_index": {
+    "video": [
+      "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-6985e8d5000000001a023702/download/6985e8d5000000001a023702/完全不碰代码怎么做产品，纯小白教学全流程.mp4"
+    ],
+    "images": [
+      "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-6985e8d5000000001a023702/download/6985e8d5000000001a023702/完全不碰代码怎么做产品，纯小白教学全流程.jpg"
+    ],
+    "page_images": [],
+    "contact_sheet": [],
+    "audio": [],
+    "transcript": [],
+    "cover_text": []
+  },
+  "post_content": {
+    "title": "完全不碰代码怎么做产品，纯小白教学全流程",
+    "body": ".\n有想法就一定能落地，\n照着我的办法来，\n一定能做出来。\n切记：刚起步，不要妄想“一口吃成胖子”。\n\t\n#ai[话题]# #ai工具[话题]# #vibe[话题]# #小白教程[话题]# #女性黑客松[话题]# #SheNicest[话题]# #教程[话题]# #产品经理[话题]# #SVTech[话题]# #文科生[话题]#",
+    "tags": [
+      "ai",
+      "ai工具",
+      "vibe",
+      "小白教程",
+      "女性黑客松",
+      "SheNicest",
+      "教程",
+      "产品经理",
+      "SVTech",
+      "文科生"
+    ]
+  },
+  "engagement_metrics": {
+    "likes": null,
+    "comments": null,
+    "plays": null
+  },
+  "artifacts": {
+    "output_dir": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-6985e8d5000000001a023702",
+    "download_dir": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-6985e8d5000000001a023702/download",
+    "all_files": [
+      "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-6985e8d5000000001a023702/download/6985e8d5000000001a023702/完全不碰代码怎么做产品，纯小白教学全流程.info.json",
+      "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-6985e8d5000000001a023702/download/6985e8d5000000001a023702/完全不碰代码怎么做产品，纯小白教学全流程.jpg",
+      "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-6985e8d5000000001a023702/download/6985e8d5000000001a023702/完全不碰代码怎么做产品，纯小白教学全流程.mp4"
+    ],
+    "manual_assets": {
+      "video": [],
+      "images": [],
+      "audio": [],
+      "transcript": []
+    }
+  },
+  "adapter_attempts": [
+    {
+      "adapter": "yt-dlp",
+      "command": "/Users/cecilialiu/Library/Python/3.9/bin/yt-dlp --no-progress --no-warnings --write-info-json --write-thumbnail --write-subs --write-auto-subs --sub-langs 'zh.*,en.*' -o '/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-6985e8d5000000001a023702/download/%(id)s/%(title).120B.%(ext)s' --cookies-from-browser chrome 'https://www.xiaohongshu.com/explore/6985e8d5000000001a023702?xsec_token=ABxBT5oHWymjWyKS0zZMft8Fuu1QmNXxiP2RNeYe7yN1Y=&xsec_source=pc_user'",
+      "result": {
+        "argv": [
+          "/Users/cecilialiu/Library/Python/3.9/bin/yt-dlp",
+          "--no-progress",
+          "--no-warnings",
+          "--write-info-json",
+          "--write-thumbnail",
+          "--write-subs",
+          "--write-auto-subs",
+          "--sub-langs",
+          "zh.*,en.*",
+          "-o",
+          "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-6985e8d5000000001a023702/download/%(id)s/%(title).120B.%(ext)s",
+          "--cookies-from-browser",
+          "chrome",
+          "https://www.xiaohongshu.com/explore/6985e8d5000000001a023702?xsec_token=ABxBT5oHWymjWyKS0zZMft8Fuu1QmNXxiP2RNeYe7yN1Y=&xsec_source=pc_user"
+        ],
+        "exit_code": 0,
+        "stdout_tail": "[XiaoHongShu] Extracting URL: https://www.xiaohongshu.com/explore/6985e8d5000000001a023702?xsec_token=ABxBT5oHWymjWyKS0zZMft8Fu...&xsec_source=pc_user\n[XiaoHongShu] 6985e8d5000000001a023702: Downloading webpage\nExtracting cookies from chrome\nExtracted 92 cookies from chrome\n[info] 6985e8d5000000001a023702: Downloading 1 format(s): 7\n[info] There are no subtitles for the requested languages\n[info] Downloading video thumbnail 1 ...\n[info] Writing video thumbnail 1 to: /Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-6985e8d5000000001a023702/download/6985e8d5000000001a023702/完全不碰代码怎么做产品，纯小白教学全流程.jpg\n[info] Writing video metadata as JSON to: /Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-6985e8d5000000001a023702/download/6985e8d5000000001a023702/完全不碰代码怎么做产品，纯小白教学全流程.info.json\n[download] Destination: /Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-6985e8d5000000001a023702/download/6985e8d5000000001a023702/完全不碰代码怎么做产品，纯小白教学全流程.mp4\n[download] Download completed\n",
+        "stderr_tail": "/Users/cecilialiu/Library/Python/3.9/lib/python/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020\n  warnings.warn(\nDeprecated Feature: Support for Python version 3.9 has been deprecated. Please update to Python 3.10 or above\n"
+      },
+      "new_files": [
+        "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-6985e8d5000000001a023702/download/6985e8d5000000001a023702/完全不碰代码怎么做产品，纯小白教学全流程.info.json",
+        "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-6985e8d5000000001a023702/download/6985e8d5000000001a023702/完全不碰代码怎么做产品，纯小白教学全流程.jpg",
+        "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-6985e8d5000000001a023702/download/6985e8d5000000001a023702/完全不碰代码怎么做产品，纯小白教学全流程.mp4"
+      ],
+      "attempt_variants": [
+        {
+          "cookie_variant": "browser:chrome",
+          "command": "/Users/cecilialiu/Library/Python/3.9/bin/yt-dlp --no-progress --no-warnings --write-info-json --write-thumbnail --write-subs --write-auto-subs --sub-langs 'zh.*,en.*' -o '/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-6985e8d5000000001a023702/download/%(id)s/%(title).120B.%(ext)s' --cookies-from-browser chrome 'https://www.xiaohongshu.com/explore/6985e8d5000000001a023702?xsec_token=ABxBT5oHWymjWyKS0zZMft8Fuu1QmNXxiP2RNeYe7yN1Y=&xsec_source=pc_user'",
+          "result": {
+            "argv": [
+              "/Users/cecilialiu/Library/Python/3.9/bin/yt-dlp",
+              "--no-progress",
+              "--no-warnings",
+              "--write-info-json",
+              "--write-thumbnail",
+              "--write-subs",
+              "--write-auto-subs",
+              "--sub-langs",
+              "zh.*,en.*",
+              "-o",
+              "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-6985e8d5000000001a023702/download/%(id)s/%(title).120B.%(ext)s",
+              "--cookies-from-browser",
+              "chrome",
+              "https://www.xiaohongshu.com/explore/6985e8d5000000001a023702?xsec_token=ABxBT5oHWymjWyKS0zZMft8Fuu1QmNXxiP2RNeYe7yN1Y=&xsec_source=pc_user"
+            ],
+            "exit_code": 0,
+            "stdout_tail": "[XiaoHongShu] Extracting URL: https://www.xiaohongshu.com/explore/6985e8d5000000001a023702?xsec_token=ABxBT5oHWymjWyKS0zZMft8Fu...&xsec_source=pc_user\n[XiaoHongShu] 6985e8d5000000001a023702: Downloading webpage\nExtracting cookies from chrome\nExtracted 92 cookies from chrome\n[info] 6985e8d5000000001a023702: Downloading 1 format(s): 7\n[info] There are no subtitles for the requested languages\n[info] Downloading video thumbnail 1 ...\n[info] Writing video thumbnail 1 to: /Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-6985e8d5000000001a023702/download/6985e8d5000000001a023702/完全不碰代码怎么做产品，纯小白教学全流程.jpg\n[info] Writing video metadata as JSON to: /Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-6985e8d5000000001a023702/download/6985e8d5000000001a023702/完全不碰代码怎么做产品，纯小白教学全流程.info.json\n[download] Destination: /Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-6985e8d5000000001a023702/download/6985e8d5000000001a023702/完全不碰代码怎么做产品，纯小白教学全流程.mp4\n[download] Download completed\n",
+            "stderr_tail": "/Users/cecilialiu/Library/Python/3.9/lib/python/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020\n  warnings.warn(\nDeprecated Feature: Support for Python version 3.9 has been deprecated. Please update to Python 3.10 or above\n"
+          },
+          "new_files": [
+            "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-6985e8d5000000001a023702/download/6985e8d5000000001a023702/完全不碰代码怎么做产品，纯小白教学全流程.info.json",
+            "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-6985e8d5000000001a023702/download/6985e8d5000000001a023702/完全不碰代码怎么做产品，纯小白教学全流程.jpg",
+            "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/xhs-6985e8d5000000001a023702/download/6985e8d5000000001a023702/完全不碰代码怎么做产品，纯小白教学全流程.mp4"
+          ]
+        }
+      ]
+    }
+  ]
+}

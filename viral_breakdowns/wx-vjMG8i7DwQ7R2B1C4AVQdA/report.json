@@ -1,0 +1,304 @@
+{
+  "meta": {
+    "url": "https://mp.weixin.qq.com/s/vjMG8i7DwQ7R2B1C4AVQdA",
+    "platform": "wechat_mp",
+    "content_type": "image_post",
+    "fetched_at": "2026-03-18T09:48:00.374140+00:00",
+    "analyzed_at": "2026-03-18T09:48:01.823135+00:00",
+    "language": "zh-CN",
+    "analysis_mode": "fallback"
+  },
+  "asset_index": {
+    "video": [],
+    "images": [
+      "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/wx-vjMG8i7DwQ7R2B1C4AVQdA/download/cover.jpg"
+    ],
+    "page_images": [],
+    "contact_sheet": [],
+    "audio": [],
+    "transcript": [
+      "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/wx-vjMG8i7DwQ7R2B1C4AVQdA/download/article_body.txt"
+    ],
+    "cover_text": [
+      "Improving skill-creator:"
+    ]
+  },
+  "engagement_metrics": {
+    "likes": null,
+    "comments": null,
+    "plays": null
+  },
+  "visual_specs": {
+    "video_main_aspect_ratio": {
+      "value": "1269:541",
+      "width": 1269,
+      "height": 541,
+      "confidence": 0.88
+    },
+    "subtitle_style_inference": {
+      "subtitle_size": "中小号（推断）",
+      "font_style": "无衬线加粗（推断）",
+      "confidence": 0.43,
+      "reason": "画面 OCR 与口播文本都存在，常见于移动端口播字幕模板。"
+    }
+  },
+  "post_content": {
+    "title": "Claude悄悄更新了Skills生成器，这绝对是一次史诗级升级。",
+    "body": "上周直播的时候，发现Anthropic的skills仓库居然有更新了。 \n 点进去一看，然后居然发现了一个超级刚需的Skills迎来了更新。 \n 就是这个，甚至可以说是整个Skills生态的基石。 \n Skill-creator。 \n 可以说，现在小龙虾的能力能这么强，有一半的原因都要归功于Skills，而这些Skills能被创造出来，几乎都要归功于这个母Skills， Skill-creator。 \n 我相信，任何一个看过我们过去关于Skills的文章，或者玩过Skills的朋友，都绝对不可能对这个 Skill-creator陌生。 \n 简单总结就是，这是Anthropic官方出的Skills生成器。 \n 你可以用嘴描述出你的需求，然后直接用 Skill-creator，帮你做成一个Skill。 \n 如果有不了解的，可以去看一下我们过去的这一篇文章： 一文带你看懂，火爆全网的Skills到底是个啥。 自认为写的还是比较详细的。 \n 这周终于有时间，详细翻了一下这次更新的 Skill-creator的文档，然后发现，这次真的可以说，是史诗级更新也不为过，强了太多太多了。 \n 所以我觉得，值得写一篇文章，来给大家聊聊，这次 Skill-creator更新的新特性和新功能。 \n 真的，所有的skills，都值得重新优化一遍。 \n 非常简单的说，这次他们一口加了4个全新的能力，分别是： \n 1. 评估系统，跑完直接告诉你这个skill到底行不行。 \n 2. 基准测试，把通过率、耗时、token用量，全都量化。 \n 3. 多代理并行测试，每个测试在干净的环境里独立跑，支持A/B盲评，结果不互相污染。 \n 4. 描述调优，可以自动帮你改skill描述，该触发的触发，不该触发的就别乱触发。 \n 之前的 Skill-creator其实一直有个痛点，就是你生成完的Skills，其实是个黑盒，你完全不知道，这个Skills到底好不好用，它的质量怎么样，它的触发机制合不合理。 \n 用我们现代经常提的工业化体系来说，就是缺少了一个很重要的东西，评估机制。 \n 评估太重要了，一个好的评估，是真的可以引领方向的。 \n 而现在，新版的 Skill-creator，直接把整个评估体系，全都补上了。 \n 我极力推荐大家，一定要更新到最新版。 \n 更新方式也究极无敌简单，你直接把这段话，发给你的Agent就行，无论是Claude code、OpenClaw、OpenCode等等等等： \n https://github.com/anthropics/skills/tree/main/skills/skill-creator，这个skills更新了，帮我更新到最新版本    \n 对，就这么一句话。 \n 然后你的Agent，就会自己去更新了。 \n 很快，就更新完了。 \n 我用一个案例，来给大家演示一下新版Skill-creator的能力。 \n 在之前有一篇文章中，我把Github上的yt-dlp做成了一个Skill，能从YouTube、B站等各种视频网站下载视频。 \n 但其实我们后来发现，光能下载视频还不够。 \n 我还希望拿到视频链接之后，能直接生成文字版的讲稿。 \n 而且如果是英文或其他语言的视频，最好能直接给我中英双语的讲稿文档。 \n 所以正好，借着这个机会，我就用skill-creator又搓了一个新skill。 \n 提示词很简单。 \n 我想创建一个skill，我希望能够实现我给了一个视频链接，它能够把文字版的讲稿发给我，如果是别的语言，最好是把原语言版和中文版的讲稿文档给我。 \n 它会先问你几个问题，确认需求细节，然后开始帮你设计整个skill。 \n 大概3到5分钟，这个Skill就设计完了。 \n 我拿一个OpenClaw创始人的YouTube访谈视频来试一下。 \n 就给了一个YouTube的链接。 \n 五分钟后，中文版的讲稿就出来了。 \n 但是，其实有个问题。。。 \n 这一大坨文字堆在一起，字又小又挤。 \n 根本没法看。 \n 这时候你就可以继续对话，让它给你优化，帮你改进这个skill。 \n 新版的Skill-creator，在改进的能力上，也有一些提升。 \n 改进之后的效果： \n 几乎完美。 \n 排版清晰，段落分明，这才像个文档该有的样子。 \n 但这还没完。 \n 但这个时候，一个头疼的问题就来了，我害怕我的skills触发会打架。 \n 因为我现在有两个skill都跟视频链接相关。 \n 一个是yt-dlp，负责下载视频到本地。 \n 一个是刚做的讲稿生成，负责把视频转成文字。 \n 两个skill的触发条件都是给一个视频链接，我害怕他们会打架，就是出现该触发的不触发，不该触发的乱触发。 \n 那就可以使用Skill-creator的评估体系了，让它来帮你，进行优",
+    "tags": []
+  },
+  "hook": {
+    "text": "Claude悄悄更新了Skills生成器，这绝对是一次史诗级升级。",
+    "evidence": [
+      {
+        "type": "cover_ocr",
+        "source": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/wx-vjMG8i7DwQ7R2B1C4AVQdA/download/cover.jpg",
+        "locator": "image:0",
+        "snippet": "Improving skill-creator:\nTest,measure,and\nrefine Agent Skills\nSkillauthorscannowverifythattheirskillswork,catch\nregressi",
+        "confidence": 0.99
+      },
+      {
+        "type": "transcript_span",
+        "source": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/wx-vjMG8i7DwQ7R2B1C4AVQdA/download/article_body.txt",
+        "locator": "line:1",
+        "snippet": "上周直播的时候，发现Anthropic的skills仓库居然有更新了。",
+        "confidence": 0.7
+      }
+    ]
+  },
+  "script_structure": [],
+  "narrative_pattern": {
+    "name": "图文页卡递进",
+    "description": "单页单信息点，按封面/引入/解释/场景/方法/收束推进。",
+    "evidence": [
+      {
+        "type": "cover_ocr",
+        "source": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/wx-vjMG8i7DwQ7R2B1C4AVQdA/download/cover.jpg",
+        "locator": "image:0",
+        "snippet": "Improving skill-creator:\nTest,measure,and\nrefine Agent Skills\nSkillauthorscannowverifythattheirskillswork,catch\nregressi",
+        "confidence": 0.99
+      },
+      {
+        "type": "transcript_span",
+        "source": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/wx-vjMG8i7DwQ7R2B1C4AVQdA/download/article_body.txt",
+        "locator": "line:1",
+        "snippet": "上周直播的时候，发现Anthropic的skills仓库居然有更新了。",
+        "confidence": 0.7
+      }
+    ]
+  },
+  "cover_title": {
+    "text": "Improving skill-creator:",
+    "evidence": [
+      {
+        "type": "cover_ocr",
+        "source": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/wx-vjMG8i7DwQ7R2B1C4AVQdA/download/cover.jpg",
+        "locator": "image:0",
+        "snippet": "Improving skill-creator:\nTest,measure,and\nrefine Agent Skills\nSkillauthorscannowverifythattheirskillswork,catch\nregressi",
+        "confidence": 0.99
+      },
+      {
+        "type": "transcript_span",
+        "source": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/wx-vjMG8i7DwQ7R2B1C4AVQdA/download/article_body.txt",
+        "locator": "line:1",
+        "snippet": "上周直播的时候，发现Anthropic的skills仓库居然有更新了。",
+        "confidence": 0.7
+      }
+    ]
+  },
+  "voiceover_copy": {
+    "text": "上周直播的时候，发现Anthropic的skills仓库居然有更新了。 \n 点进去一看，然后居然发现了一个超级刚需的Skills迎来了更新。 \n 就是这个，甚至可以说是整个Skills生态的基石。 \n Skill-creator。 \n 可以说，现在小龙虾的能力能这么强，有一半的原因都要归功于Skills，而这些Skills能被创造出来，几乎都要归功于这个母Skills， Skill-creator。 \n 我相信，任何一个看过我们过去关于Skills的文章，或者玩过Skills的朋友，都绝对不可能对这个 Skill-creator陌生。 \n 简单总结就是，这是Anthropic官方出的Skills生成器。 \n 你可以用嘴描述出你的需求，然后直接用 Skill-creator，帮你做成一个Skill。 \n 如果有不了解的，可以去看一下我们过去的这一篇文章： 一文带你看懂，火爆全网的Skills到底是个啥。 自认为写的还是比较详细的。 \n 这周终于有时间，详细翻了一下这次更新的 Skill-creator的文档，然后发现，这次真的可以说，是史诗级更新也不为过，强了太多太多了。 \n 所以我觉得",
+    "evidence": [
+      {
+        "type": "cover_ocr",
+        "source": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/wx-vjMG8i7DwQ7R2B1C4AVQdA/download/cover.jpg",
+        "locator": "image:0",
+        "snippet": "Improving skill-creator:\nTest,measure,and\nrefine Agent Skills\nSkillauthorscannowverifythattheirskillswork,catch\nregressi",
+        "confidence": 0.99
+      },
+      {
+        "type": "transcript_span",
+        "source": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/wx-vjMG8i7DwQ7R2B1C4AVQdA/download/article_body.txt",
+        "locator": "line:1",
+        "snippet": "上周直播的时候，发现Anthropic的skills仓库居然有更新了。",
+        "confidence": 0.7
+      },
+      {
+        "type": "transcript_span",
+        "source": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/wx-vjMG8i7DwQ7R2B1C4AVQdA/download/article_body.txt",
+        "locator": "line:2",
+        "snippet": "点进去一看，然后居然发现了一个超级刚需的Skills迎来了更新。",
+        "confidence": 0.7
+      },
+      {
+        "type": "transcript_span",
+        "source": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/wx-vjMG8i7DwQ7R2B1C4AVQdA/download/article_body.txt",
+        "locator": "line:3",
+        "snippet": "就是这个，甚至可以说是整个Skills生态的基石。",
+        "confidence": 0.7
+      }
+    ]
+  },
+  "production_method_inference": [
+    {
+      "method": "Canva/Figma 这类静态排版工具（推断）",
+      "confidence": 0.52,
+      "evidence": [
+        {
+          "type": "cover_ocr",
+          "source": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/wx-vjMG8i7DwQ7R2B1C4AVQdA/download/cover.jpg",
+          "locator": "image:0",
+          "snippet": "Improving skill-creator:\nTest,measure,and\nrefine Agent Skills\nSkillauthorscannowverifythattheirskillswork,catch\nregressi",
+          "confidence": 0.99
+        },
+        {
+          "type": "transcript_span",
+          "source": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/wx-vjMG8i7DwQ7R2B1C4AVQdA/download/article_body.txt",
+          "locator": "line:1",
+          "snippet": "上周直播的时候，发现Anthropic的skills仓库居然有更新了。",
+          "confidence": 0.7
+        }
+      ]
+    },
+    {
+      "method": "真实截图 + 文字卡混排（推断）",
+      "confidence": 0.28,
+      "evidence": [
+        {
+          "type": "transcript_span",
+          "source": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/wx-vjMG8i7DwQ7R2B1C4AVQdA/download/article_body.txt",
+          "locator": "line:2",
+          "snippet": "点进去一看，然后居然发现了一个超级刚需的Skills迎来了更新。",
+          "confidence": 0.7
+        },
+        {
+          "type": "transcript_span",
+          "source": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/wx-vjMG8i7DwQ7R2B1C4AVQdA/download/article_body.txt",
+          "locator": "line:3",
+          "snippet": "就是这个，甚至可以说是整个Skills生态的基石。",
+          "confidence": 0.7
+        }
+      ]
+    },
+    {
+      "method": "AI 概念示意图 + 后期手动排字（推断）",
+      "confidence": 0.2,
+      "evidence": [
+        {
+          "type": "transcript_span",
+          "source": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/wx-vjMG8i7DwQ7R2B1C4AVQdA/download/article_body.txt",
+          "locator": "line:4",
+          "snippet": "Skill-creator。",
+          "confidence": 0.7
+        },
+        {
+          "type": "transcript_span",
+          "source": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/wx-vjMG8i7DwQ7R2B1C4AVQdA/download/article_body.txt",
+          "locator": "line:5",
+          "snippet": "可以说，现在小龙虾的能力能这么强，有一半的原因都要归功于Skills，而这些Skills能被创造出来，几乎都要归功于这个母Skills， Skill-creator。",
+          "confidence": 0.7
+        }
+      ]
+    }
+  ],
+  "virality_drivers": [
+    {
+      "driver": "图文结构完整，具备基础浏览链路",
+      "why": "即使缺少强证据页，分段明确仍能降低阅读成本。",
+      "evidence": [
+        {
+          "type": "cover_ocr",
+          "source": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/wx-vjMG8i7DwQ7R2B1C4AVQdA/download/cover.jpg",
+          "locator": "image:0",
+          "snippet": "Improving skill-creator:\nTest,measure,and\nrefine Agent Skills\nSkillauthorscannowverifythattheirskillswork,catch\nregressi",
+          "confidence": 0.99
+        },
+        {
+          "type": "transcript_span",
+          "source": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/wx-vjMG8i7DwQ7R2B1C4AVQdA/download/article_body.txt",
+          "locator": "line:1",
+          "snippet": "上周直播的时候，发现Anthropic的skills仓库居然有更新了。",
+          "confidence": 0.7
+        }
+      ]
+    }
+  ],
+  "adaptation_ideas": [
+    {
+      "idea": "保留现有页型节奏，但把前 3 页压到“用户痛点 + 一句话差异 + 核心解释图”。",
+      "rationale": "这能最大限度复用结构优势，而不复写原内容。"
+    },
+    {
+      "idea": "中段至少放 2 页具体场景或步骤页，不要整篇停留在观点表达。",
+      "rationale": "对小红书来说，收藏来自可执行信息，不来自抽象判断。"
+    },
+    {
+      "idea": "尾页固定保留 CTA：收藏、评论想看下一篇、或具体追问入口。",
+      "rationale": "这类尾页是系列化图文的关键转化位。"
+    }
+  ],
+  "page_breakdown": [],
+  "structure_summary": {
+    "name": "静态图文链路未识别",
+    "description": "未识别出足够的有效页卡，只能基于标题和正文做弱结构判断。",
+    "evidence": [
+      {
+        "type": "cover_ocr",
+        "source": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/wx-vjMG8i7DwQ7R2B1C4AVQdA/download/cover.jpg",
+        "locator": "image:0",
+        "snippet": "Improving skill-creator:\nTest,measure,and\nrefine Agent Skills\nSkillauthorscannowverifythattheirskillswork,catch\nregressi",
+        "confidence": 0.99
+      },
+      {
+        "type": "transcript_span",
+        "source": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/wx-vjMG8i7DwQ7R2B1C4AVQdA/download/article_body.txt",
+        "locator": "line:1",
+        "snippet": "上周直播的时候，发现Anthropic的skills仓库居然有更新了。",
+        "confidence": 0.7
+      },
+      {
+        "type": "transcript_span",
+        "source": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/wx-vjMG8i7DwQ7R2B1C4AVQdA/download/article_body.txt",
+        "locator": "line:2",
+        "snippet": "点进去一看，然后居然发现了一个超级刚需的Skills迎来了更新。",
+        "confidence": 0.7
+      }
+    ]
+  },
+  "design_pattern": {
+    "name": "小红书教程型长图文",
+    "description": "整体设计语言偏小红书教程型长图文：白底长文 + 少量示意图。重心不在复杂设计，而在单页只讲一个信息点。",
+    "elements": [],
+    "evidence": [
+      {
+        "type": "cover_ocr",
+        "source": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/wx-vjMG8i7DwQ7R2B1C4AVQdA/download/cover.jpg",
+        "locator": "image:0",
+        "snippet": "Improving skill-creator:\nTest,measure,and\nrefine Agent Skills\nSkillauthorscannowverifythattheirskillswork,catch\nregressi",
+        "confidence": 0.99
+      },
+      {
+        "type": "transcript_span",
+        "source": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/wx-vjMG8i7DwQ7R2B1C4AVQdA/download/article_body.txt",
+        "locator": "line:1",
+        "snippet": "上周直播的时候，发现Anthropic的skills仓库居然有更新了。",
+        "confidence": 0.7
+      },
+      {
+        "type": "transcript_span",
+        "source": "/Users/cecilialiu/Documents/Codex/ai-content/viral_breakdowns/wx-vjMG8i7DwQ7R2B1C4AVQdA/download/article_body.txt",
+        "locator": "line:2",
+        "snippet": "点进去一看，然后居然发现了一个超级刚需的Skills迎来了更新。",
+        "confidence": 0.7
+      }
+    ]
+  },
+  "blank_or_shell_frames": [],
+  "limitations": [
+    "小红书图文未抓到逐页页卡，只能基于元数据做弱分析。",
+    "OCR 与 ASR 质量依赖素材清晰度。",
+    "如无网络，Local Whisper 首次模型下载可能失败。",
+    "图文页型判断基于 OCR + 视觉规则，仍需人工复核。"
+  ],
+  "confidence_overall": 0.58
+}
