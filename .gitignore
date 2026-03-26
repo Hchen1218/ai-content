@@ -1,1 +1,12 @@
 .venv312/
+.DS_Store
+.sisyphus/
+.tmp_skill_work/
+.cache/
+viral_breakdowns/
+output/
+analysis/xhs_benchmarks/
+analysis/xhs_note_dl_test/
+analysis/xhs_probe_*/
+analysis/xhs_notes/note*/
+analysis/xhs_notes/*-contact.png
