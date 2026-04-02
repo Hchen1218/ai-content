@@ -20,7 +20,8 @@ Phase 3 extends that pipeline into direct write-back:
 - refresh `内容数据表.md` from the latest capture
 - update matched published-archive data blocks
 - generate the current weekly review draft
-- keep unmatched rows and partial coverage explicit in a sidecar report
+- auto-create archive stubs for newly published but still-unarchived content
+- keep unmatched rows, partial coverage, and missing content assets explicit in a sidecar report
 
 ## What success looks like
 
@@ -121,6 +122,8 @@ The write-back script updates:
 - `<capture-dir>/writeback-report.md`
 
 It does **not** fabricate missing fields and does **not** silently edit `📋 进行中的运营动作.md` when the latest capture does not hit an active action.
+When a freshly published row does not match any existing archive, it now creates a stub under `03-已发布选题/` first, then reruns archive matching so later write-back can land on a real file.
+When the archive still lacks `口播稿正文 / 图文正文 / 封面标题`, the script records those gaps in `writeback-report.md` instead of pretending the archive is complete.
 
 ## Output files
 
@@ -163,6 +166,8 @@ Recommended storage location:
 - per-work supplement for `播放 / 点赞 / 收藏 / 分享 / 评论 / 涨粉 / 5s完播率 / 完播率 / 平均播放时长 / 2s跳出率 / 主页访问 / 封面点击率`
 - per-account aggregate derived from full published works for `总播放 / 总点赞 / 总收藏 / 累计视频数 / 条均5s完播率 / 条均2s跳出率 / 条均播放时长 / 播放量中位数`
 - Phase 3 write-back into `内容数据表.md` / published archives / weekly review
+- Phase 3 archive-gap reporting for `口播稿正文 / 图文正文 / 封面标题`
+- Phase 3 auto-stub creation for newly published unmatched rows
 
 ## Phase 2 data priorities
 

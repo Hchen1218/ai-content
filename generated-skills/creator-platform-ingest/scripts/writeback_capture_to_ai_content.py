@@ -194,6 +194,125 @@ def best_archive_path(row: dict[str, Any]) -> str | None:
     return paths[0] if paths else None
 
 
+def stripped_title(title: str) -> str:
+    title = re.sub(r"\s*#\S+$", "", title).strip()
+    return title.replace("❗️", "").replace("❗", "").strip()
+
+
+def archive_filename_component(title: str) -> str:
+    stem = stripped_title(title)
+    stem = re.sub(r'[\\/:*?"<>|]+', "-", stem)
+    stem = re.sub(r"[“”\"'‘’]+", "", stem)
+    stem = re.sub(r"[!！?？]+", "", stem)
+    stem = re.sub(r"[，,。；;：:、（）()【】\[\]]+", "-", stem)
+    stem = re.sub(r"\s+", "", stem)
+    stem = re.sub(r"-{2,}", "-", stem).strip("-")
+    return stem[:60] or "未命名内容"
+
+
+def content_form_label(xhs_row: dict[str, Any] | None, dy_row: dict[str, Any] | None) -> str:
+    if dy_row:
+        return "口播视频"
+    if xhs_row and xhs_row.get("resolved_content_type") == "image_text":
+        return "图文"
+    if xhs_row and xhs_row.get("resolved_content_type") == "video":
+        return "口播视频"
+    return "待识别"
+
+
+def core_archive_title(xhs_row: dict[str, Any] | None, dy_row: dict[str, Any] | None) -> str:
+    if dy_row:
+        return stripped_title(dy_row["title"])
+    if xhs_row:
+        return stripped_title(xhs_row["title"])
+    return "未命名内容"
+
+
+def row_publish_iso(row: dict[str, Any] | None) -> str:
+    if not row:
+        return "1970-01-01"
+    return (row.get("published_at") or row.get("publish_date") or "1970-01-01")[:10]
+
+
+def pair_unmatched_rows(rows: list[dict[str, Any]]) -> list[dict[str, dict[str, Any] | None]]:
+    xhs_rows = [row for row in rows if row["platform"] == "xhs"]
+    dy_rows = [row for row in rows if row["platform"] == "dy"]
+    paired: list[dict[str, dict[str, Any] | None]] = []
+    remaining_xhs = xhs_rows[:]
+    for dy_row in sorted(dy_rows, key=lambda row: row_publish_iso(row), reverse=True):
+        best_idx = None
+        best_score = 0.0
+        dy_date = row_publish_iso(dy_row)
+        for idx, xhs_row in enumerate(remaining_xhs):
+            xhs_date = row_publish_iso(xhs_row)
+            day_gap = abs((datetime.fromisoformat(dy_date) - datetime.fromisoformat(xhs_date)).days)
+            if day_gap > 3:
+                continue
+            score = score_match(normalize_text(stripped_title(dy_row["title"])), normalize_text(stripped_title(xhs_row["title"])))
+            if score > best_score:
+                best_score = score
+                best_idx = idx
+        if best_idx is not None and best_score >= 0.35:
+            paired.append({"xhs": remaining_xhs.pop(best_idx), "dy": dy_row})
+        else:
+            paired.append({"xhs": None, "dy": dy_row})
+    for xhs_row in remaining_xhs:
+        paired.append({"xhs": xhs_row, "dy": None})
+    return paired
+
+
+def build_archive_stub_markdown(xhs_row: dict[str, Any] | None, dy_row: dict[str, Any] | None) -> str:
+    title = core_archive_title(xhs_row, dy_row)
+    form_label = content_form_label(xhs_row, dy_row)
+    created_date = min(row_publish_iso(xhs_row), row_publish_iso(dy_row))
+    platforms = " / ".join(platform for platform, row in ((XHS_PLATFORM, xhs_row), (DY_PLATFORM, dy_row)) if row) or "-"
+    blocks = []
+    if xhs_row:
+        blocks.append(render_archive_block(XHS_PLATFORM, xhs_row))
+    if dy_row:
+        blocks.append(render_archive_block(DY_PLATFORM, dy_row))
+    lines = [f"# {title}", ""]
+    if blocks:
+        lines.append("\n\n---\n\n".join(blocks))
+        lines.extend(["", "---", ""])
+    lines.extend(
+        [
+            "## 基本信息",
+            f"- 创建日期：{created_date}",
+            f"- 目标平台：{platforms}",
+            f"- 内容形式：{form_label}",
+            "- 来源：creator-platform-ingest 自动归档",
+            "- 状态：待补内容资产",
+            "",
+            "## 来源说明",
+            "",
+            "- 本条内容已在创作者后台发布，数据已由 creator-platform-ingest 自动写回。",
+            "- 当前归档为自动创建壳子，口播稿正文 / 图文正文 / 封面标题仍需人工补齐后再进入完整归档状态。",
+        ]
+    )
+    if form_label == "口播视频":
+        lines.extend(["", "## 完整口播文案（待补）", "", "（待补）"])
+    if form_label == "图文":
+        lines.extend(["", "## 图文正文（待补）", "", "（待补）"])
+    return "\n".join(lines).rstrip() + "\n"
+
+
+def create_archive_stubs(repo_root: Path, rows: list[dict[str, Any]], dry_run: bool) -> list[str]:
+    created_paths: list[str] = []
+    for pair in pair_unmatched_rows(rows):
+        xhs_row = pair.get("xhs")
+        dy_row = pair.get("dy")
+        title = core_archive_title(xhs_row, dy_row)
+        published_at = row_publish_iso(xhs_row or dy_row).replace("-", "")
+        path = repo_root / ARCHIVE_DIR / f"{published_at}-{archive_filename_component(title)}.md"
+        if path.exists():
+            continue
+        if not dry_run:
+            path.write_text(build_archive_stub_markdown(xhs_row, dy_row), encoding="utf-8")
+        created_paths.append(str(path))
+    return created_paths
+
+
 def with_recomputed_archive_matches(rows: list[dict[str, Any]], archives: list[Any]) -> list[dict[str, Any]]:
     patched = []
     for row in rows:
@@ -216,6 +335,12 @@ def row_in_window(row: dict[str, Any], window: dict[str, Any] | None) -> bool:
         return False
     published = row["published_at"][:10]
     return window["start_date"] <= published <= window["end_date"]
+
+
+def row_in_platform_window(row: dict[str, Any], payload: dict[str, Any]) -> bool:
+    platform = row["platform"]
+    window = payload.get("account_snapshot", {}).get(platform, {}).get("data_window")
+    return row_in_window(row, window)
 
 
 def xhs_row_analysis(row: dict[str, Any]) -> str:
@@ -709,6 +834,40 @@ def extract_existing_cover_title(block_text: str | None) -> str | None:
     return match.group(1).strip() if match else None
 
 
+def find_any_cover_title(text: str) -> str | None:
+    match = re.search(r"\*\*封面标题\*\*：(.+)", text)
+    return match.group(1).strip() if match else None
+
+
+def extract_section_by_prefixes(text: str, prefixes: tuple[str, ...]) -> str | None:
+    lines = text.splitlines()
+    for idx, line in enumerate(lines):
+        if any(line.startswith(prefix) for prefix in prefixes):
+            end = idx + 1
+            while end < len(lines) and not lines[end].startswith("## "):
+                end += 1
+            return "\n".join(lines[idx:end]).strip()
+    return None
+
+
+def archive_asset_gaps(path: Path) -> list[str]:
+    text = path.read_text(encoding="utf-8")
+    gaps: list[str] = []
+    is_video = "内容形式：口播视频" in text or "内容形式：视频" in text
+    is_image_text = "内容形式：图文" in text
+    if is_video and not re.search(r"\*\*封面标题\*\*：\s*(?!（未填写）)(.+)", text):
+        gaps.append("封面标题")
+    if is_video:
+        oral_section = extract_section_by_prefixes(text, ("## 完整口播文案", "## 实际发布文案（抖音版）"))
+        if not oral_section or "（待补）" in oral_section or "表格中无口播文案数据" in oral_section:
+            gaps.append("口播稿正文")
+    if is_image_text:
+        image_section = extract_section_by_prefixes(text, ("## 图文正文", "## 实际发布文案（小红书版）"))
+        if not image_section or "（待补）" in image_section:
+            gaps.append("图文正文")
+    return gaps
+
+
 def render_archive_block(platform: str, row: dict[str, Any], cover_title: str | None = None) -> str:
     publish_date = row.get("publish_date") or "-"
     if platform == XHS_PLATFORM:
@@ -770,7 +929,8 @@ def update_archive_file(path: Path, xhs_row: dict[str, Any] | None, dy_row: dict
     h1, existing_blocks, remainder = extract_archive_front(original)
     new_blocks = []
     xhs_block = render_archive_block(XHS_PLATFORM, xhs_row) if xhs_row else existing_blocks.get(XHS_PLATFORM)
-    dy_block = render_archive_block(DY_PLATFORM, dy_row, extract_existing_cover_title(existing_blocks.get(DY_PLATFORM))) if dy_row else existing_blocks.get(DY_PLATFORM)
+    preserved_cover = extract_existing_cover_title(existing_blocks.get(DY_PLATFORM)) or find_any_cover_title(original)
+    dy_block = render_archive_block(DY_PLATFORM, dy_row, preserved_cover) if dy_row else existing_blocks.get(DY_PLATFORM)
     for block in (xhs_block, dy_block):
         if block:
             new_blocks.append(block)
@@ -853,7 +1013,7 @@ def build_review_markdown(payload: dict[str, Any], xhs_rows: list[dict[str, Any]
             "## 下周建议动作",
             "1. 抖音继续优先做能过前 5 秒的明确结果型表达，不再测试过底层的纯概念题。",
             "2. 小红书继续保留判断型标题，但要同步优化分发承接，不要只看点击率。",
-            "3. 先把当前几条新内容补归档，再决定是否新建动作卡。",
+            "3. 先把当前几条新内容的口播稿 / 封面标题补齐，再决定是否新建动作卡。",
             "",
             "## 停做建议",
             "- 暂停把旧的 xlsx 手工导入当成主流程，这轮 capture 已经够写回核心文档。",
@@ -868,13 +1028,23 @@ def build_review_markdown(payload: dict[str, Any], xhs_rows: list[dict[str, Any]
     return str(review_path), "\n".join(lines).rstrip() + "\n"
 
 
-def build_report(changed_files: list[str], untouched_archives: int, unmatched_rows: list[str], action_hits: int, dry_run: bool, review_path: str) -> str:
+def build_report(
+    changed_files: list[str],
+    untouched_archives: int,
+    unmatched_rows: list[str],
+    created_archives: list[str],
+    asset_gaps: dict[str, list[str]],
+    action_hits: int,
+    dry_run: bool,
+    review_path: str,
+) -> str:
     lines = [
         "# Phase 3 Writeback Report",
         "",
         f"- mode: {'dry-run' if dry_run else 'apply'}",
         f"- updated_files: {len(changed_files)}",
         f"- untouched_archives: {untouched_archives}",
+        f"- created_archives: {len(created_archives)}",
         f"- action_hits: {action_hits}",
         f"- weekly_review_target: {review_path}",
         "",
@@ -887,6 +1057,17 @@ def build_report(changed_files: list[str], untouched_archives: int, unmatched_ro
     lines.extend(["", "## Unmatched Rows"])
     if unmatched_rows:
         lines.extend([f"- {title}" for title in unmatched_rows[:20]])
+    else:
+        lines.append("- none")
+    lines.extend(["", "## Created Archives"])
+    if created_archives:
+        lines.extend([f"- {path}" for path in created_archives])
+    else:
+        lines.append("- none")
+    lines.extend(["", "## Asset Gaps"])
+    if asset_gaps:
+        for path, gaps in asset_gaps.items():
+            lines.append(f"- {path}: {', '.join(gaps)}")
     else:
         lines.append("- none")
     return "\n".join(lines).rstrip() + "\n"
@@ -906,6 +1087,11 @@ def main() -> int:
     content_data_path = repo_root / CONTENT_DATA_PATH
     content_data_text = content_data_path.read_text(encoding="utf-8")
 
+    initial_archives = load_archive_docs(repo_root)
+    initial_rows = with_recomputed_archive_matches(payload["content_rows"], initial_archives)
+    initial_unmatched = [row for row in initial_rows if not best_archive_path(row) and row_in_platform_window(row, payload)]
+    created_archives = create_archive_stubs(repo_root, initial_unmatched, args.dry_run)
+
     archives = load_archive_docs(repo_root)
     archive_content_types = {doc.path: doc.content_type for doc in archives}
     rows = with_recomputed_archive_matches(payload["content_rows"], archives)
@@ -923,6 +1109,8 @@ def main() -> int:
     updated_content_data = replace_footer(updated_content_data, footer)
 
     changed_files: list[str] = []
+    for path in created_archives:
+        changed_files.append(path)
     if updated_content_data != content_data_text:
         if not args.dry_run:
             content_data_path.write_text(updated_content_data.rstrip() + "\n", encoding="utf-8")
@@ -950,6 +1138,17 @@ def main() -> int:
         if archive_changed:
             changed_files.append(doc.path)
 
+    current_window_archive_paths = {
+        best_archive_path(row)
+        for row in rows
+        if best_archive_path(row) and row_in_platform_window(row, payload)
+    }
+    asset_gap_map: dict[str, list[str]] = {}
+    for archive_path in sorted(path for path in current_window_archive_paths if path):
+        gaps = archive_asset_gaps(Path(archive_path))
+        if gaps:
+            asset_gap_map[archive_path] = gaps
+
     review_path, review_text = build_review_markdown(payload, xhs_rows, dy_rows, captured_at)
     if not args.dry_run:
         target = repo_root / Path(review_path)
@@ -961,6 +1160,8 @@ def main() -> int:
         changed_files=changed_files,
         untouched_archives=untouched_archives,
         unmatched_rows=unmatched_rows,
+        created_archives=created_archives,
+        asset_gaps=asset_gap_map,
         action_hits=sum(1 for row in rows if row.get("matched_action_ids")),
         dry_run=args.dry_run,
         review_path=review_path,
