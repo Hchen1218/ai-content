@@ -1,0 +1,37 @@
+{
+  "iteration": 2,
+  "capture_path": "/Users/cecilialiu/Documents/Codex/ai-content/.cache/content-pipeline/creator-captures/xhs-complete-for-phase3-v1/capture.json",
+  "writeback_report": "/Users/cecilialiu/Documents/Codex/ai-content/.cache/content-pipeline/creator-captures/xhs-complete-for-phase3-v1/writeback-report.md",
+  "checks": [
+    {
+      "name": "xiaohongshu_rows_have_impressions",
+      "passed": true,
+      "details": "29/29 小红书 content_rows 已补到 impressions。"
+    },
+    {
+      "name": "douyin_rows_have_validation_metrics",
+      "passed": true,
+      "details": "21/21 抖音作品已补到 5s 完播率；21/21 已补到主页访问。"
+    },
+    {
+      "name": "content_data_table_updated",
+      "passed": true,
+      "details": "内容数据表已写入 2026-04-02 快照，窗口更新为 2026-03-26 ~ 2026-04-01（近7日）。"
+    },
+    {
+      "name": "weekly_review_generated",
+      "passed": true,
+      "details": "已生成 2026-W14 周运营复盘。"
+    },
+    {
+      "name": "writeback_keeps_gaps_explicit",
+      "passed": true,
+      "details": "writeback-report.md 保留了未匹配内容和 remaining warnings。"
+    }
+  ],
+  "remaining_gaps": [
+    "小红书首页仍未稳定暴露平均观看时长 / 总观看时长。",
+    "小红书 note-manager 仍是虚拟列表，当前依赖 content-analysis 补齐单条核心指标。",
+    "进行中的运营动作在当前 capture 窗口没有命中新样本，因此动作卡没有自动改写。"
+  ]
+}

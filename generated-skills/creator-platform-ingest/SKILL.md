@@ -16,6 +16,12 @@ Phase 2 is scoped around运营录入自动化, so the capture should favor data 
 - `📋 进行中的运营动作.md`
 - weekly review drafts
 
+Phase 3 extends that pipeline into direct write-back:
+- refresh `内容数据表.md` from the latest capture
+- update matched published-archive data blocks
+- generate the current weekly review draft
+- keep unmatched rows and partial coverage explicit in a sidecar report
+
 ## What success looks like
 
 The run is successful when all of the following are true:
@@ -96,6 +102,26 @@ If the user asked for data intake or review updates:
 
 Do not invent unavailable metrics. If a field is not exposed by the page capture, keep it blank and say why.
 
+### 4. Run Phase 3 write-back
+
+When the user explicitly wants the capture written back into `ai-content`, run:
+
+```bash
+python3 generated-skills/creator-platform-ingest/scripts/writeback_capture_to_ai_content.py \
+  --capture .cache/content-pipeline/creator-captures/<run>/capture.json \
+  --repo-root .
+```
+
+Use `--dry-run` first when you are changing the write-back logic itself or validating a new capture shape.
+
+The write-back script updates:
+- `01-内容生产/数据统计/内容数据表.md`
+- matched files under `01-内容生产/选题管理/03-已发布选题/`
+- `02-业务运营/业务规划/周期复盘/<current-week>.md`
+- `<capture-dir>/writeback-report.md`
+
+It does **not** fabricate missing fields and does **not** silently edit `📋 进行中的运营动作.md` when the latest capture does not hit an active action.
+
 ## Output files
 
 The script writes:
@@ -122,17 +148,21 @@ Recommended storage location:
 ### Xiaohongshu Creator
 - home dashboard summary
 - note manager list
-- content-analysis table for visible per-note metrics
+- content-analysis table with DOM pagination across visible pages
 - current selected data window and selected status filter
 - partial-list coverage reporting
 - per-note supplement for `曝光 / 观看 / 封面点击率 / 点赞 / 评论 / 收藏 / 涨粉 / 分享 / 人均观看时长 / 弹幕`
+- archive-title alias matching so write-back can still target the right published file when the published title differs from the archive H1
 
 ### Douyin Creator
 - home dashboard summary
+- homepage overview API for near-7-day summary + daily series
 - works manager list
 - current selected data window and selected status filter
 - work-list API enrichment for full published works coverage
 - per-work supplement for `播放 / 点赞 / 收藏 / 分享 / 评论 / 涨粉 / 5s完播率 / 完播率 / 平均播放时长 / 2s跳出率 / 主页访问 / 封面点击率`
+- per-account aggregate derived from full published works for `总播放 / 总点赞 / 总收藏 / 累计视频数 / 条均5s完播率 / 条均2s跳出率 / 条均播放时长 / 播放量中位数`
+- Phase 3 write-back into `内容数据表.md` / published archives / weekly review
 
 ## Phase 2 data priorities
 
@@ -201,6 +231,7 @@ For Douyin specifically:
 - do not rely on visible DOM text alone for validation metrics
 - supplement work rows from the logged-in `work_list` API exposed by the works-manager page
 - use the page DOM mainly for selected status and fallback rendering context
+- derive account-level totals and medians from the full work-list API when those values are needed by `内容数据表.md`
 
 If the current page does not expose some of these fields, keep them blank and explain the gap in `capture_coverage`.
 
@@ -239,10 +270,10 @@ Douyin:
 Trend series are required for downstream review logic, but current creator pages may not always expose daily points in stable DOM text.
 
 So the script must:
-- attempt to capture the selected-period trend context
+- prefer the Douyin homepage `overview/all` API for near-7-day trend capture
 - record summary metrics even if daily points are unavailable
 - never leave trend gaps silent
-- mark the platform trend block as `summary_only` or `missing` when that is the real coverage
+- mark the platform trend block as `series_available`, `summary_only`, or `missing` based on the real coverage
 
 When a required field is missing, say so explicitly and keep the raw capture around for debugging.
 

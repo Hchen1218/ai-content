@@ -84,6 +84,8 @@ class ArchiveDoc:
     title: str
     normalized_title: str
     normalized_stem: str
+    normalized_aliases: list[str]
+    content_type: str | None
 
 
 @dataclass
@@ -442,6 +444,134 @@ JSON.stringify((() => {
     return proxy.eval(target, expression)
 
 
+def fetch_xhs_note_cards(proxy: ProxyClient, target: str) -> dict[str, Any]:
+    expression = r"""
+(async () => {
+  const delay = (ms) => new Promise(resolve => setTimeout(resolve, ms));
+  const extractCards = () => Array.from(document.querySelectorAll('.note')).map((el, index) => {
+    const titleEl = el.querySelector('.title');
+    const hrefEl = el.querySelector('a[href]');
+    const rawLines = (el.innerText || el.textContent || '')
+      .split(/\n+/)
+      .map(line => line.trim())
+      .filter(Boolean);
+    let noteId = null;
+    try {
+      const impression = el.dataset && el.dataset.impression ? JSON.parse(el.dataset.impression) : null;
+      noteId =
+        impression?.params?.noteTarget?.value?.noteId ||
+        impression?.params?.noteId ||
+        impression?.noteId ||
+        null;
+    } catch (error) {}
+    const publishedAtLine = rawLines.find(line => line.startsWith('发布于')) || '';
+    const durationLine = rawLines.find(line => /^\d{2}:\d{2}$/.test(line)) || '';
+    return {
+      index,
+      title: (titleEl?.innerText || titleEl?.textContent || '').trim().replace(/\s+/g, ' '),
+      href: hrefEl?.href || '',
+      noteId,
+      publishedAtRaw: publishedAtLine.replace(/^发布于\s*/, ''),
+      duration: durationLine,
+      rawLines: rawLines.slice(0, 24),
+    };
+  }).filter(item => item.title);
+
+  const containers = Array.from(document.querySelectorAll('*'))
+    .filter(el => el.querySelector('.note') && el.scrollHeight > el.clientHeight + 50)
+    .sort((a, b) => (b.scrollHeight - b.clientHeight) - (a.scrollHeight - a.clientHeight));
+  const container = containers[0] || null;
+  const collected = new Map();
+  const addVisible = () => {
+    for (const card of extractCards()) {
+      const key = [card.title, card.publishedAtRaw, card.duration].join('||');
+      if (!collected.has(key)) collected.set(key, card);
+    }
+  };
+
+  addVisible();
+  if (container) {
+    const maxScroll = Math.max(0, container.scrollHeight - container.clientHeight);
+    const step = Math.max(180, Math.floor(container.clientHeight * 0.7));
+    const positions = [];
+    for (let pos = 0; pos <= maxScroll; pos += step) positions.push(pos);
+    if (!positions.includes(maxScroll)) positions.push(maxScroll);
+    for (const pos of positions) {
+      container.scrollTop = pos;
+      container.dispatchEvent(new Event('scroll', { bubbles: true }));
+      await delay(350);
+      addVisible();
+    }
+    container.scrollTop = maxScroll;
+    container.dispatchEvent(new Event('scroll', { bubbles: true }));
+    await delay(600);
+    addVisible();
+  }
+
+  return JSON.stringify({
+    cards: Array.from(collected.values()),
+    count: collected.size,
+    container: container ? {
+      className: typeof container.className === 'string' ? container.className : '',
+      scrollHeight: container.scrollHeight,
+      clientHeight: container.clientHeight,
+    } : null,
+  });
+})()
+"""
+    return proxy.eval(target, expression)
+
+
+def fetch_xhs_analysis_rows(proxy: ProxyClient, target: str) -> dict[str, Any]:
+    expression = r"""
+(async () => {
+  const delay = (ms) => new Promise(resolve => setTimeout(resolve, ms));
+  const extractRows = () => Array.from(document.querySelectorAll('tbody tr')).map((tr, index) => ({
+    index,
+    cells: Array.from(tr.querySelectorAll('td')).map(td => (td.innerText || td.textContent || '').trim()),
+    detailAction: (() => {
+      const el = tr.querySelector('.note-detail');
+      return el ? (el.innerText || el.textContent || '').trim() : '';
+    })(),
+  })).filter(item => item.cells.some(Boolean));
+
+  const pageNodes = Array.from(document.querySelectorAll('.d-pagination-page'))
+    .map(el => {
+      const text = (el.innerText || el.textContent || '').trim();
+      const page = parseInt(text, 10);
+      return Number.isNaN(page) ? null : { el, page };
+    })
+    .filter(Boolean);
+  const pages = Array.from(new Set(pageNodes.map(item => item.page))).sort((a, b) => a - b);
+  const collected = [];
+
+  const visitPage = async (page) => {
+    const pageNode = pageNodes.find(item => item.page === page);
+    if (!pageNode) return;
+    pageNode.el.click();
+    await delay(500);
+    const rows = extractRows();
+    collected.push({ page, rows });
+  };
+
+  if (!pages.length) {
+    collected.push({ page: 1, rows: extractRows() });
+  } else {
+    for (const page of pages) {
+      await visitPage(page);
+    }
+  }
+
+  return JSON.stringify({
+    pages,
+    collected,
+    total_rows: collected.reduce((sum, item) => sum + item.rows.length, 0),
+  });
+})()
+"""
+    return proxy.eval(target, expression)
+
+
 def find_anchor_href(anchors: list[dict[str, Any]], title: str) -> str | None:
     wanted = normalize_text(title)
     if not wanted:
@@ -518,7 +648,41 @@ def parse_xhs_home(snapshot: dict[str, Any], reference_dt: datetime) -> dict[str
     return result
 
 
-def parse_xhs_notes(snapshot: dict[str, Any]) -> dict[str, Any]:
+def build_xhs_note_from_card(card: dict[str, Any]) -> dict[str, Any]:
+    raw_lines = [line.strip() for line in card.get("rawLines") or [] if line and line.strip()]
+    published_at_raw = card.get("publishedAtRaw") or ""
+    if not published_at_raw:
+        published_line = next((line for line in raw_lines if line.startswith("发布于")), "")
+        published_at_raw = published_line.replace("发布于", "", 1).strip()
+    numeric = []
+    if raw_lines:
+        try:
+            published_idx = next(i for i, line in enumerate(raw_lines) if line.startswith("发布于"))
+        except StopIteration:
+            published_idx = 1 if card.get("duration") else 0
+        end_idx = next((i for i, line in enumerate(raw_lines[published_idx + 1 :], start=published_idx + 1) if line == "权限设置"), len(raw_lines))
+        numeric = raw_lines[published_idx + 1 : end_idx]
+    mapped_labels = ["观看", "评论", "点赞", "收藏", "分享"]
+    metrics: dict[str, dict[str, Any]] = {}
+    for label, raw in zip(mapped_labels, numeric[:5]):
+        metrics[label] = {"raw": raw, "normalized": parse_chinese_number(raw)}
+    duration = card.get("duration") or None
+    title = clean_title(card.get("title") or "")
+    return {
+        "title": title,
+        "title_raw": card.get("title") or title,
+        "published_at_raw": published_at_raw,
+        "published_at": parse_datetime_string(published_at_raw),
+        "duration": duration,
+        "duration_seconds": parse_duration_seconds(duration),
+        "content_type": "video" if duration else "image_text",
+        "metrics": metrics,
+        "content_url": card.get("href") or "",
+        "note_id": card.get("noteId"),
+    }
+
+
+def parse_xhs_notes(snapshot: dict[str, Any], full_note_cards: list[dict[str, Any]] | None = None) -> dict[str, Any]:
     lines = clean_lines(snapshot["bodyText"])
     notes: list[dict[str, Any]] = []
     total = None
@@ -527,6 +691,21 @@ def parse_xhs_notes(snapshot: dict[str, Any]) -> dict[str, Any]:
         if match:
             total = int(match.group(1))
             break
+    if full_note_cards:
+        notes = [build_xhs_note_from_card(card) for card in full_note_cards]
+        selected_status = select_active_label(snapshot.get("interactive", []), ["已发布", "审核中", "未通过"])
+        if not selected_status and notes:
+            selected_status = "已发布"
+        return {
+            "total_notes": total,
+            "visible_notes": len(notes),
+            "notes": notes,
+            "visible_note_cards": len(full_note_cards),
+            "selected_status": selected_status,
+            "available_statuses": collect_labels(lines, ["已发布", "审核中", "未通过"]),
+            "metric_order_assumption": ["观看", "评论", "点赞", "收藏", "分享"],
+            "full_capture": True,
+        }
     start = 0
     for i, line in enumerate(lines):
         if line in {"未通过", "已发布", "审核中"}:
@@ -601,14 +780,16 @@ def parse_xhs_notes(snapshot: dict[str, Any]) -> dict[str, Any]:
         "selected_status": selected_status,
         "available_statuses": collect_labels(lines, ["已发布", "审核中", "未通过"]),
         "metric_order_assumption": ["观看", "评论", "点赞", "收藏", "分享"],
+        "full_capture": False,
     }
 
 
-def parse_xhs_analysis(snapshot: dict[str, Any], reference_dt: datetime) -> dict[str, Any]:
+def parse_xhs_analysis(snapshot: dict[str, Any], reference_dt: datetime, all_rows: list[dict[str, Any]] | None = None) -> dict[str, Any]:
     lines = clean_lines(snapshot["bodyText"])
     headers = snapshot.get("xhsAnalysisHeaders", [])
     rows: list[dict[str, Any]] = []
-    for raw_row in snapshot.get("xhsAnalysisRows", []):
+    source_rows = all_rows if all_rows is not None else snapshot.get("xhsAnalysisRows", [])
+    for raw_row in source_rows:
         cells = [cell.strip() for cell in raw_row.get("cells", [])]
         if len(cells) < 10:
             continue
@@ -646,6 +827,7 @@ def parse_xhs_analysis(snapshot: dict[str, Any], reference_dt: datetime) -> dict
         "headers": headers,
         "visible_rows": len(rows),
         "rows": rows,
+        "full_capture": all_rows is not None,
     }
 
 
@@ -706,6 +888,129 @@ def parse_dy_home(snapshot: dict[str, Any], reference_dt: datetime) -> dict[str,
             }
             result["latest_work"] = latest
     return result
+
+
+def build_dy_overview_metric(raw_item: dict[str, Any] | None) -> dict[str, Any] | None:
+    if not raw_item:
+        return None
+    current_raw = raw_item.get("current_count")
+    normalized = parse_chinese_number(str(current_raw)) if current_raw is not None else None
+    delta = raw_item.get("last_period_incr")
+    return {
+        "raw": str(current_raw) if current_raw is not None else None,
+        "normalized": normalized,
+        "delta": delta,
+    }
+
+
+def build_dy_overview_series(raw_item: dict[str, Any] | None) -> list[dict[str, Any]]:
+    if not raw_item:
+        return []
+    points = []
+    for item in raw_item.get("option_list") or []:
+        count_raw = item.get("count")
+        points.append(
+            {
+                "date": item.get("date"),
+                "value": {
+                    "raw": str(count_raw) if count_raw is not None else None,
+                    "normalized": parse_chinese_number(str(count_raw)) if count_raw is not None else None,
+                },
+                "delta": item.get("last_day_incr_rate"),
+            }
+        )
+    return points
+
+
+def build_dy_overview_window(raw_overview: dict[str, Any] | None) -> dict[str, Any] | None:
+    if not raw_overview:
+        return None
+    play_points = (raw_overview.get("data") or {}).get("play", {}).get("option_list") or []
+    dates = []
+    for point in play_points:
+        raw_date = point.get("date")
+        if not raw_date:
+            continue
+        try:
+            dates.append(date.fromisoformat(raw_date))
+        except ValueError:
+            continue
+    if not dates:
+        return None
+    start = min(dates)
+    end = max(dates)
+    return {
+        "raw": f"{start.isoformat()} -> {end.isoformat()}",
+        "start_date": start.isoformat(),
+        "end_date": end.isoformat(),
+        "days": (end - start).days + 1,
+    }
+
+
+def build_dy_overview_summary_metrics(raw_overview: dict[str, Any] | None) -> dict[str, dict[str, Any]]:
+    if not raw_overview:
+        return {}
+    data = raw_overview.get("data") or {}
+    mapping = {
+        "播放量": "play",
+        "主页访问量": "profile",
+        "作品分享": "share",
+        "作品评论": "comment",
+        "点赞量": "digg",
+        "新增粉丝": "new_fans",
+        "取消关注": "cancel_fans",
+    }
+    metrics = {}
+    for label, key in mapping.items():
+        metric = build_dy_overview_metric(data.get(key))
+        if metric:
+            metrics[label] = metric
+    return metrics
+
+
+def build_dy_works_aggregate(dy_works: PageCapture) -> dict[str, dict[str, Any]]:
+    items = dy_works.parsed.get("api", {}).get("items") or []
+    if not items:
+        return {}
+    plays = []
+    likes = []
+    saves = []
+    comments = []
+    shares = []
+    completion_5s = []
+    bounce_2s = []
+    avg_play_seconds = []
+    for item in items:
+        metrics = item.get("metrics") or {}
+        if (value := safe_int(metrics.get("view_count"))) is not None:
+            plays.append(value)
+        if (value := safe_int(metrics.get("like_count"))) is not None:
+            likes.append(value)
+        if (value := safe_int(metrics.get("favorite_count"))) is not None:
+            saves.append(value)
+        if (value := safe_int(metrics.get("comment_count"))) is not None:
+            comments.append(value)
+        if (value := safe_int(metrics.get("share_count"))) is not None:
+            shares.append(value)
+        if (value := safe_float(metrics.get("completion_rate_5s"))) is not None:
+            completion_5s.append(value)
+        if (value := safe_float(metrics.get("bounce_rate_2s"))) is not None:
+            bounce_2s.append(value)
+        if (value := safe_float(metrics.get("avg_view_second"))) is not None:
+            avg_play_seconds.append(value)
+    return {
+        "总播放": format_count_metric(sum(plays)),
+        "总点赞": format_count_metric(sum(likes)),
+        "总收藏": format_count_metric(sum(saves)),
+        "累计视频数": format_count_metric(len(items)),
+        "条均5s完播率": format_ratio_metric(average_metric(completion_5s)),
+        "条均2s跳出率": format_ratio_metric(average_metric(bounce_2s)),
+        "条均播放时长": format_seconds_metric(average_metric(avg_play_seconds)),
+        "播放量中位数": format_count_metric(median(plays) if plays else None),
+        "条均点赞": format_count_metric(round(average_metric(likes)) if likes else None),
+        "条均评论": format_count_metric(round(average_metric(comments)) if comments else None),
+        "条均分享": format_count_metric(round(average_metric(shares)) if shares else None),
+    }
 
 
 def parse_dy_works(snapshot: dict[str, Any]) -> dict[str, Any]:
@@ -825,6 +1130,23 @@ def fetch_dy_work_list_api(proxy: ProxyClient, target: str) -> dict[str, Any]:
     return proxy.eval(target, expression)
 
 
+def fetch_dy_overview_api(proxy: ProxyClient, target: str, *, last_days_type: int = 1) -> dict[str, Any]:
+    expression = f"""
+(async () => {{
+  const url = '/aweme/janus/creator/data/overview/all/?last_days_type={last_days_type}';
+  const res = await fetch(url, {{ credentials: 'include' }});
+  const data = await res.json();
+  return JSON.stringify({{
+    requested_last_days_type: {last_days_type},
+    status: res.status,
+    ok: res.ok,
+    data: data && data.data ? data.data : {{}},
+  }});
+}})()
+"""
+    return proxy.eval(target, expression)
+
+
 def xhs_home_ready(text: str) -> bool:
     return "统计周期" in text and "曝光数" in text and "观看数" in text
 
@@ -885,10 +1207,19 @@ def load_archive_docs(repo_root: Path) -> list[ArchiveDoc]:
     for path in sorted(archive_dir.glob("*.md")):
         text = path.read_text(encoding="utf-8")
         title = None
+        aliases: list[str] = []
+        content_type = None
         for line in text.splitlines():
             if line.startswith("# "):
                 title = line[2:].strip()
-                break
+                continue
+            if line.startswith("**抖音标题**：") or line.startswith("**小红书标题**："):
+                aliases.append(line.split("：", 1)[1].strip())
+            if "内容形式：" in line and content_type is None:
+                if "图文" in line:
+                    content_type = "image_text"
+                elif "视频" in line or "口播" in line:
+                    content_type = "video"
         stem = re.sub(r"^\d{8}-", "", path.stem)
         docs.append(
             ArchiveDoc(
@@ -896,6 +1227,8 @@ def load_archive_docs(repo_root: Path) -> list[ArchiveDoc]:
                 title=title or stem,
                 normalized_title=normalize_text(title or stem),
                 normalized_stem=normalize_text(stem),
+                normalized_aliases=sorted({normalize_text(alias) for alias in aliases if normalize_text(alias)}),
+                content_type=content_type,
             )
         )
     return docs
@@ -949,7 +1282,8 @@ def row_archive_matches(row_title: str, archives: list[ArchiveDoc]) -> list[dict
     wanted = normalize_text(row_title)
     candidates = []
     for doc in archives:
-        score = max(score_match(wanted, doc.normalized_title), score_match(wanted, doc.normalized_stem))
+        comparables = [doc.normalized_title, doc.normalized_stem, *doc.normalized_aliases]
+        score = max((score_match(wanted, candidate) for candidate in comparables if candidate), default=0.0)
         if score >= 0.55:
             candidates.append({"path": doc.path, "title": doc.title, "score": round(score, 3)})
     return sorted(candidates, key=lambda item: item["score"], reverse=True)[:3]
@@ -1079,7 +1413,9 @@ def build_capture_context(
     }
 
 
-def build_account_snapshot(xhs_home: PageCapture, dy_home: PageCapture) -> dict[str, Any]:
+def build_account_snapshot(xhs_home: PageCapture, dy_home: PageCapture, dy_works: PageCapture) -> dict[str, Any]:
+    dy_overview_api = dy_home.parsed.get("overview_api")
+    dy_overview_metrics = build_dy_overview_summary_metrics(dy_overview_api) or dy_home.parsed.get("metrics", {})
     return {
         "xhs": {
             "account_name": xhs_home.parsed.get("account_name"),
@@ -1096,9 +1432,10 @@ def build_account_snapshot(xhs_home: PageCapture, dy_home: PageCapture) -> dict[
             "account_id": dy_home.parsed.get("account_id"),
             "profile_bio": dy_home.parsed.get("profile_bio"),
             "profile_counts": dy_home.parsed.get("counts", {}),
-            "data_window": dy_home.parsed.get("data_window"),
-            "selected_period": dy_home.parsed.get("selected_period"),
-            "metrics": dy_home.parsed.get("metrics", {}),
+            "data_window": build_dy_overview_window(dy_overview_api) or dy_home.parsed.get("data_window"),
+            "selected_period": "近7日" if dy_overview_api else dy_home.parsed.get("selected_period"),
+            "metrics": dy_overview_metrics,
+            "works_aggregate": build_dy_works_aggregate(dy_works),
             "latest_work": dy_home.parsed.get("latest_work"),
         },
     }
@@ -1106,7 +1443,13 @@ def build_account_snapshot(xhs_home: PageCapture, dy_home: PageCapture) -> dict[
 
 def build_trend_series(xhs_home: PageCapture, dy_home: PageCapture) -> dict[str, Any]:
     xhs_metrics = xhs_home.parsed.get("metrics", {})
-    dy_metrics = dy_home.parsed.get("metrics", {})
+    dy_overview_api = dy_home.parsed.get("overview_api")
+    dy_metrics = build_dy_overview_summary_metrics(dy_overview_api) or dy_home.parsed.get("metrics", {})
+    dy_overview_data = (dy_overview_api or {}).get("data") or {}
+    dy_play_series = build_dy_overview_series(dy_overview_data.get("play"))
+    dy_profile_series = build_dy_overview_series(dy_overview_data.get("profile"))
+    dy_share_series = build_dy_overview_series(dy_overview_data.get("share"))
+    dy_comment_series = build_dy_overview_series(dy_overview_data.get("comment"))
     return {
         "xhs": {
             "data_window": xhs_home.parsed.get("data_window"),
@@ -1129,13 +1472,13 @@ def build_trend_series(xhs_home: PageCapture, dy_home: PageCapture) -> dict[str,
             "note": "Current capture resolved the selected-period summary block but did not expose per-day chart points.",
         },
         "dy": {
-            "data_window": dy_home.parsed.get("data_window"),
-            "selected_period": dy_home.parsed.get("selected_period"),
+            "data_window": build_dy_overview_window(dy_overview_api) or dy_home.parsed.get("data_window"),
+            "selected_period": "近7日" if dy_overview_api else dy_home.parsed.get("selected_period"),
             "series": {
-                "plays": [],
-                "profile_visits": [],
-                "shares": [],
-                "comments": [],
+                "plays": dy_play_series,
+                "profile_visits": dy_profile_series,
+                "shares": dy_share_series,
+                "comments": dy_comment_series,
             },
             "summary_metrics": {
                 "播放量": dy_metrics.get("播放量"),
@@ -1143,8 +1486,12 @@ def build_trend_series(xhs_home: PageCapture, dy_home: PageCapture) -> dict[str,
                 "作品分享": dy_metrics.get("作品分享"),
                 "作品评论": dy_metrics.get("作品评论"),
             },
-            "status": "summary_only" if dy_metrics else "missing",
-            "note": "Homepage summary may stay lazy-loaded. When unavailable, keep the series empty and record the gap explicitly.",
+            "status": "series_available" if dy_play_series else ("summary_only" if dy_metrics else "missing"),
+            "note": (
+                "Near-7-day Douyin overview was captured through the homepage overview API."
+                if dy_play_series
+                else "Homepage summary may stay lazy-loaded. When unavailable, keep the series empty and record the gap explicitly."
+            ),
         },
     }
 
@@ -1158,12 +1505,14 @@ def build_content_rows(
     action_cards: list[ActionCard],
 ) -> list[dict[str, Any]]:
     rows: list[dict[str, Any]] = []
+    archive_by_path = {doc.path: doc for doc in archives}
     analysis_rows = xhs_analysis.parsed.get("rows", [])
     unused_analysis = list(analysis_rows)
 
     for index, note in enumerate(xhs_notes.parsed.get("notes", []), start=1):
         content_id = make_content_id("xhs", note.get("published_at"), note["title"])
         archive_matches = row_archive_matches(note["title"], archives)
+        archive_content_type = archive_by_path.get(archive_matches[0]["path"]).content_type if archive_matches else None
         action_matches = row_action_matches(note["title"], "小红书", action_cards)
         row = {
             "platform": "xhs",
@@ -1172,7 +1521,7 @@ def build_content_rows(
             "title": note["title"],
             "title_raw": note["title_raw"],
             "title_normalized": normalize_text(note["title"]),
-            "content_type": note.get("content_type"),
+            "content_type": note.get("content_type") or archive_content_type,
             "duration_raw": note.get("duration"),
             "duration_seconds": note.get("duration_seconds"),
             "published_at": note.get("published_at"),
@@ -1243,6 +1592,66 @@ def build_content_rows(
             if best_match_index is not None:
                 unused_analysis.pop(best_match_index)
         rows.append(row)
+
+    next_position = len(rows) + 1
+    for analysis in unused_analysis:
+        title = analysis.get("title") or ""
+        if not title:
+            continue
+        content_id = make_content_id("xhs", analysis.get("published_at"), title)
+        archive_matches = row_archive_matches(title, archives)
+        archive_content_type = archive_by_path.get(archive_matches[0]["path"]).content_type if archive_matches else None
+        action_matches = row_action_matches(title, "小红书", action_cards)
+        analysis_metrics = analysis.get("metrics", {})
+        row = {
+            "platform": "xhs",
+            "content_id": content_id,
+            "note_id": None,
+            "title": title,
+            "title_raw": analysis.get("title_raw") or title,
+            "title_normalized": normalize_text(title),
+            "content_type": archive_content_type,
+            "duration_raw": None,
+            "duration_seconds": None,
+            "published_at": analysis.get("published_at"),
+            "published_at_raw": analysis.get("published_at_raw"),
+            "publish_date": analysis.get("published_at", "")[:10] or None,
+            "list_position": next_position,
+            "content_url": "",
+            "source_ref": f"xhs_analysis:{analysis.get('published_at') or 'unknown'}:{normalize_text(title)}",
+            "metrics": {
+                "impressions": analysis_metrics.get("曝光"),
+                "views": analysis_metrics.get("观看"),
+                "content_ctr": analysis_metrics.get("封面点击率"),
+                "likes": analysis_metrics.get("点赞"),
+                "saves": analysis_metrics.get("收藏"),
+                "shares": analysis_metrics.get("分享"),
+                "comments": analysis_metrics.get("评论"),
+                "followers_gained": analysis_metrics.get("涨粉"),
+                "average_watch_seconds": analysis_metrics.get("人均观看时长"),
+                "danmaku": analysis_metrics.get("弹幕"),
+            },
+            "platform_metrics_raw": {},
+            "platform_metrics_analysis": analysis_metrics,
+            "analysis_detail_action": analysis.get("detail_action"),
+            "is_current_week": is_current_week(analysis.get("published_at"), reference_dt),
+            "matched_action_ids": action_matches,
+            "hit_active_action": bool(action_matches),
+            "matched_archive_paths": [item["path"] for item in archive_matches],
+            "match_candidates": archive_matches,
+            "coverage": {
+                "list_visible": False,
+                "detail_drilled": False,
+                "detail_source": "content_analysis",
+                "missing_core_fields": [
+                    field
+                    for field in ["impressions", "content_ctr", "followers_gained"]
+                    if analysis_metrics.get({"impressions": "曝光", "content_ctr": "封面点击率", "followers_gained": "涨粉"}[field]) is None
+                ],
+            },
+        }
+        rows.append(row)
+        next_position += 1
 
     dy_api_items = dy_works.parsed.get("api", {}).get("items") or []
     dy_source_rows = []
@@ -1472,6 +1881,7 @@ def build_capture_coverage(
             "dy_home": {
                 "captured": True,
                 "summary_metrics_available": trend_series["dy"]["status"] != "missing",
+                "trend_points": len(trend_series["dy"]["series"].get("plays", [])),
             },
             "dy_works_manager": {
                 "captured": True,
@@ -1499,14 +1909,14 @@ def build_payload(
     archives = load_archive_docs(repo_root)
     action_cards = load_action_cards(repo_root, archives)
     capture_context = build_capture_context(captured_at, xhs_home, xhs_notes, xhs_analysis, dy_home, dy_works)
-    account_snapshot = build_account_snapshot(xhs_home, dy_home)
+    account_snapshot = build_account_snapshot(xhs_home, dy_home, dy_works)
     trend_series = build_trend_series(xhs_home, dy_home)
     content_rows = build_content_rows(captured_at, xhs_notes, xhs_analysis, dy_works, archives, action_cards)
     detail_metrics = build_detail_metrics(content_rows)
     match_hints = build_match_hints(content_rows, action_cards)
     capture_coverage = build_capture_coverage(capture_context, trend_series, content_rows)
     return {
-        "schema_version": "2.2",
+        "schema_version": "2.3",
         "captured_at": captured_at.isoformat(timespec="seconds"),
         "meta": {
             "proxy": proxy_url,
@@ -1596,11 +2006,19 @@ def render_report(capture: dict[str, Any]) -> str:
             lines.append(f"- current_window: {window.get('raw')}")
         for key, value in snapshot.get("metrics", {}).items():
             lines.append(f"- {key}: {value.get('raw')}")
+        works_aggregate = snapshot.get("works_aggregate") or {}
+        if works_aggregate:
+            lines.append("- works_aggregate:")
+            for key, value in works_aggregate.items():
+                if value:
+                    lines.append(f"  - {key}: {value.get('raw')}")
         lines.append("")
 
     lines.extend(["## Trend Coverage", ""])
     for platform, trend in capture["trend_series"].items():
-        lines.append(f"- {platform}: status={trend.get('status')} note={trend.get('note')}")
+        points = len((trend.get("series") or {}).get("plays", [])) if platform == "dy" else 0
+        suffix = f" points={points}" if points else ""
+        lines.append(f"- {platform}: status={trend.get('status')}{suffix} note={trend.get('note')}")
     lines.append("")
 
     lines.extend(["## Latest Content Rows", ""])
@@ -1663,6 +2081,14 @@ def main() -> int:
             captured_at,
             scroll_bottom=True,
         )
+        try:
+            xhs_notes.parsed["dom_walk"] = fetch_xhs_note_cards(proxy, xhs_notes.target)
+            full_cards = xhs_notes.parsed.get("dom_walk", {}).get("cards") or []
+            if full_cards:
+                xhs_notes.parsed = parse_xhs_notes(xhs_notes.dom, full_note_cards=full_cards)
+                xhs_notes.parsed["dom_walk"] = {"count": len(full_cards)}
+        except Exception as error:
+            xhs_notes.parsed["dom_walk_error"] = str(error)
         created_targets.append(xhs_notes.target)
         xhs_analysis = capture_page(
             proxy,
@@ -1672,8 +2098,27 @@ def main() -> int:
             captured_at,
             scroll_bottom=True,
         )
+        try:
+            xhs_analysis.parsed["page_walk"] = fetch_xhs_analysis_rows(proxy, xhs_analysis.target)
+            collected_pages = xhs_analysis.parsed.get("page_walk", {}).get("collected") or []
+            full_rows = []
+            for page in collected_pages:
+                full_rows.extend(page.get("rows") or [])
+            if full_rows:
+                reparsed = parse_xhs_analysis(xhs_analysis.dom, captured_at, all_rows=full_rows)
+                reparsed["page_walk"] = {
+                    "pages": xhs_analysis.parsed.get("page_walk", {}).get("pages") or [],
+                    "total_rows": len(full_rows),
+                }
+                xhs_analysis.parsed = reparsed
+        except Exception as error:
+            xhs_analysis.parsed["page_walk_error"] = str(error)
         created_targets.append(xhs_analysis.target)
         dy_home = capture_page(proxy, DY_HOME_URL, parse_dy_home, dy_home_ready, captured_at)
+        try:
+            dy_home.parsed["overview_api"] = fetch_dy_overview_api(proxy, dy_home.target, last_days_type=1)
+        except Exception as error:
+            dy_home.parsed["overview_api"] = {"error": str(error), "data": {}, "requested_last_days_type": 1}
         created_targets.append(dy_home.target)
         dy_works = capture_page(
             proxy,
