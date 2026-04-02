@@ -1,0 +1,23 @@
+{
+  "skill_name": "creator-platform-ingest",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "抓取我当前登录的小红书创作者平台和抖音创作者平台数据，输出结构化 capture，不要改文档。",
+      "expected_output": "连接默认 Chrome 的 web-access 代理，抓取两个平台的 dashboard 和内容列表，生成 phase-2 结构的 capture.json 与 report.md，其中必须包含 capture_context、account_snapshot、trend_series、content_rows、detail_metrics、match_hints、capture_coverage。",
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "抓完以后先不要改文档，只告诉我：当前是近7日还是近30日、哪些列表是部分抓取、哪些字段本次没抓到。",
+      "expected_output": "report.md 明确展示当前数据窗口、总条数/可见条数、是否 partial，以及缺失字段与懒加载告警，不能把缺口静默吞掉。",
+      "files": []
+    },
+    {
+      "id": 3,
+      "prompt": "只抓最近作品/笔记列表，告诉我哪些内容需要新增归档，哪些可以匹配到现有已发布稿，哪些命中了当前运营动作。",
+      "expected_output": "输出 content_rows 和 match_hints，至少包含标题、发布时间、稳定 content_id、匹配到的已发布稿路径、命中的运营动作 ID，以及本周内容标记。",
+      "files": []
+    }
+  ]
+}
