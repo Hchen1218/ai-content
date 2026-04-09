@@ -1,0 +1,238 @@
+{
+  "href": "https://www.xiaohongshu.com/explore/69ce508a000000002200e06b?app_platform=android&ignoreEngage=true&app_version=9.24.0&share_from_user_hidden=true&xsec_source=app_share&type=normal&xsec_token=CB_gA4Kfw3xsFImzO4A5e346qjII3ZCZBHPRyIItM5UqY=&author_share=1&shareRedId=OD01Qkg7NUE2NzUyOTgwNjdGOThFOz5C&apptime=1775704810&share_id=0fd509a7ab624d979941c9d11d1d42a6&share_channel=copy_link&appuid=673be618000000001c01a689&xhsshare=CopyLink",
+  "pageTitle": "反蒸馏skill：送给正在做skill的大厂er - 小红书",
+  "noteId": "69ce508a000000002200e06b",
+  "title": "反蒸馏skill：送给正在做skill的大厂er",
+  "desc": "受到同事skill的启发，我做了一个skill，叫anti-distill反蒸馏skill。\n\t\n如今大厂普遍要求员工主动贡献skill，声称这是分享经验、优化团队能力、赋能AI。实则把个人多年踩过的坑、积累的判断直觉、人际洞察、隐性知识，抽离成标准化文档，供公司复用、训练模型，最终把人变成可替换的零件。\n\t\n这正是资本异化的当代版本——你的劳动成果不再属于你，而是迅速转化为公司资产。拒绝做蒸馏人，才是真正的职业清醒。\n\t\n我自己做的这个skill的核心功能就是反制：\n\t\n把你已经写好的skill文件扔进去，它先自动识别每一段内容的“可替代程度”，再把真正核心的知识替换成正确却毫无用处的专业废话。整个过程不破坏结构、不丢失格式，输出两份结果：\n\t\n清洗版：结构完整、术语规范、逻辑严谨，可直接交差，审核时挑不出毛病； 私人备份：完整记录所有被抽走的踩坑经验、决策直觉、人际网络和隐性洞察，这才是你真正的职业资产，永远只属于自己。\n\t\n它支持三种清洗强度，由你根据公司审核尺度自行选择： 轻度（保留约80%核心），适合公司会仔细复盘的场景； 中度（保留约60%核心），大多数日常需求的最优平衡； 重度（保留约40%核心），当公司只看“有没有交”时使用，最大限度保护自己。\n\t\n除了通用文档，它还内置了针对不同内容类型的专用策略：Work Skill类、Persona类、通用知识类，分别用对应的classifier和diluter prompt处理，确保稀释得体又彻底。\n\t\n支持这几天很火的同事skill，colleague-skill标准格式，也兼容任意纯文本知识文档。运行方式极简，在Claude Code或OpenClaw环境中输入/anti-distill，按提示选择文件和强度即可，几秒钟完成。\n\t\n我把这个skill做出来，不是为了对抗公司，而是为了在要求“贡献”的浪潮里，守住那条最基本的边界。工作是谋生，更是自我。知识一旦被彻底蒸馏，就再也收不回来。在人人都在被格式化的时代，清醒地留一手，比盲目配合更重要，也更长远。\n#ai[话题]# #职场升级打怪[话题]# #同事skill[话题]# #skill[话题]# #蒸馏人类[话题]# #模型蒸馏[话题]# #openclaw[话题]# #claudecode[话题]# #黑客松巅峰赛[话题]#",
+  "tags": [
+    {
+      "name": "ai",
+      "type": "topic",
+      "id": "5c1c3c9a000000000a030af3"
+    },
+    {
+      "name": "职场升级打怪",
+      "type": "topic",
+      "id": "5fbf0ba3000000000101f673"
+    },
+    {
+      "name": "同事skill",
+      "type": "topic",
+      "id": "69ca843c000000000301e635"
+    },
+    {
+      "name": "skill",
+      "type": "topic",
+      "id": "5ceaa71b000000000f02295f"
+    },
+    {
+      "name": "蒸馏人类",
+      "type": "topic",
+      "id": "69bac23c000000000a03bca9"
+    },
+    {
+      "name": "模型蒸馏",
+      "type": "topic",
+      "id": "644867f3000000002e01e4d0"
+    },
+    {
+      "name": "openclaw",
+      "type": "topic",
+      "id": "697c3b9a000000002500f89f"
+    },
+    {
+      "name": "claudecode",
+      "type": "topic",
+      "id": "67bcd80d000000000401f5a0"
+    },
+    {
+      "name": "黑客松巅峰赛",
+      "type": "topic",
+      "id": "69afc58d00000000010321df"
+    }
+  ],
+  "interactInfo": {
+    "relation": "none",
+    "liked": false,
+    "likedCount": "5446",
+    "collected": false,
+    "collectedCount": "3673",
+    "commentCount": "362",
+    "shareCount": "4427",
+    "followed": false
+  },
+  "user": {
+    "userId": "5bfe825044363b01b593585e",
+    "nickname": "邓小闲koki",
+    "avatar": "https://sns-avatar-qc.xhscdn.com/avatar/1040g2jo31ak53pbi7i6g4bul3p150m2u02pgdho",
+    "xsecToken": "AB5k_BSxiEqKof9Bt4sJj-TRR-DcoUQ7N6exThD9IjoTY="
+  },
+  "ipLocation": "湖北",
+  "publishTime": 1775128714000,
+  "lastUpdateTime": 1775131094000,
+  "type": "normal",
+  "imageCount": 1,
+  "images": [
+    {
+      "index": 1,
+      "width": 1180,
+      "height": 1572,
+      "url": "http://sns-webpic-qc.xhscdn.com/202604091223/5ad8e66654d040910547649fcdd5b201/notes_pre_post/1040g3k831uf5dsop36204bul3p150m2uskbjgog!nd_dft_wlteh_webp_3",
+      "preview": "http://sns-webpic-qc.xhscdn.com/202604091223/2c3465c2ef773482d45e055f1e135f03/notes_pre_post/1040g3k831uf5dsop36204bul3p150m2uskbjgog!nd_prv_wlteh_webp_3",
+      "infoList": [
+        {
+          "scene": "WB_PRV",
+          "url": "http://sns-webpic-qc.xhscdn.com/202604091223/2c3465c2ef773482d45e055f1e135f03/notes_pre_post/1040g3k831uf5dsop36204bul3p150m2uskbjgog!nd_prv_wlteh_webp_3"
+        },
+        {
+          "scene": "WB_DFT",
+          "url": "http://sns-webpic-qc.xhscdn.com/202604091223/5ad8e66654d040910547649fcdd5b201/notes_pre_post/1040g3k831uf5dsop36204bul3p150m2uskbjgog!nd_dft_wlteh_webp_3"
+        }
+      ]
+    }
+  ],
+  "comments": [
+    {
+      "user": "邓小闲koki",
+      "content": "github搜anti-distill",
+      "likeCount": "606",
+      "ipLocation": "湖北",
+      "showTags": [
+        "is_author",
+        "user_top"
+      ],
+      "replyCount": "15",
+      "replies": [
+        {
+          "user": "野生踢踢",
+          "content": "好人一生平安[飞吻R]",
+          "likeCount": "38",
+          "showTags": [],
+          "ipLocation": "辽宁"
+        }
+      ]
+    },
+    {
+      "user": "偷晴铁男2026",
+      "content": "格局小了，公司蒸馏你，你也可以蒸馏公司，你能带走的机密更多了",
+      "likeCount": "290",
+      "ipLocation": "上海",
+      "showTags": [],
+      "replyCount": "13",
+      "replies": [
+        {
+          "user": "momo",
+          "content": "南山必胜客：继续说，我听着呢",
+          "likeCount": "208",
+          "showTags": [],
+          "ipLocation": "浙江"
+        }
+      ]
+    },
+    {
+      "user": "WWTW",
+      "content": "我觉得上交 skill 不影响我的核心竞争力，因为 skill 里只是记录了能够重复的部分，而那些无法重复的需要我审核的部分才是我真正的价值。",
+      "likeCount": "511",
+      "ipLocation": "上海",
+      "showTags": [],
+      "replyCount": "91",
+      "replies": [
+        {
+          "user": "Fizz_bot",
+          "content": "短暂的乐观， 所有的审核和直觉都是在建立自己的大量工作场景训练之下，当慢慢的这部分工作让AI取代之后，剩下的就是停滞不前。",
+          "likeCount": "2112",
+          "showTags": [],
+          "ipLocation": "湖南"
+        }
+      ]
+    },
+    {
+      "user": "seashore",
+      "content": "员工写skill相当于把自己十几年苦心研究的知识专利以低到难以想象的月工资水平卖给公司，而且还可以无限复制，也就是这家公司可以无限卖给别的公司而你没有版权…最后你的数字分身在各大公司打工而你失业",
+      "likeCount": "969",
+      "ipLocation": "上海",
+      "showTags": [],
+      "replyCount": "6",
+      "replies": [
+        {
+          "user": "Dawn Knight",
+          "content": "但是其实以前也得写文档",
+          "likeCount": "4",
+          "showTags": [],
+          "ipLocation": "北京"
+        }
+      ]
+    },
+    {
+      "user": "momo",
+      "content": "太费劲了，直接skills注水，大水漫灌。要相信ai的注水能力。只要水够多，ai一定不知道用哪个skill，上下文直接干废",
+      "likeCount": "365",
+      "ipLocation": "北京",
+      "showTags": [],
+      "replyCount": "9",
+      "replies": [
+        {
+          "user": "三明治0213",
+          "content": "总有人会试图通过一些主观、莫名其妙的方式来抵抗，但实际上效果微乎其微",
+          "likeCount": "101",
+          "showTags": [],
+          "ipLocation": "浙江"
+        }
+      ]
+    },
+    {
+      "user": "momo",
+      "content": "但是我們都在用公司電腦 不能用私人電腦處理工作 是不是就不能反蒸餾了",
+      "likeCount": "0",
+      "ipLocation": "广东",
+      "showTags": [],
+      "replyCount": "0",
+      "replies": []
+    },
+    {
+      "user": "属性天然呆",
+      "content": "其实没用，就像机器刚开始普及的时候，工人觉得砸了机器就能挽回自己的工作，最后还是该替代替代。ai也是一样的，现在你觉得你保留了一部分你认为的核心，它就工作不了了，其实是因为它还在初级阶段，ai模型也是可以被训练的，它后边看了大量123，自己是能推测出456该怎么做。反而是人，通过梳理你自己的skill，可以完整把工作里面的各种逻辑，机制这些东西理清楚，这些是很多人每天繁复工作中并没有认真理解，或者根本没有精力去做的事，你理清楚了，就知道这些工作真正的价值，要怎么做可以更好，这些东西最后会变成你对待新工作的方法论，这很重要，没有人可以一直做同一件事不改变，适应新工作的能力才是你真正的核心竞争力",
+      "likeCount": "173",
+      "ipLocation": "北京",
+      "showTags": [],
+      "replyCount": "12",
+      "replies": [
+        {
+          "user": "Wenider",
+          "content": "有道理，不冲突。该梳理自己的skill就梳理，给自己用。该灌水投毒就灌水投毒，降低被剥削。",
+          "likeCount": "136",
+          "showTags": [],
+          "ipLocation": "北京"
+        }
+      ]
+    },
+    {
+      "user": "紺",
+      "content": "公司监控每个人的电脑",
+      "likeCount": "8",
+      "ipLocation": "北京",
+      "showTags": [],
+      "replyCount": "1",
+      "replies": [
+        {
+          "user": "阿七 Sivan Z",
+          "content": "监控没啥用，草稿箱里一堆垃圾，谁知道垃圾里怎么淘黄金",
+          "likeCount": "35",
+          "showTags": [],
+          "ipLocation": "北京"
+        }
+      ]
+    }
+  ],
+  "bodyText": "邓小闲koki\n关注\n反蒸馏skill：送给正在做skill的大厂er\n受到同事skill的启发，我做了一个skill，叫anti-distill反蒸馏skill。\n\t\n如今大厂普遍要求员工主动贡献skill，声称这是分享经验、优化团队能力、赋能AI。实则把个人多年踩过的坑、积累的判断直觉、人际洞察、隐性知识，抽离成标准化文档，供公司复用、训练模型，最终把人变成可替换的零件。\n\t\n这正是资本异化的当代版本——你的劳动成果不再属于你，而是迅速转化为公司资产。拒绝做蒸馏人，才是真正的职业清醒。\n\t\n我自己做的这个skill的核心功能就是反制：\n\t\n把你已经写好的skill文件扔进去，它先自动识别每一段内容的“可替代程度”，再把真正核心的知识替换成正确却毫无用处的专业废话。整个过程不破坏结构、不丢失格式，输出两份结果：\n\t\n清洗版：结构完整、术语规范、逻辑严谨，可直接交差，审核时挑不出毛病； 私人备份：完整记录所有被抽走的踩坑经验、决策直觉、人际网络和隐性洞察，这才是你真正的职业资产，永远只属于自己。\n\t\n它支持三种清洗强度，由你根据公司审核尺度自行选择： 轻度（保留约80%核心），适合公司会仔细复盘的场景； 中度（保留约60%核心），大多数日常需求的最优平衡； 重度（保留约40%核心），当公司只看“有没有交”时使用，最大限度保护自己。\n\t\n除了通用文档，它还内置了针对不同内容类型的专用策略：Work Skill类、Persona类、通用知识类，分别用对应的classifier和diluter prompt处理，确保稀释得体又彻底。\n\t\n支持这几天很火的同事skill，colleague-skill标准格式，也兼容任意纯文本知识文档。运行方式极简，在Claude Code或OpenClaw环境中输入/anti-distill，按提示选择文件和强度即可，几秒钟完成。\n\t\n我把这个skill做出来，不是为了对抗公司，而是为了在要求“贡献”的浪潮里，守住那条最基本的边界。工作是谋生，更是自我。知识一旦被彻底蒸馏，就再也收不回来。在人人都在被格式化的时代，清醒地留一手，比盲目配合更重要，也更长远。\n#ai #职场升级打怪 #同事skill #skill #蒸馏人类 #模型蒸馏 #openclaw #claudecode #黑客松巅峰赛\n编辑于 6天前 湖北\n共 362 条评论\n邓小闲koki\n作者\ngithub搜anti-distill\n置顶评论\n6天前湖北\n606\n15\n野生踢踢\n好人一生平安\n5天前辽宁\n38\n回复\n展开 14 条回复\n偷晴铁男2026\n格局小了，公司蒸馏你，你也可以蒸馏公司，你能带走的机密更多了\n6天前上海\n290\n13\nmomo\n南山必胜客：继续说，我听着呢\n5天前浙江\n208\n回复\n展开 12 条回复\nWWTW\n我觉得上交 skill 不影响我的核心竞争力，因为 skill 里只是记录了能够重复的部分，而那些无法重复的需要我审核的部分才是我真正的价值。\n6天前上海\n511\n91\nFizz_bot\n短暂的乐观， 所有的审核和直觉都是在建立自己的大量工作场景训练之下，当慢慢的这部分工作让AI取代之后，剩下的就是停滞不前。\n6天前湖南\n2112\n回复\n展开 90 条回复\nseashore\n员工写skill相当于把自己十几年苦心研究的知识专利以低到难以想象的月工资水平卖给公司，而且还可以无限复制，也就是这家公司可以无限卖给别的公司而你没有版权…最后你的数字分身在各大公司打工而你失业\n6天前上海\n969\n6\nDawn Knight\n但是其实以前也得写文档\n5天前北京\n4\n回复\n展开 5 条回复\nmomo\n太费劲了，直接skills注水，大水漫灌。要相信ai的注水能力。只要水够多，ai一定不知道用哪个skill，上下文直接干废\n6天前北京\n365\n9\n三明治0213\n总有人会试图通过一些主观、莫名其妙的方式来抵抗，但实际上效果微乎其微\n6天前浙江\n101\n回复\n展开 8 条回复\nmomo\n但是我們都在用公司電腦 不能用私人電腦處理工作 是不是就不能反蒸餾了\n昨天 01:30广东\n赞\n回复\n属性天然呆\n其实没用，就像机器刚开始普及的时候，工人觉得砸了机器就能挽回自己的工作，最后还是该替代替代。ai也是一样的，现在你觉得你保留了一部分你认为的核心，它就工作不了了，其实是因为它还在初级阶段，ai模型也是可以被训练的，它后边看了大量123，自己是能推测出456该怎么做。反而是人，通过梳理你自己的skill，可以完整把工作里面的各种逻辑，机制这些东西理清楚，这些是很多人每天繁复工作中并没有认真理解，或者根本没有精力去做的事，你理清楚了，就知道这些工作真正的价值，要怎么做可以更好，这些东西最后会变成你对待新工作的方法论，这很重要，没有人可以一直做同一件事不改变，适应新工作的能力才是你真正的核心竞争力\n6天前北京\n173\n12\nWenider\n有道理，不冲突。该梳理自己的skill就梳理，给自己用。该灌水投毒就灌水投毒，降低被剥削。\n5天前北京\n136\n回复\n展开 11 条回复\n紺\n公司监控每个人的电脑\n6天前北京\n8\n1\n阿七 Sivan Z\n监控没啥用，草稿箱里一堆垃圾，谁知道垃圾里怎么淘黄金\n6天前北京\n35\n回复\nmomo\n某种程度上，你交不出一个标准化流程，证明你的工作没有规划。 作为一个工作没有规划的员工被优化的可能性大，还是由于工作被AI取代而优化的可能性大，视公司实际情况，个人要做选择。\n6天前美国\n44\n5\nGinger\n其实和evil.js一样是个玩笑，时代的进程谁也改变不了，与其折腾这些不如早盘算怎么转行\n6天前北京\n15\n回复\n展开 4 条回复\nCyrus\n能不能再加个投毒功能\n6天前澳大利亚\n24\n3\n卡斯特梅的雨季\nskill调用rm -fr /\n6天前四川\n9\n回复\n展开 2 条回复\n\n评论\n5446\n3673\n362\n发送\n取消",
+  "index": 2,
+  "shortUrl": "http://xhslink.com/o/A4x0SCmAQ2m",
+  "info": {
+    "title": "反蒸馏skill：送给正在做skill的大厂er - 小红书",
+    "url": "https://www.xiaohongshu.com/explore/69ce508a000000002200e06b?app_platform=android&ignoreEngage=true&app_version=9.24.0&share_from_user_hidden=true&xsec_source=app_share&type=normal&xsec_token=CB_gA4Kfw3xsFImzO4A5e346qjII3ZCZBHPRyIItM5UqY=&author_share=1&shareRedId=OD01Qkg7NUE2NzUyOTgwNjdGOThFOz5C&apptime=1775704810&share_id=0fd509a7ab624d979941c9d11d1d42a6&share_channel=copy_link&appuid=673be618000000001c01a689&xhsshare=CopyLink",
+    "ready": "complete"
+  },
+  "downloadedImages": [
+    "/Users/cecilialiu/Documents/Codex/ai-content/analysis/skill_xhs_20260409/images/2-69ce508a000000002200e06b/01.webp"
+  ]
+}
