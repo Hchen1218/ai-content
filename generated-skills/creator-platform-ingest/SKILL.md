@@ -276,11 +276,19 @@ Trend series are required for downstream review logic, but current creator pages
 
 So the script must:
 - prefer the Douyin homepage `overview/all` API for near-7-day trend capture
-- record summary metrics even if daily points are unavailable
+- treat Xiaohongshu weekly summary metrics as an acceptable capture outcome when daily points are not exposed
 - never leave trend gaps silent
 - mark the platform trend block as `series_available`, `summary_only`, or `missing` based on the real coverage
 
 When a required field is missing, say so explicitly and keep the raw capture around for debugging.
+
+## Cross-platform distinction rule
+
+- Treat Xiaohongshu and Douyin titles as platform-specific by default
+- Treat Xiaohongshu and Douyin published copy正文 and tag as platform-specific by default
+- Never overwrite one platform's title/body/tag with the other platform's version just because publish dates are close
+- Only collapse two platform rows into the same newly created archive when there is high-confidence evidence that they are the same content
+- If confidence is low, create separate archive stubs first and let later manual alignment or archive aliases merge them intentionally
 
 ## Parsing assumptions to preserve
 

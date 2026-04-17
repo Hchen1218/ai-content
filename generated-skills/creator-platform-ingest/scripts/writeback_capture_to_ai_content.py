@@ -246,13 +246,15 @@ def pair_unmatched_rows(rows: list[dict[str, Any]]) -> list[dict[str, dict[str, 
         for idx, xhs_row in enumerate(remaining_xhs):
             xhs_date = row_publish_iso(xhs_row)
             day_gap = abs((datetime.fromisoformat(dy_date) - datetime.fromisoformat(xhs_date)).days)
-            if day_gap > 3:
+            if day_gap > 1:
                 continue
             score = score_match(normalize_text(stripped_title(dy_row["title"])), normalize_text(stripped_title(xhs_row["title"])))
             if score > best_score:
                 best_score = score
                 best_idx = idx
-        if best_idx is not None and best_score >= 0.35:
+        # Cross-platform variants often ship with different titles/body/tag.
+        # Only auto-pair when both publish timing and title similarity strongly agree.
+        if best_idx is not None and best_score >= 0.78:
             paired.append({"xhs": remaining_xhs.pop(best_idx), "dy": dy_row})
         else:
             paired.append({"xhs": None, "dy": dy_row})
@@ -287,6 +289,7 @@ def build_archive_stub_markdown(xhs_row: dict[str, Any] | None, dy_row: dict[str
             "## 来源说明",
             "",
             "- 本条内容已在创作者后台发布，数据已由 creator-platform-ingest 自动写回。",
+            "- 小红书和抖音经常会使用不同标题、正文和 tag；自动归档默认保留平台差异，不做低置信度合并。",
             "- 当前归档为自动创建壳子，口播稿正文 / 图文正文 / 封面标题仍需人工补齐后再进入完整归档状态。",
         ]
     )
