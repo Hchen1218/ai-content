@@ -1,0 +1,1529 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>自媒体 AI 一人工作流</title>
+    <link
+      rel="preconnect"
+      href="https://fonts.googleapis.com"
+    />
+    <link
+      rel="preconnect"
+      href="https://fonts.gstatic.com"
+      crossorigin
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Newsreader:opsz,wght@6..72,500;6..72,700&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      /* ===========================================
+         THEME
+         Anthropic-inspired editorial presentation
+         =========================================== */
+      :root {
+        --bg-primary: #f6f0e7;
+        --bg-secondary: #efe5d6;
+        --bg-panel: rgba(255, 252, 246, 0.7);
+        --bg-panel-strong: rgba(255, 250, 242, 0.9);
+        --text-primary: #1f1a17;
+        --text-secondary: #5e564c;
+        --text-muted: #877a6b;
+        --accent: #c56b3d;
+        --accent-deep: #9f4d26;
+        --accent-soft: rgba(197, 107, 61, 0.12);
+        --line: rgba(78, 61, 46, 0.18);
+        --shadow-soft: 0 24px 60px rgba(65, 48, 31, 0.08);
+        --shadow-card: 0 20px 50px rgba(53, 39, 26, 0.09);
+
+        --font-display: "Newsreader", serif;
+        --font-body: "Manrope", sans-serif;
+
+        --title-size: clamp(2.4rem, 5.8vw, 5.8rem);
+        --hero-subtitle-size: clamp(1rem, 1.8vw, 1.45rem);
+        --h2-size: clamp(1.85rem, 3.3vw, 3.35rem);
+        --h3-size: clamp(1rem, 1.8vw, 1.6rem);
+        --body-size: clamp(0.86rem, 1.2vw, 1.06rem);
+        --small-size: clamp(0.72rem, 0.95vw, 0.9rem);
+
+        --slide-padding: clamp(1.2rem, 4vw, 4rem);
+        --content-gap: clamp(0.9rem, 2vw, 1.8rem);
+        --element-gap: clamp(0.45rem, 1vw, 0.9rem);
+
+        --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+        --duration-fast: 0.35s;
+        --duration-normal: 0.75s;
+        --duration-slow: 1s;
+      }
+
+      /* ===========================================
+         RESET
+         =========================================== */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      html, body {
+          height: 100%;
+          overflow-x: hidden;
+      }
+
+      html {
+          scroll-snap-type: y mandatory;
+          scroll-behavior: smooth;
+      }
+
+      .slide {
+          width: 100vw;
+          height: 100vh;
+          height: 100dvh;
+          overflow: hidden;
+          scroll-snap-align: start;
+          display: flex;
+          flex-direction: column;
+          position: relative;
+      }
+
+      .slide-content {
+          flex: 1;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          max-height: 100%;
+          overflow: hidden;
+          padding: var(--slide-padding);
+      }
+
+      :root {
+          --title-size: clamp(1.5rem, 5vw, 4rem);
+          --h2-size: clamp(1.25rem, 3.5vw, 2.5rem);
+          --h3-size: clamp(1rem, 2.5vw, 1.75rem);
+          --body-size: clamp(0.75rem, 1.5vw, 1.125rem);
+          --small-size: clamp(0.65rem, 1vw, 0.875rem);
+          --slide-padding: clamp(1rem, 4vw, 4rem);
+          --content-gap: clamp(0.5rem, 2vw, 2rem);
+          --element-gap: clamp(0.25rem, 1vw, 1rem);
+      }
+
+      .card, .container, .content-box {
+          max-width: min(90vw, 1000px);
+          max-height: min(80vh, 700px);
+      }
+
+      .feature-list, .bullet-list {
+          gap: clamp(0.4rem, 1vh, 1rem);
+      }
+
+      .feature-list li, .bullet-list li {
+          font-size: var(--body-size);
+          line-height: 1.4;
+      }
+
+      .grid {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(min(100%, 250px), 1fr));
+          gap: clamp(0.5rem, 1.5vw, 1rem);
+      }
+
+      img, .image-container {
+          max-width: 100%;
+          max-height: min(50vh, 400px);
+          object-fit: contain;
+      }
+
+      @media (max-height: 700px) {
+          :root {
+              --slide-padding: clamp(0.75rem, 3vw, 2rem);
+              --content-gap: clamp(0.4rem, 1.5vw, 1rem);
+              --title-size: clamp(1.25rem, 4.5vw, 2.5rem);
+              --h2-size: clamp(1rem, 3vw, 1.75rem);
+          }
+      }
+
+      @media (max-height: 600px) {
+          :root {
+              --slide-padding: clamp(0.5rem, 2.5vw, 1.5rem);
+              --content-gap: clamp(0.3rem, 1vw, 0.75rem);
+              --title-size: clamp(1.1rem, 4vw, 2rem);
+              --body-size: clamp(0.7rem, 1.2vw, 0.95rem);
+          }
+
+          .nav-dots, .keyboard-hint, .decorative {
+              display: none;
+          }
+      }
+
+      @media (max-height: 500px) {
+          :root {
+              --slide-padding: clamp(0.4rem, 2vw, 1rem);
+              --title-size: clamp(1rem, 3.5vw, 1.5rem);
+              --h2-size: clamp(0.9rem, 2.5vw, 1.25rem);
+              --body-size: clamp(0.65rem, 1vw, 0.85rem);
+          }
+      }
+
+      @media (max-width: 600px) {
+          :root {
+              --title-size: clamp(1.25rem, 7vw, 2.5rem);
+          }
+
+          .grid {
+              grid-template-columns: 1fr;
+          }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+          *, *::before, *::after {
+              animation-duration: 0.01ms !important;
+              transition-duration: 0.2s !important;
+          }
+
+          html {
+              scroll-behavior: auto;
+          }
+      }
+
+      /* ===========================================
+         BASE VISUAL SYSTEM
+         =========================================== */
+      body {
+        font-family: var(--font-body);
+        background:
+          radial-gradient(circle at 12% 18%, rgba(197, 107, 61, 0.14), transparent 24%),
+          radial-gradient(circle at 85% 15%, rgba(98, 87, 72, 0.08), transparent 26%),
+          linear-gradient(135deg, #f8f4ed 0%, #f1e7d8 100%);
+        color: var(--text-primary);
+      }
+
+      body::before {
+        content: "";
+        position: fixed;
+        inset: 0;
+        pointer-events: none;
+        background-image:
+          linear-gradient(rgba(67, 53, 39, 0.025) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(67, 53, 39, 0.025) 1px, transparent 1px),
+          url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160' viewBox='0 0 160 160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.7' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)' opacity='.055'/%3E%3C/svg%3E");
+        background-size: 32px 32px, 32px 32px, 180px 180px;
+        mix-blend-mode: multiply;
+        opacity: 0.65;
+      }
+
+      .progress-bar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 3px;
+        background: rgba(31, 26, 23, 0.07);
+        z-index: 1000;
+      }
+
+      .progress-fill {
+        width: 0%;
+        height: 100%;
+        background: linear-gradient(90deg, var(--accent-deep), var(--accent));
+        transition: width 0.25s ease-out;
+      }
+
+      .nav-dots {
+        position: fixed;
+        right: clamp(0.8rem, 2vw, 1.6rem);
+        top: 50%;
+        z-index: 1001;
+        transform: translateY(-50%);
+        display: flex;
+        flex-direction: column;
+        gap: clamp(0.45rem, 0.8vw, 0.7rem);
+      }
+
+      .nav-dot {
+        width: clamp(0.55rem, 0.7vw, 0.75rem);
+        height: clamp(0.55rem, 0.7vw, 0.75rem);
+        border-radius: 999px;
+        border: 1px solid rgba(73, 56, 40, 0.28);
+        background: rgba(255, 252, 248, 0.55);
+        cursor: pointer;
+        transition:
+          transform var(--duration-fast) ease,
+          background var(--duration-fast) ease,
+          border-color var(--duration-fast) ease;
+      }
+
+      .nav-dot.active {
+        background: var(--accent);
+        border-color: var(--accent);
+        transform: scale(1.2);
+      }
+
+      .slide-index {
+        position: absolute;
+        right: clamp(1rem, 2vw, 1.5rem);
+        bottom: clamp(1rem, 2vw, 1.4rem);
+        font-size: var(--small-size);
+        letter-spacing: 0.12em;
+        color: var(--text-muted);
+        text-transform: uppercase;
+      }
+
+      .eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.55rem;
+        width: fit-content;
+        padding: clamp(0.45rem, 0.65vw, 0.62rem) clamp(0.75rem, 1.2vw, 1rem);
+        border-radius: 999px;
+        border: 1px solid rgba(90, 68, 48, 0.14);
+        background: rgba(255, 252, 246, 0.68);
+        box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.65);
+        font-size: var(--small-size);
+        letter-spacing: 0.08em;
+        color: var(--text-secondary);
+        text-transform: uppercase;
+      }
+
+      .eyebrow::before {
+        content: "";
+        width: 0.45rem;
+        height: 0.45rem;
+        border-radius: 999px;
+        background: var(--accent);
+        box-shadow: 0 0 0 6px rgba(197, 107, 61, 0.1);
+      }
+
+      .reveal {
+        opacity: 0;
+        transform: translateY(24px);
+        transition:
+          opacity var(--duration-normal) var(--ease-out-expo),
+          transform var(--duration-normal) var(--ease-out-expo);
+      }
+
+      .slide.visible .reveal {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      .reveal:nth-child(1) { transition-delay: 0.08s; }
+      .reveal:nth-child(2) { transition-delay: 0.16s; }
+      .reveal:nth-child(3) { transition-delay: 0.24s; }
+      .reveal:nth-child(4) { transition-delay: 0.32s; }
+      .reveal:nth-child(5) { transition-delay: 0.4s; }
+      .reveal:nth-child(6) { transition-delay: 0.48s; }
+
+      .panel {
+        background: linear-gradient(180deg, rgba(255, 252, 247, 0.88), rgba(248, 241, 231, 0.86));
+        border: 1px solid var(--line);
+        border-radius: clamp(1rem, 1.6vw, 1.6rem);
+        box-shadow: var(--shadow-card);
+        backdrop-filter: blur(10px);
+      }
+
+      .tag-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: clamp(0.5rem, 0.9vw, 0.8rem);
+      }
+
+      .tag {
+        padding: clamp(0.45rem, 0.6vw, 0.62rem) clamp(0.7rem, 0.9vw, 0.95rem);
+        border-radius: 999px;
+        font-size: var(--small-size);
+        color: var(--text-primary);
+        background: rgba(255, 250, 243, 0.85);
+        border: 1px solid rgba(80, 61, 43, 0.14);
+      }
+
+      .split {
+        display: grid;
+        grid-template-columns: 1.05fr 0.95fr;
+        gap: clamp(1rem, 2vw, 2rem);
+        align-items: stretch;
+        min-height: 0;
+      }
+
+      .section-title {
+        font-family: var(--font-display);
+        font-size: clamp(2rem, 4.1vw, 4rem);
+        line-height: 0.95;
+        letter-spacing: -0.03em;
+      }
+
+      .section-subtitle {
+        font-size: clamp(0.98rem, 1.45vw, 1.18rem);
+        line-height: 1.55;
+        color: var(--text-secondary);
+        max-width: 42ch;
+      }
+
+      .muted {
+        color: var(--text-muted);
+      }
+
+      .kicker {
+        font-size: var(--small-size);
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--text-muted);
+      }
+
+      /* ===========================================
+         SLIDE 1
+         =========================================== */
+      .hero-slide .slide-content {
+        justify-content: space-between;
+      }
+
+      .hero-layout {
+        flex: 1;
+        min-height: 0;
+        display: grid;
+        grid-template-columns: 1.15fr 0.85fr;
+        gap: clamp(1rem, 2vw, 2rem);
+        align-items: center;
+      }
+
+      .hero-copy {
+        display: flex;
+        flex-direction: column;
+        gap: clamp(0.75rem, 1.35vw, 1.2rem);
+      }
+
+      .hero-strap {
+        font-size: clamp(0.92rem, 1.2vw, 1.02rem);
+        line-height: 1.45;
+        color: var(--accent-deep);
+        font-weight: 800;
+        letter-spacing: 0.02em;
+      }
+
+      .hero-title {
+        font-family: var(--font-display);
+        font-size: clamp(3rem, 7vw, 7rem);
+        line-height: 0.92;
+        letter-spacing: -0.045em;
+        max-width: 9ch;
+      }
+
+      .hero-subtitle {
+        font-size: var(--hero-subtitle-size);
+        line-height: 1.45;
+        color: var(--text-secondary);
+        max-width: 40ch;
+      }
+
+      .hero-proof {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: clamp(0.55rem, 1vw, 0.85rem);
+        max-width: min(64vw, 40rem);
+      }
+
+      .hero-proof .tag {
+        text-align: center;
+        font-weight: 700;
+        background: rgba(255, 247, 238, 0.95);
+      }
+
+      .hero-preview {
+        display: flex;
+        flex-direction: column;
+        gap: clamp(0.7rem, 1vw, 0.95rem);
+      }
+
+      .mini-card {
+        padding: clamp(0.95rem, 1.25vw, 1.25rem);
+        border-radius: clamp(1rem, 1.4vw, 1.35rem);
+        border: 1px solid rgba(78, 61, 46, 0.16);
+        background: linear-gradient(180deg, rgba(255, 252, 247, 0.94), rgba(244, 235, 223, 0.86));
+        box-shadow: var(--shadow-soft);
+      }
+
+      .mini-card-head {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1rem;
+        margin-bottom: 0.55rem;
+      }
+
+      .mini-card-title {
+        font-size: clamp(1rem, 1.55vw, 1.35rem);
+        font-weight: 800;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        flex-wrap: wrap;
+      }
+
+      .brand-wrap {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.42rem;
+        white-space: nowrap;
+      }
+
+      .brand-logo {
+        width: clamp(1.05rem, 1.4vw, 1.35rem);
+        height: clamp(1.05rem, 1.4vw, 1.35rem);
+        object-fit: contain;
+        filter: drop-shadow(0 2px 4px rgba(43, 29, 15, 0.14));
+      }
+
+      .heading-divider {
+        color: var(--text-muted);
+        font-weight: 600;
+      }
+
+      .mini-card-badge {
+        padding: 0.3rem 0.55rem;
+        border-radius: 999px;
+        background: var(--accent-soft);
+        color: var(--accent-deep);
+        font-size: clamp(0.68rem, 0.75vw, 0.78rem);
+        font-weight: 800;
+      }
+
+      .mini-card p {
+        font-size: var(--small-size);
+        line-height: 1.55;
+        color: var(--text-secondary);
+      }
+
+      /* ===========================================
+         SLIDE 2
+         =========================================== */
+      .compare-grid {
+        display: grid;
+        grid-template-columns: 0.95fr 1.05fr;
+        gap: clamp(0.9rem, 1.4vw, 1.25rem);
+        margin-top: clamp(0.85rem, 1.2vw, 1rem);
+        min-height: 0;
+      }
+
+      .compare-card {
+        padding: clamp(1rem, 1.4vw, 1.4rem);
+        display: flex;
+        flex-direction: column;
+        gap: clamp(0.75rem, 1vw, 0.9rem);
+      }
+
+      .compare-card h3 {
+        font-size: clamp(1.2rem, 2vw, 1.6rem);
+        line-height: 1.1;
+      }
+
+      .compare-list {
+        display: grid;
+        gap: clamp(0.5rem, 0.7vw, 0.7rem);
+      }
+
+      .compare-list-item {
+        padding: clamp(0.7rem, 0.95vw, 0.9rem);
+        border-radius: 1rem;
+        border: 1px solid rgba(78, 61, 46, 0.12);
+        background: rgba(255, 252, 248, 0.58);
+        color: var(--text-secondary);
+        line-height: 1.45;
+        font-size: var(--body-size);
+      }
+
+      .compare-list-item strong {
+        display: block;
+        color: var(--text-primary);
+        margin-bottom: 0.2rem;
+      }
+
+      .flow-rail {
+        margin-top: auto;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: clamp(0.5rem, 0.8vw, 0.75rem);
+        align-items: stretch;
+      }
+
+      .flow-pill {
+        padding: clamp(0.7rem, 0.9vw, 0.85rem);
+        border-radius: 1rem;
+        border: 1px dashed rgba(97, 77, 56, 0.25);
+        background: rgba(246, 240, 231, 0.68);
+        text-align: center;
+        font-weight: 700;
+        font-size: var(--small-size);
+      }
+
+      /* ===========================================
+         SLIDE 3
+         =========================================== */
+      .roles-header {
+        display: flex;
+        align-items: end;
+        justify-content: space-between;
+        gap: 1rem;
+        margin-bottom: clamp(0.85rem, 1vw, 1rem);
+      }
+
+      .roles-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: clamp(0.8rem, 1.2vw, 1rem);
+        min-height: 0;
+      }
+
+      .role-card {
+        padding: clamp(1rem, 1.35vw, 1.35rem);
+        display: flex;
+        flex-direction: column;
+        gap: clamp(0.7rem, 0.95vw, 0.85rem);
+      }
+
+      .role-top {
+        display: flex;
+        flex-direction: column;
+        gap: 0.25rem;
+      }
+
+      .role-name {
+        font-size: clamp(1.18rem, 1.8vw, 1.5rem);
+        font-weight: 800;
+        display: flex;
+        align-items: center;
+        gap: 0.45rem;
+        flex-wrap: wrap;
+      }
+
+      .role-summary {
+        font-size: var(--small-size);
+        color: var(--accent-deep);
+        font-weight: 700;
+      }
+
+      .role-block {
+        display: grid;
+        gap: 0.45rem;
+      }
+
+      .role-label {
+        font-size: var(--small-size);
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: var(--text-muted);
+      }
+
+      .role-items {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.4rem;
+      }
+
+      .role-chip {
+        padding: 0.4rem 0.58rem;
+        border-radius: 0.78rem;
+        background: rgba(255, 250, 242, 0.94);
+        border: 1px solid rgba(88, 66, 45, 0.12);
+        font-size: var(--small-size);
+      }
+
+      .role-note {
+        padding: 0.8rem;
+        border-radius: 1rem;
+        background: rgba(197, 107, 61, 0.08);
+        color: var(--text-secondary);
+        line-height: 1.45;
+        font-size: var(--small-size);
+      }
+
+      /* ===========================================
+         SLIDE 4
+         =========================================== */
+      .workflow-shell {
+        display: grid;
+        grid-template-rows: auto 1fr auto;
+        gap: clamp(0.8rem, 1.1vw, 1rem);
+        min-height: 0;
+      }
+
+      .case-meta {
+        display: flex;
+        flex-wrap: wrap;
+        gap: clamp(0.45rem, 0.8vw, 0.7rem);
+        margin-top: clamp(0.7rem, 0.9vw, 0.85rem);
+      }
+
+      .case-chip {
+        padding: 0.42rem 0.65rem;
+        border-radius: 999px;
+        border: 1px solid rgba(90, 68, 48, 0.14);
+        background: rgba(255, 251, 245, 0.84);
+        font-size: var(--small-size);
+        color: var(--text-secondary);
+      }
+
+      .workflow-track {
+        position: relative;
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: clamp(0.8rem, 1.2vw, 1rem);
+        align-items: stretch;
+      }
+
+      .workflow-track::before {
+        content: "";
+        position: absolute;
+        top: clamp(1.35rem, 2vw, 1.6rem);
+        left: 12%;
+        right: 12%;
+        height: 1px;
+        background: linear-gradient(90deg, rgba(130, 103, 74, 0.1), rgba(130, 103, 74, 0.35), rgba(130, 103, 74, 0.1));
+        z-index: 0;
+      }
+
+      .workflow-step {
+        position: relative;
+        z-index: 1;
+        padding: clamp(1rem, 1.35vw, 1.35rem);
+        display: flex;
+        flex-direction: column;
+        gap: clamp(0.65rem, 0.9vw, 0.8rem);
+      }
+
+      .step-dot {
+        width: clamp(0.95rem, 1.15vw, 1.1rem);
+        height: clamp(0.95rem, 1.15vw, 1.1rem);
+        border-radius: 999px;
+        background: linear-gradient(135deg, var(--accent), #e0a375);
+        box-shadow: 0 0 0 7px rgba(197, 107, 61, 0.1);
+      }
+
+      .step-heading {
+        display: flex;
+        justify-content: space-between;
+        gap: 1rem;
+        align-items: start;
+      }
+
+      .step-heading h3 {
+        font-size: clamp(1.08rem, 1.65vw, 1.32rem);
+        display: flex;
+        align-items: center;
+        gap: 0.45rem;
+        flex-wrap: wrap;
+      }
+
+      .step-input {
+        color: var(--text-muted);
+        font-size: var(--small-size);
+      }
+
+      .step-output {
+        display: grid;
+        gap: 0.4rem;
+      }
+
+      .step-output .role-chip {
+        width: fit-content;
+      }
+
+      .workflow-footer {
+        padding: clamp(0.95rem, 1.2vw, 1.1rem) clamp(1rem, 1.3vw, 1.2rem);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1rem;
+      }
+
+      .workflow-footer p {
+        font-size: var(--body-size);
+        line-height: 1.45;
+        color: var(--text-secondary);
+        max-width: 56ch;
+      }
+
+      .workflow-footer strong {
+        color: var(--text-primary);
+      }
+
+      /* ===========================================
+         SLIDE 5
+         =========================================== */
+      .outcomes-layout {
+        display: grid;
+        grid-template-columns: 0.95fr 1.05fr;
+        gap: clamp(1rem, 1.6vw, 1.45rem);
+        min-height: 0;
+      }
+
+      .benefits-panel,
+      .cta-panel {
+        padding: clamp(1rem, 1.45vw, 1.4rem);
+        display: flex;
+        flex-direction: column;
+        gap: clamp(0.8rem, 1vw, 0.95rem);
+      }
+
+      .benefit-list {
+        display: grid;
+        gap: clamp(0.65rem, 0.95vw, 0.8rem);
+      }
+
+      .benefit-row {
+        display: grid;
+        grid-template-columns: auto 1fr;
+        gap: 0.8rem;
+        align-items: start;
+        padding: clamp(0.75rem, 1vw, 0.9rem);
+        border-radius: 1rem;
+        background: rgba(255, 252, 248, 0.58);
+        border: 1px solid rgba(78, 61, 46, 0.1);
+      }
+
+      .benefit-no {
+        font-family: var(--font-display);
+        font-size: clamp(1.45rem, 2vw, 1.8rem);
+        color: var(--accent-deep);
+        line-height: 1;
+      }
+
+      .benefit-row h3 {
+        font-size: clamp(1rem, 1.45vw, 1.2rem);
+        margin-bottom: 0.22rem;
+      }
+
+      .benefit-row p {
+        color: var(--text-secondary);
+        font-size: var(--body-size);
+        line-height: 1.45;
+      }
+
+      .cta-shell {
+        margin-top: auto;
+        display: grid;
+        gap: clamp(0.65rem, 0.9vw, 0.8rem);
+      }
+
+      .cta-box {
+        padding: clamp(1rem, 1.3vw, 1.25rem);
+        border-radius: 1.2rem;
+        background: linear-gradient(145deg, rgba(34, 27, 22, 0.96), rgba(60, 45, 32, 0.92));
+        color: #f8f1e5;
+        box-shadow: 0 28px 60px rgba(41, 30, 20, 0.25);
+      }
+
+      .cta-box h3 {
+        font-size: clamp(1.15rem, 1.8vw, 1.45rem);
+        margin-bottom: 0.5rem;
+      }
+
+      .cta-box p {
+        color: rgba(248, 241, 229, 0.8);
+        line-height: 1.5;
+        font-size: var(--body-size);
+      }
+
+      .asset-chips {
+        margin-top: 0.8rem;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.45rem;
+      }
+
+      .asset-chip {
+        padding: 0.38rem 0.58rem;
+        border-radius: 999px;
+        border: 1px solid rgba(255, 238, 220, 0.16);
+        background: rgba(255, 255, 255, 0.06);
+        font-size: var(--small-size);
+      }
+
+      .cta-action {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1rem;
+        margin-top: 1rem;
+        padding-top: 0.95rem;
+        border-top: 1px solid rgba(255, 238, 220, 0.12);
+      }
+
+      .cta-button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: clamp(0.72rem, 1vw, 0.9rem) clamp(1rem, 1.4vw, 1.2rem);
+        border-radius: 999px;
+        background: linear-gradient(90deg, #d08a61, #f0b280);
+        color: #281d14;
+        font-size: var(--small-size);
+        font-weight: 800;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+      }
+
+      .cta-note {
+        font-size: var(--small-size);
+        color: rgba(248, 241, 229, 0.72);
+        max-width: 26ch;
+        text-align: right;
+      }
+
+      .keyboard-hint {
+        position: fixed;
+        left: clamp(0.9rem, 2vw, 1.4rem);
+        bottom: clamp(0.9rem, 2vw, 1.2rem);
+        z-index: 1001;
+        padding: 0.5rem 0.8rem;
+        border-radius: 999px;
+        border: 1px solid rgba(80, 60, 42, 0.12);
+        background: rgba(255, 252, 247, 0.72);
+        color: var(--text-muted);
+        font-size: var(--small-size);
+        backdrop-filter: blur(10px);
+      }
+
+      /* ===========================================
+         RESPONSIVE
+         =========================================== */
+      @media (max-width: 1024px) {
+        .hero-layout,
+        .compare-grid,
+        .outcomes-layout,
+        .split {
+          grid-template-columns: 1fr;
+        }
+
+        .roles-grid,
+        .workflow-track {
+          grid-template-columns: 1fr;
+        }
+
+        .workflow-track::before {
+          display: none;
+        }
+
+        .hero-proof {
+          max-width: none;
+        }
+      }
+
+      @media (max-width: 720px) {
+        .nav-dots,
+        .keyboard-hint {
+          display: none;
+        }
+
+        .hero-proof {
+          grid-template-columns: 1fr;
+        }
+
+        .workflow-footer,
+        .cta-action,
+        .roles-header {
+          flex-direction: column;
+          align-items: start;
+        }
+
+        .cta-note {
+          text-align: left;
+          max-width: none;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="progress-bar" aria-hidden="true">
+      <div class="progress-fill" id="progressFill"></div>
+    </div>
+
+    <nav class="nav-dots" id="navDots" aria-label="Slide navigation"></nav>
+
+    <!-- ===========================================
+         SLIDE 1 — HOOK
+         =========================================== -->
+    <section class="slide hero-slide">
+      <div class="slide-content">
+        <span class="eyebrow reveal">AI content workflow</span>
+
+        <div class="hero-layout">
+          <div class="hero-copy">
+            <span class="kicker reveal">自媒体 AI 一人工作流</span>
+            <p class="hero-strap reveal">别再让一个 AI 从头干到尾了</p>
+            <h1 class="hero-title reveal">三个模型，做完一条内容</h1>
+            <p class="hero-subtitle reveal">
+              Claude 研究，ChatGPT 执行，Gemini 呈现。不是找一个最强模型全包，而是直接给它们分工。
+            </p>
+
+            <div class="hero-proof reveal">
+              <span class="tag">更省钱</span>
+              <span class="tag">更少返工</span>
+              <span class="tag">更容易成稿</span>
+            </div>
+          </div>
+
+          <div class="hero-preview">
+            <article class="mini-card reveal">
+              <div class="mini-card-head">
+                <h2 class="mini-card-title">
+                  <span class="brand-wrap">
+                    <img class="brand-logo" src="assets/claude.png" alt="Claude logo" />
+                    <span>Claude</span>
+                  </span>
+                  <span class="heading-divider">/</span>
+                  <span>研究员</span>
+                </h2>
+                <span class="mini-card-badge">判断</span>
+              </div>
+              <p>找材料、做判断、定方向、定内容结构。贵，但应该把它留给最值钱的决策。</p>
+            </article>
+
+            <article class="mini-card reveal">
+              <div class="mini-card-head">
+                <h2 class="mini-card-title">
+                  <span class="brand-wrap">
+                    <img class="brand-logo" src="assets/chatgpt.png" alt="ChatGPT logo" />
+                    <span>ChatGPT</span>
+                  </span>
+                  <span class="heading-divider">/</span>
+                  <span>执行者</span>
+                </h2>
+                <span class="mini-card-badge">推进</span>
+              </div>
+              <p>把方向变成脚本、文案和 demo 初稿。已经想明白的事，交给它往前推。</p>
+            </article>
+
+            <article class="mini-card reveal">
+              <div class="mini-card-head">
+                <h2 class="mini-card-title">
+                  <span class="brand-wrap">
+                    <img class="brand-logo" src="assets/gemini.png" alt="Gemini logo" />
+                    <span>Gemini</span>
+                  </span>
+                  <span class="heading-divider">/</span>
+                  <span>设计师</span>
+                </h2>
+                <span class="mini-card-badge">呈现</span>
+              </div>
+              <p>把内容变成可展示资产：HTML 页面、版式层级、插图方向、视觉整理。</p>
+            </article>
+          </div>
+        </div>
+
+        <span class="slide-index">01 / 05</span>
+      </div>
+    </section>
+
+    <!-- ===========================================
+         SLIDE 2 — WHY NOT ONE MODEL
+         =========================================== -->
+    <section class="slide">
+      <div class="slide-content">
+        <div class="split">
+          <div class="reveal">
+            <span class="eyebrow">Why this structure</span>
+            <h2 class="section-title" style="margin-top: 0.85rem;">一个模型全包，为什么会越做越乱</h2>
+            <p class="section-subtitle" style="margin-top: 0.85rem;">
+              真正的问题不是模型不够强，而是你把判断、执行、呈现全塞进了同一个脑子里。前面方向一错，后面整条都要返工。
+            </p>
+          </div>
+
+          <div class="compare-grid">
+            <article class="panel compare-card reveal">
+              <h3>一个模型全包</h3>
+              <div class="compare-list">
+                <div class="compare-list-item">
+                  <strong>判断和执行混在一起</strong>
+                  查资料、写脚本、做展示全部堆在一个上下文里。
+                </div>
+                <div class="compare-list-item">
+                  <strong>最贵的模型做重复输出</strong>
+                  本该做高价值决策的模型，被拿去干大量体力活。
+                </div>
+                <div class="compare-list-item">
+                  <strong>前面错了，后面全部返工</strong>
+                  结构没定稳，文案和页面都会跟着一起错。
+                </div>
+              </div>
+            </article>
+
+            <article class="panel compare-card reveal">
+              <h3>我现在的拆法</h3>
+              <div class="compare-list">
+                <div class="compare-list-item">
+                  <strong>判断交给最聪明的</strong>
+                  选题值不值得做，往哪个方向切，由研究员先定。
+                </div>
+                <div class="compare-list-item">
+                  <strong>执行交给最稳定的</strong>
+                  脚本、文案、demo 初稿，交给适合持续推进的模型。
+                </div>
+                <div class="compare-list-item">
+                  <strong>呈现交给最会表达的</strong>
+                  内容已经成立之后，再去做页面、版式和视觉整理。
+                </div>
+              </div>
+
+              <div class="flow-rail">
+                <div class="flow-pill">选题判断</div>
+                <div class="flow-pill">脚本执行</div>
+                <div class="flow-pill">页面呈现</div>
+              </div>
+            </article>
+          </div>
+        </div>
+
+        <span class="slide-index">02 / 05</span>
+      </div>
+    </section>
+
+    <!-- ===========================================
+         SLIDE 3 — ROLE CARDS
+         =========================================== -->
+    <section class="slide">
+      <div class="slide-content">
+        <div class="roles-header">
+          <div class="reveal">
+            <span class="eyebrow">Three roles, three reasons</span>
+            <h2 class="section-title" style="margin-top: 0.8rem;">这不是分工表，这是分工逻辑</h2>
+          </div>
+          <p class="section-subtitle reveal" style="max-width: 34ch;">
+            不能只说谁负责什么，还要说清楚为什么是它。看懂这 3 张卡，整套方法就成立了。
+          </p>
+        </div>
+
+        <div class="roles-grid">
+          <article class="panel role-card reveal">
+            <div class="role-top">
+              <div class="role-name">
+                <span>研究员</span>
+                <span class="brand-wrap">
+                  <img class="brand-logo" src="assets/claude.png" alt="Claude logo" />
+                  <span>Claude</span>
+                </span>
+              </div>
+              <div class="role-summary">聪明，但贵</div>
+            </div>
+
+            <div class="role-block">
+              <div class="role-label">负责什么</div>
+              <div class="role-items">
+                <span class="role-chip">找材料</span>
+                <span class="role-chip">做判断</span>
+                <span class="role-chip">定方向</span>
+                <span class="role-chip">定内容结构</span>
+              </div>
+            </div>
+
+            <div class="role-block">
+              <div class="role-label">为什么是它</div>
+              <div class="role-note">理解能力强，判断质量高，适合做高价值决策。贵模型应该留给最值钱的那一步。</div>
+            </div>
+
+            <div class="role-block">
+              <div class="role-label">不适合</div>
+              <div class="role-note">不适合拿大量输出和重复改稿去消耗它。</div>
+            </div>
+          </article>
+
+          <article class="panel role-card reveal">
+            <div class="role-top">
+              <div class="role-name">
+                <span>执行者</span>
+                <span class="brand-wrap">
+                  <img class="brand-logo" src="assets/chatgpt.png" alt="ChatGPT logo" />
+                  <span>ChatGPT</span>
+                </span>
+              </div>
+              <div class="role-summary">干活稳，适合推进成稿</div>
+            </div>
+
+            <div class="role-block">
+              <div class="role-label">负责什么</div>
+              <div class="role-items">
+                <span class="role-chip">写脚本</span>
+                <span class="role-chip">写文案</span>
+                <span class="role-chip">demo 初稿</span>
+                <span class="role-chip">流程草案</span>
+              </div>
+            </div>
+
+            <div class="role-block">
+              <div class="role-label">为什么是它</div>
+              <div class="role-note">已经确定好的方向，交给它往前推最合适。适合大量生成，也适合反复打磨表达。</div>
+            </div>
+
+            <div class="role-block">
+              <div class="role-label">不适合</div>
+              <div class="role-note">不适合承担最前面的选题判断和战略决策。</div>
+            </div>
+          </article>
+
+          <article class="panel role-card reveal">
+            <div class="role-top">
+              <div class="role-name">
+                <span>设计师</span>
+                <span class="brand-wrap">
+                  <img class="brand-logo" src="assets/gemini.png" alt="Gemini logo" />
+                  <span>Gemini</span>
+                </span>
+              </div>
+              <div class="role-summary">审美好，适合做展示</div>
+            </div>
+
+            <div class="role-block">
+              <div class="role-label">负责什么</div>
+              <div class="role-items">
+                <span class="role-chip">HTML 展示页</span>
+                <span class="role-chip">白板排版</span>
+                <span class="role-chip">插图方向</span>
+                <span class="role-chip">视觉整理</span>
+              </div>
+            </div>
+
+            <div class="role-block">
+              <div class="role-label">为什么是它</div>
+              <div class="role-note">视觉表达更强，更适合把已经成形的内容，变成一眼能看懂、能保存的展示资产。</div>
+            </div>
+
+            <div class="role-block">
+              <div class="role-label">不适合</div>
+              <div class="role-note">不适合承担内容方向判断，也不适合让它独自跑完整个流程。</div>
+            </div>
+          </article>
+        </div>
+
+        <span class="slide-index">03 / 05</span>
+      </div>
+    </section>
+
+    <!-- ===========================================
+         SLIDE 4 — WORKFLOW
+         =========================================== -->
+    <section class="slide">
+      <div class="slide-content">
+        <div class="workflow-shell">
+          <div class="reveal">
+            <span class="eyebrow">Real case</span>
+            <h2 class="section-title" style="margin-top: 0.8rem;">Harness Engineering，这条解读怎么做出来</h2>
+            <p class="section-subtitle" style="margin-top: 0.7rem;">
+              先把官方资料和运行逻辑拆清，再做模拟 demo，最后把理解变成流程图和展示页。
+            </p>
+            <div class="case-meta">
+              <span class="case-chip">官方文档</span>
+              <span class="case-chip">运行方式</span>
+              <span class="case-chip">模拟 demo</span>
+              <span class="case-chip">流程图</span>
+              <span class="case-chip">展示页面</span>
+            </div>
+          </div>
+
+          <div class="workflow-track">
+            <article class="panel workflow-step reveal">
+              <div class="step-dot"></div>
+              <div class="step-heading">
+                <h3>
+                  <span class="brand-wrap">
+                    <img class="brand-logo" src="assets/claude.png" alt="Claude logo" />
+                    <span>Claude</span>
+                  </span>
+                  <span>拆官方逻辑</span>
+                </h3>
+                <span class="step-input">输入：Harness Engineering 选题</span>
+              </div>
+              <p class="section-subtitle" style="max-width:none;">
+                先把 Harness Engineering 是什么、怎么运行、官方文档到底在讲什么拆清楚，再判断这条内容最值得从哪个角度切进去。
+              </p>
+              <div class="step-output">
+                <span class="role-chip">官方资料</span>
+                <span class="role-chip">运行逻辑</span>
+                <span class="role-chip">切入角度</span>
+                <span class="role-chip">解读结构</span>
+              </div>
+            </article>
+
+            <article class="panel workflow-step reveal">
+              <div class="step-dot"></div>
+              <div class="step-heading">
+                <h3>
+                  <span class="brand-wrap">
+                    <img class="brand-logo" src="assets/chatgpt.png" alt="ChatGPT logo" />
+                    <span>ChatGPT</span>
+                  </span>
+                  <span>做模拟 demo</span>
+                </h3>
+                <span class="step-input">输入：已拆清的内容结构</span>
+              </div>
+              <p class="section-subtitle" style="max-width:none;">
+                基于前面的解读结构，先做一个模拟 Harness Engineering 的 demo，把抽象概念变成观众看得懂、能跟着走的演示过程。
+              </p>
+              <div class="step-output">
+                <span class="role-chip">模拟 demo</span>
+                <span class="role-chip">演示逻辑</span>
+                <span class="role-chip">演示脚本</span>
+                <span class="role-chip">页面文案</span>
+              </div>
+            </article>
+
+            <article class="panel workflow-step reveal">
+              <div class="step-dot"></div>
+              <div class="step-heading">
+                <h3>
+                  <span class="brand-wrap">
+                    <img class="brand-logo" src="assets/gemini.png" alt="Gemini logo" />
+                    <span>Gemini</span>
+                  </span>
+                  <span>做图解页</span>
+                </h3>
+                <span class="step-input">输入：已经成形的解读内容</span>
+              </div>
+              <p class="section-subtitle" style="max-width:none;">
+                最后把这篇 Harness Engineering 解读做成流程图和展示页面，让概念、运行过程和 demo 之间的关系一眼就能看懂。
+              </p>
+              <div class="step-output">
+                <span class="role-chip">流程图</span>
+                <span class="role-chip">展示页面</span>
+                <span class="role-chip">版式层级</span>
+                <span class="role-chip">视觉整理</span>
+              </div>
+            </article>
+          </div>
+
+          <div class="panel workflow-footer reveal">
+            <p><strong>研究清楚 -> 演示出来 -> 讲清楚。</strong> 不是摆一个概念框架，而是把一个技术选题真的做成一条能看懂、能记住、能传播的内容。</p>
+            <div class="tag-list">
+              <span class="tag">拆官方逻辑</span>
+              <span class="tag">做模拟 demo</span>
+              <span class="tag">输出图解页</span>
+            </div>
+          </div>
+        </div>
+
+        <span class="slide-index">04 / 05</span>
+      </div>
+    </section>
+
+    <!-- ===========================================
+         SLIDE 5 — OUTCOMES + CTA
+         =========================================== -->
+    <section class="slide">
+      <div class="slide-content">
+        <div class="outcomes-layout">
+          <article class="panel benefits-panel reveal">
+            <span class="eyebrow">What this changes</span>
+            <h2 class="section-title" style="margin-top: 0.8rem;">这套结构，最后能直接帮你解决三件事</h2>
+
+            <div class="benefit-list">
+              <div class="benefit-row">
+                <div class="benefit-no">01</div>
+                <div>
+                  <h3>更省钱</h3>
+                  <p>最贵的模型，只做最值钱的判断。不要把高判断模型拿去做大量重复输出。</p>
+                </div>
+              </div>
+              <div class="benefit-row">
+                <div class="benefit-no">02</div>
+                <div>
+                  <h3>更少返工</h3>
+                  <p>判断、执行、呈现拆开以后，前面错了，不会让后面整条内容跟着一起重来。</p>
+                </div>
+              </div>
+              <div class="benefit-row">
+                <div class="benefit-no">03</div>
+                <div>
+                  <h3>更容易成稿</h3>
+                  <p>把内容拆成三段之后，想法不再堆在一个地方，更容易真正推进成页面和成品。</p>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article class="panel cta-panel reveal">
+            <span class="eyebrow">CTA</span>
+            <h2 class="section-title" style="margin-top: 0.8rem;">要这套工作流，评论区回「工作流」</h2>
+            <p class="section-subtitle" style="margin-top: 0.7rem; max-width: none;">
+              我把这套自媒体 AI 一人工作流整理成模板了，直接套到你自己的选题、脚本和展示页里就行。
+            </p>
+
+            <div class="cta-shell">
+              <div class="cta-box">
+                <h3>直接拿走一套完整结构</h3>
+                <p>工作流图、三角色分工、提示词骨架、HTML 页面结构，已经帮你整理好了。</p>
+
+                <div class="asset-chips">
+                  <span class="asset-chip">工作流图</span>
+                  <span class="asset-chip">三角色分工表</span>
+                  <span class="asset-chip">提示词骨架</span>
+                  <span class="asset-chip">HTML 页面结构</span>
+                </div>
+
+                <div class="cta-action">
+                  <span class="cta-button">评论区回：工作流</span>
+                  <span class="cta-note">拿到就能开始改成你自己的版本。</span>
+                </div>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <span class="slide-index">05 / 05</span>
+      </div>
+    </section>
+
+    <div class="keyboard-hint">↑ ↓ / Space / 滚轮 切换</div>
+
+    <script>
+      /* ===========================================
+         SLIDE PRESENTATION CONTROLLER
+         =========================================== */
+      class SlidePresentation {
+        constructor() {
+          this.slides = Array.from(document.querySelectorAll(".slide"));
+          this.navDotsContainer = document.getElementById("navDots");
+          this.progressFill = document.getElementById("progressFill");
+          this.currentSlide = 0;
+          this.isThrottled = false;
+          this.touchStartY = 0;
+          this.touchEndY = 0;
+
+          this.setupObserver();
+          this.setupNavDots();
+          this.setupKeyboardNav();
+          this.setupWheelNav();
+          this.setupTouchNav();
+          this.setupProgressBar();
+          this.updateUI(0);
+        }
+
+        setupObserver() {
+          const observer = new IntersectionObserver(
+            (entries) => {
+              entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                  entry.target.classList.add("visible");
+                  const index = this.slides.indexOf(entry.target);
+                  this.updateUI(index);
+                }
+              });
+            },
+            { threshold: 0.55 }
+          );
+
+          this.slides.forEach((slide) => observer.observe(slide));
+        }
+
+        setupNavDots() {
+          this.navDotsContainer.innerHTML = "";
+          this.slides.forEach((_, index) => {
+            const dot = document.createElement("button");
+            dot.className = "nav-dot";
+            dot.setAttribute("aria-label", `Go to slide ${index + 1}`);
+            dot.addEventListener("click", () => this.goToSlide(index));
+            this.navDotsContainer.appendChild(dot);
+          });
+          this.navDots = Array.from(this.navDotsContainer.children);
+        }
+
+        setupKeyboardNav() {
+          window.addEventListener("keydown", (event) => {
+            if (["ArrowDown", "PageDown", " ", "ArrowRight"].includes(event.key)) {
+              event.preventDefault();
+              this.goToSlide(Math.min(this.currentSlide + 1, this.slides.length - 1));
+            }
+            if (["ArrowUp", "PageUp", "ArrowLeft"].includes(event.key)) {
+              event.preventDefault();
+              this.goToSlide(Math.max(this.currentSlide - 1, 0));
+            }
+            if (event.key === "Home") {
+              event.preventDefault();
+              this.goToSlide(0);
+            }
+            if (event.key === "End") {
+              event.preventDefault();
+              this.goToSlide(this.slides.length - 1);
+            }
+          });
+        }
+
+        setupWheelNav() {
+          window.addEventListener(
+            "wheel",
+            (event) => {
+              if (this.isThrottled) return;
+              if (Math.abs(event.deltaY) < 22) return;
+
+              this.isThrottled = true;
+              const direction = event.deltaY > 0 ? 1 : -1;
+              this.goToSlide(
+                Math.max(0, Math.min(this.currentSlide + direction, this.slides.length - 1))
+              );
+
+              window.setTimeout(() => {
+                this.isThrottled = false;
+              }, 700);
+            },
+            { passive: true }
+          );
+        }
+
+        setupTouchNav() {
+          window.addEventListener(
+            "touchstart",
+            (event) => {
+              this.touchStartY = event.changedTouches[0].screenY;
+            },
+            { passive: true }
+          );
+
+          window.addEventListener(
+            "touchend",
+            (event) => {
+              this.touchEndY = event.changedTouches[0].screenY;
+              const delta = this.touchStartY - this.touchEndY;
+              if (Math.abs(delta) < 50) return;
+
+              if (delta > 0) {
+                this.goToSlide(Math.min(this.currentSlide + 1, this.slides.length - 1));
+              } else {
+                this.goToSlide(Math.max(this.currentSlide - 1, 0));
+              }
+            },
+            { passive: true }
+          );
+        }
+
+        setupProgressBar() {
+          window.addEventListener(
+            "scroll",
+            () => {
+              const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+              const progress = maxScroll > 0 ? (window.scrollY / maxScroll) * 100 : 0;
+              this.progressFill.style.width = `${Math.min(progress, 100)}%`;
+            },
+            { passive: true }
+          );
+        }
+
+        goToSlide(index) {
+          this.currentSlide = index;
+          this.slides[index].scrollIntoView({ behavior: "smooth", block: "start" });
+          this.updateUI(index);
+        }
+
+        updateUI(index) {
+          this.currentSlide = index;
+          if (this.navDots) {
+            this.navDots.forEach((dot, dotIndex) => {
+              dot.classList.toggle("active", dotIndex === index);
+            });
+          }
+        }
+      }
+
+      window.addEventListener("load", () => {
+        new SlidePresentation();
+      });
+    </script>
+  </body>
+</html>
