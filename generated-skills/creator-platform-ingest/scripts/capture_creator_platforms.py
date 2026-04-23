@@ -1278,12 +1278,63 @@ def score_match(a: str, b: str) -> float:
     return min(ratio, 1.0)
 
 
+GENERIC_TITLE_PATTERNS = (
+    "20s",
+    "20秒",
+    "30s",
+    "30秒",
+    "60s",
+    "60秒",
+    "一分钟",
+    "一条",
+    "一个",
+    "一种",
+    "什么是",
+    "是什么",
+    "到底",
+    "速通",
+    "讲清",
+    "看懂",
+    "入门",
+    "教程",
+    "ai",
+    "大模型",
+)
+
+
+def archive_match_core(raw: str) -> str:
+    core = normalize_text(raw)
+    for pattern in GENERIC_TITLE_PATTERNS:
+        core = core.replace(pattern, "")
+    return core.strip()
+
+
+def archive_title_match_score(wanted: str, candidate: str) -> float:
+    raw_score = score_match(wanted, candidate)
+    if raw_score >= 0.82:
+        return raw_score
+    wanted_core = archive_match_core(wanted)
+    candidate_core = archive_match_core(candidate)
+    if not wanted_core or not candidate_core:
+        return 0.0
+    core_score = score_match(wanted_core, candidate_core)
+    # Generic title templates like "20s速通...到底是什么" can look similar
+    # while pointing to different concepts. Below the high-confidence band,
+    # require the non-generic concept core to agree by containment.
+    if not (wanted_core in candidate_core or candidate_core in wanted_core):
+        return 0.0
+    length_ratio = min(len(wanted_core), len(candidate_core)) / max(len(wanted_core), len(candidate_core))
+    if length_ratio < 0.5:
+        return 0.0
+    return min(max(raw_score, core_score), 1.0)
+
+
 def row_archive_matches(row_title: str, archives: list[ArchiveDoc]) -> list[dict[str, Any]]:
     wanted = normalize_text(row_title)
     candidates = []
     for doc in archives:
         comparables = [doc.normalized_title, doc.normalized_stem, *doc.normalized_aliases]
-        score = max((score_match(wanted, candidate) for candidate in comparables if candidate), default=0.0)
+        score = max((archive_title_match_score(wanted, candidate) for candidate in comparables if candidate), default=0.0)
         if score >= 0.55:
             candidates.append({"path": doc.path, "title": doc.title, "score": round(score, 3)})
     return sorted(candidates, key=lambda item: item["score"], reverse=True)[:3]

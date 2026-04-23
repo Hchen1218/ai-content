@@ -190,7 +190,10 @@ def resolve_xhs_content_type(
 
 
 def best_archive_path(row: dict[str, Any]) -> str | None:
-    paths = row.get("resolved_archive_paths") or row.get("matched_archive_paths") or []
+    if "resolved_archive_paths" in row:
+        paths = row.get("resolved_archive_paths") or []
+    else:
+        paths = row.get("matched_archive_paths") or []
     return paths[0] if paths else None
 
 
@@ -266,7 +269,8 @@ def pair_unmatched_rows(rows: list[dict[str, Any]]) -> list[dict[str, dict[str, 
 def build_archive_stub_markdown(xhs_row: dict[str, Any] | None, dy_row: dict[str, Any] | None) -> str:
     title = core_archive_title(xhs_row, dy_row)
     form_label = content_form_label(xhs_row, dy_row)
-    created_date = min(row_publish_iso(xhs_row), row_publish_iso(dy_row))
+    row_dates = [row_publish_iso(row) for row in (xhs_row, dy_row) if row]
+    created_date = min(row_dates) if row_dates else "1970-01-01"
     platforms = " / ".join(platform for platform, row in ((XHS_PLATFORM, xhs_row), (DY_PLATFORM, dy_row)) if row) or "-"
     blocks = []
     if xhs_row:
@@ -997,7 +1001,7 @@ def build_review_markdown(payload: dict[str, Any], xhs_rows: list[dict[str, Any]
             "## 关键问题",
             f"1. **当前活跃动作仍是旧的 API 系列**：active action ids = `{', '.join(active_action_ids) if active_action_ids else '-'}`，但本轮抓取没有命中新的 API 样本。",
             "2. **小红书首页没有稳定暴露平均观看时长 / 总观看时长**：这两个字段现在继续显式留空，不再拿旧 xlsx 口径硬填。",
-            "3. **小红书 note-manager 仍是虚拟列表**：但 content-analysis 已经补齐 29 条单篇核心指标，所以 Phase 3 可以继续写回。",
+            "3. **小红书 note-manager 仍是虚拟列表**：但 content-analysis 已经补齐单篇核心指标，所以 Phase 3 可以继续写回。",
             "",
             "## 进行中动作判断",
         ]
@@ -1073,6 +1077,23 @@ def build_report(
             lines.append(f"- {path}: {', '.join(gaps)}")
     else:
         lines.append("- none")
+    lines.extend(["", "## User Supplement Needed"])
+    lines.append(
+        "> 只需要人工补 `封面标题 / 完整口播稿 / 图文正文 / 归档合并关系`。"
+        "平台已发布的标题、正文和 tag 应由 creator-platform-ingest 抓取，不要求用户手填。"
+    )
+    if not asset_gaps and not unmatched_rows and not created_archives:
+        lines.append("- none")
+    else:
+        for path, gaps in asset_gaps.items():
+            fields = " / ".join(gaps)
+            lines.append(f"- `{path}`：补 `{fields}`。")
+        if unmatched_rows:
+            for title in unmatched_rows[:20]:
+                lines.append(f"- 归档归属待确认：`{title}`。判断它应独立归档，还是并入某篇现有归档。")
+        if dry_run and created_archives:
+            for path in created_archives:
+                lines.append(f"- dry-run 将新建归档壳子：`{path}`；正式写回后再按 Asset Gaps 补内容资产。")
     return "\n".join(lines).rstrip() + "\n"
 
 
